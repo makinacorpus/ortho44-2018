@@ -5,6 +5,8 @@
   "author": "Austin Green",
   "dependencies": {
     "bulma": "~0.6.2",
+    "eslint": "~4.19.1",
+    "eslint-config-makina": "~0.3.0",
     "gatsby": "~1.9.246",
     "gatsby-link": "~1.6.40",
     "gatsby-plugin-netlify-cms": "~1.0.12",
