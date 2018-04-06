@@ -6,6 +6,20 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "poi"
+    label: "Point of interest"
+    folder: "/src/pages/poi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "poi"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Promote", name: "promote", widget: "boolean", default: false}
+      - {label: "Main picture", name: "picture", widget: "image"}
+      - {label: "Link", name: "link", widget: "image"}
+
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
