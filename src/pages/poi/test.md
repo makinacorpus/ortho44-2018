@@ -2,10 +2,11 @@
 templateKey: poi
 title: test
 description: test
-lat: 1
-lng: 1
+lat: 45.5
+lng: 2.3
 marker_type: Second type
+picture: /img/chemex.jpg
 promote: true
-link: www.perdu.com
+link: 'http://www.perdu.com'
 ---
 test
