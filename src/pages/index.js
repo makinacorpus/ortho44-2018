@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import Maps from '../components/Maps';
 
 export default class IndexPage extends React.Component {
   render () {
@@ -9,6 +10,8 @@ export default class IndexPage extends React.Component {
     return (
       <section className="section">
         <div className="container">
+
+          <Maps />
 
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'poi')
