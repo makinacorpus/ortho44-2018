@@ -1,0 +1,8 @@
+.synced-maps {
+  display: flex;
+  height: 400px;
+
+  > * {
+    flex: 1 1 auto;
+  }
+}

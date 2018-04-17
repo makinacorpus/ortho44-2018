@@ -1,17 +1,56 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import Maps from '../components/Maps';
+import SyncedMaps from '../components/SyncedMaps';
 
 export default class IndexPage extends React.Component {
+  constructor () {
+    super();
+    this.addLayer = this.addLayer.bind(this);
+    this.state = {
+      maps: [
+        {
+          tileLayers: [
+            {
+              url: 'https://dummyimage.test/wms.php?z={z}&x={x}&y={y}&text={z}-{x}-{y}',
+            },
+          ],
+        },
+        {
+          tileLayers: [
+            {
+              url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            },
+          ],
+        },
+      ],
+    };
+  }
+
+  addLayer () {
+    this.setState({
+      maps: [
+        ...this.state.maps,
+        {
+          tileLayers: [
+            {
+              url: 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+            },
+          ],
+        },
+      ],
+    });
+  }
+
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
+    const { maps } = this.state;
 
     return (
       <section className="section">
         <div className="container">
-
-          <Maps />
+          <button onClick={this.addLayer}>addLayer</button>
+          <SyncedMaps maps={maps} className="synced-maps" />
 
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'poi')
