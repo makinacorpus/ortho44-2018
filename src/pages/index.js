@@ -43,6 +43,12 @@ export default class IndexPage extends React.Component {
             )}
           </select>
 
+          <ul>
+            <li><button onClick={() => this.showMaps('1850')}>Cartes 1850</button></li>
+            <li><button onClick={() => this.showMaps('1850')}>Cartes Cassini</button></li>
+            <li><button onClick={() => this.showMaps('1850')}>Cadastre Napoléonien</button></li>
+          </ul>
+
           <SyncedMaps maps={maps} className="synced-maps" />
 
           {posts
