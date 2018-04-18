@@ -2,23 +2,30 @@ import React from 'react';
 import Link from 'gatsby-link';
 import SyncedMaps from '../components/SyncedMaps';
 
-import ALL_LAYERS from '../settings/layers';
+import { ALL_LAYERS, ORTHO_LAYERS_IDS } from '../settings/layers';
 
-const mapFromLayer = layerSettings => ({ tileLayers: [{ ...layerSettings }] });
+const mapFromLayer = layerSettings => (layerSettings ? { tileLayers: [{ ...layerSettings }] } : undefined);
 
 export default class IndexPage extends React.Component {
   constructor () {
     super();
 
     this.state = {
-      maps: [mapFromLayer(ALL_LAYERS.default)],
+      maps: [mapFromLayer(ALL_LAYERS[2012])],
     };
+
+    this.handleLayerChange = this.handleLayerChange.bind(this);
   }
 
   showMaps (...IDs) {
     this.setState({
       maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id]))
     });
+  }
+
+  handleLayerChange (event) {
+    const value = ORTHO_LAYERS_IDS.indexOf(event.target.value) > 0 ? event.target.value : null;
+    this.showMaps('2012', event.target.value);
   }
 
   render () {
@@ -29,35 +36,12 @@ export default class IndexPage extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <ul>
-            <li>
-              <button onClick={() => this.showMaps('default')}>Show only default</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '1850')}>Compare with 1850</button>
-              <button onClick={() => this.showMaps('1850')}>Show only 1850</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '1949')}>Compare with 1949</button>
-              <button onClick={() => this.showMaps('1949')}>Show only 1949</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '1999')}>Compare with 1999</button>
-              <button onClick={() => this.showMaps('1999')}>Show only 1999</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '2004')}>Compare with 2004</button>
-              <button onClick={() => this.showMaps('2004')}>Show only 2004</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '2009')}>Compare with 2009</button>
-              <button onClick={() => this.showMaps('2009')}>Show only 2009</button>
-            </li>
-            <li>
-              <button onClick={() => this.showMaps('default', '2012')}>Compare with 2012</button>
-              <button onClick={() => this.showMaps('2012')}>Show only 2012</button>
-            </li>
-          </ul>
+
+          <select onChange={this.handleLayerChange}>
+            {['Aucun', ...ORTHO_LAYERS_IDS].map(layerID =>
+              <option key={layerID} value={layerID}>{layerID}</option>
+            )}
+          </select>
 
           <SyncedMaps maps={maps} className="synced-maps" />
 

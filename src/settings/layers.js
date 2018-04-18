@@ -1,6 +1,6 @@
 export const ALL_LAYERS = {
 
-  default: { url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
+  osm: { url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
 
   1850: {
     url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
@@ -45,11 +45,21 @@ export const ALL_LAYERS = {
   2012: {
     url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg',
     options: {
+      maxZoom: 19,
+      tms: true,
+      subdomains: 'abcdefgh',
+    },
+  },
+  2016: {
+    url: 'http://{s}.tiles.cg44new.makina-corpus.net/{z}/{x}/{y}.png',
+    options: {
       maxZoom: 18,
       tms: true,
       subdomains: 'abcdefgh',
     },
   },
 };
+
+export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016];
 
 export default ALL_LAYERS;
