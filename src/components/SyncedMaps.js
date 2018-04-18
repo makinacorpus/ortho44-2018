@@ -16,6 +16,8 @@ const SYNC_OPTIONS = {
 };
 
 const syncMaps = maps => {
+  maps.forEach(map => map.invalidateSize(false));
+
   maps.forEach(mapA =>
     maps.forEach(mapB => {
       if (mapA !== mapB && !mapA.isSynced(mapB)) {
@@ -34,6 +36,11 @@ const unsyncMaps = maps => {
 };
 
 class Maps extends Component {
+  constructor () {
+    super();
+    this.mapRefs = [];
+  }
+
   componentDidMount () {
     syncMaps(this.mapRefs);
   }
@@ -47,7 +54,9 @@ class Maps extends Component {
   }
 
   render () {
+    unsyncMaps(this.mapRefs);
     this.mapRefs = [];
+
     const { maps, viewport, className } = this.props;
 
     return (
@@ -59,7 +68,11 @@ class Maps extends Component {
             viewport={viewport || DEFAULT_VIEWPORT}
           >
             {map.tileLayers.map(tileLayer => (
-              <TileLayer key={JSON.stringify(tileLayer)} url={tileLayer.url} />
+              <TileLayer
+                key={JSON.stringify(tileLayer)}
+                url={tileLayer.url}
+                {...tileLayer.options}
+              />
             ))}
           </Map>
         ))}

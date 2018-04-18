@@ -2,42 +2,22 @@ import React from 'react';
 import Link from 'gatsby-link';
 import SyncedMaps from '../components/SyncedMaps';
 
+import ALL_LAYERS from '../settings/layers';
+
+const mapFromLayer = layerSettings => ({ tileLayers: [{ ...layerSettings }] });
+
 export default class IndexPage extends React.Component {
   constructor () {
     super();
-    this.addLayer = this.addLayer.bind(this);
+
     this.state = {
-      maps: [
-        {
-          tileLayers: [
-            {
-              url: 'https://dummyimage.test/wms.php?z={z}&x={x}&y={y}&text={z}-{x}-{y}',
-            },
-          ],
-        },
-        {
-          tileLayers: [
-            {
-              url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            },
-          ],
-        },
-      ],
+      maps: [mapFromLayer(ALL_LAYERS.default)],
     };
   }
 
-  addLayer () {
+  showMaps (...IDs) {
     this.setState({
-      maps: [
-        ...this.state.maps,
-        {
-          tileLayers: [
-            {
-              url: 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
-            },
-          ],
-        },
-      ],
+      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id]))
     });
   }
 
@@ -49,7 +29,36 @@ export default class IndexPage extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <button onClick={this.addLayer}>addLayer</button>
+          <ul>
+            <li>
+              <button onClick={() => this.showMaps('default')}>Show only default</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '1850')}>Compare with 1850</button>
+              <button onClick={() => this.showMaps('1850')}>Show only 1850</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '1949')}>Compare with 1949</button>
+              <button onClick={() => this.showMaps('1949')}>Show only 1949</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '1999')}>Compare with 1999</button>
+              <button onClick={() => this.showMaps('1999')}>Show only 1999</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '2004')}>Compare with 2004</button>
+              <button onClick={() => this.showMaps('2004')}>Show only 2004</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '2009')}>Compare with 2009</button>
+              <button onClick={() => this.showMaps('2009')}>Show only 2009</button>
+            </li>
+            <li>
+              <button onClick={() => this.showMaps('default', '2012')}>Compare with 2012</button>
+              <button onClick={() => this.showMaps('2012')}>Show only 2012</button>
+            </li>
+          </ul>
+
           <SyncedMaps maps={maps} className="synced-maps" />
 
           {posts
