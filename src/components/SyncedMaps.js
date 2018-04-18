@@ -61,7 +61,7 @@ class Maps extends Component {
 
     return (
       <div className={className}>
-        {maps.map(map => (
+        {maps.filter(map => !!map).map(map => (
           <Map
             key={JSON.stringify(map)}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
