@@ -12,6 +12,7 @@ export default class IndexPage extends React.Component {
     super();
 
     this.state = {
+      roads: false,
       maps: [mapFromLayer(ALL_LAYERS[2012])],
     };
 
@@ -20,14 +21,14 @@ export default class IndexPage extends React.Component {
 
   showMaps (...IDs) {
     this.setState({
-      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id]))
+      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id], this.state.roads))
     });
   }
 
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const { maps } = this.state;
+    const { maps, roads } = this.state;
 
     return (
       <section className="section">
@@ -35,6 +36,11 @@ export default class IndexPage extends React.Component {
 
           <MapMenu showMaps={this.showMaps} />
 
+          <input
+            type="checkbox"
+            checked={roads}
+            onChange={() => this.setState({roads: !roads})}
+          />
 
           <SyncedMaps maps={maps} className="synced-maps" />
 
