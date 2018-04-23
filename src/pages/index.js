@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import SyncedMaps from '../components/SyncedMaps';
+import MapMenu from '../components/MapMenu';
 
-import { ALL_LAYERS, ORTHO_LAYERS_IDS } from '../settings/layers';
+import { ALL_LAYERS } from '../settings/layers';
 
 const mapFromLayer = layerSettings => (layerSettings ? { tileLayers: [{ ...layerSettings }] } : undefined);
 
@@ -14,18 +15,13 @@ export default class IndexPage extends React.Component {
       maps: [mapFromLayer(ALL_LAYERS[2012])],
     };
 
-    this.handleLayerChange = this.handleLayerChange.bind(this);
+    this.showMaps = this.showMaps.bind(this);
   }
 
   showMaps (...IDs) {
     this.setState({
       maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id]))
     });
-  }
-
-  handleLayerChange (event) {
-    const value = ORTHO_LAYERS_IDS.indexOf(event.target.value) > 0 ? event.target.value : null;
-    this.showMaps('2012', event.target.value);
   }
 
   render () {
@@ -37,17 +33,8 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
 
-          <select onChange={this.handleLayerChange}>
-            {['Aucun', ...ORTHO_LAYERS_IDS].map(layerID =>
-              <option key={layerID} value={layerID}>{layerID}</option>
-            )}
-          </select>
+          <MapMenu showMaps={this.showMaps} />
 
-          <ul>
-            <li><button onClick={() => this.showMaps('1850')}>Cartes 1850</button></li>
-            <li><button onClick={() => this.showMaps('1850')}>Cartes Cassini</button></li>
-            <li><button onClick={() => this.showMaps('1850')}>Cadastre Napoléonien</button></li>
-          </ul>
 
           <SyncedMaps maps={maps} className="synced-maps" />
 
