@@ -35,7 +35,7 @@ const unsyncMaps = maps => {
     }));
 };
 
-class Maps extends Component {
+class SyncedMaps extends Component {
   constructor () {
     super();
     this.mapRefs = [];
@@ -81,4 +81,4 @@ class Maps extends Component {
   }
 }
 
-export default Maps;
+export default SyncedMaps;
