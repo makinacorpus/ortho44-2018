@@ -81,4 +81,9 @@ class SyncedMaps extends Component {
   }
 }
 
-export default SyncedMaps;
+/**
+ * Avoid calling SyncedMap component on html pre-rendering
+ */
+const SyncedMapsWrapper = props => (typeof window !== 'undefined' ? <SyncedMaps {...props} /> : null);
+
+export default SyncedMapsWrapper;
