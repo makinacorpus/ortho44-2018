@@ -5,7 +5,15 @@ import MapMenu from '../components/MapMenu';
 
 import { ALL_LAYERS } from '../settings/layers';
 
-const mapFromLayer = layerSettings => (layerSettings ? { tileLayers: [{ ...layerSettings }] } : undefined);
+const mapFromLayer = (layerSettings) => {
+  if (!layerSettings) {
+    return undefined;
+  }
+
+  const layers = [{ ...layerSettings }];
+
+  return { tileLayers: layers };
+};
 
 export default class IndexPage extends React.Component {
   constructor () {
