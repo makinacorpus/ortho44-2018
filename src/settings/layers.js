@@ -2,6 +2,8 @@ export const ALL_LAYERS = {
 
   osm: { url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
 
+  roads: { url: 'http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png' },
+
   1850: {
     url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
     options: {
