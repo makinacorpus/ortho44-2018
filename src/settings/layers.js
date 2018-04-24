@@ -9,6 +9,7 @@ export const ALL_LAYERS = {
   },
 
   cadastre: {
+    label: 'Cadastre 2017',
     wms: true,
     url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre/MapServer/WMSServer?',
     layers: '0,1,2,3',
@@ -20,12 +21,14 @@ export const ALL_LAYERS = {
   },
 
   cassini: {
+    label: 'Cartes de Cassini',
     wms: true,
     url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cassini/MapServer/WMSServer?',
     layers: '0',
   },
 
   napoleon: {
+    label: 'Cadastre napoléonien',
     wms: true,
     url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre_napoleonien/MapServer/WMSServer?',
     layers: '0',
@@ -76,5 +79,19 @@ export const ALL_LAYERS = {
 };
 
 export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016, 'cadastre', 'cassini', 'napoleon'];
+
+export const DEFAULT_BASE = 2016;
+
+export const COMPARE_WITH = [
+  1850,
+  1949,
+  1999,
+  2004,
+  2009,
+  2012,
+  'cadastre',
+  'cassini',
+  'napoleon',
+];
 
 export default ALL_LAYERS;
