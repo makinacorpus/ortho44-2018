@@ -5,7 +5,13 @@ export const ALL_LAYERS = {
   },
 
   roads: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png'
+    url: 'http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png',
+    opacity: .75,
+  },
+
+  boundaries: {
+    geojson: true,
+    url: 'data/dpt44.geojson',
   },
 
   cadastre: {

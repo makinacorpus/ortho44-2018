@@ -3,26 +3,16 @@ import Link from 'gatsby-link';
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 
-import { ALL_LAYERS } from '../settings/layers';
-
-const mapFromLayer = (layerSettings) => {
-  if (!layerSettings) {
-    return undefined;
-  }
-
-  const layers = [{ ...layerSettings }];
-
-  return { tileLayers: layers };
-};
+import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 export default class IndexPage extends React.Component {
   constructor () {
     super();
 
     this.state = {
+      selection: [DEFAULT_BASE],
       roads: false,
-      maps: [mapFromLayer(ALL_LAYERS[2012])],
-      selection: ['2012'],
+      boundaries: true,
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -30,29 +20,59 @@ export default class IndexPage extends React.Component {
 
   showMaps (...IDs) {
     this.setState({
-      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id], this.state.roads)),
       selection: IDs,
     });
+  }
+
+  mapsFromSelection () {
+    const {
+      selection,
+      roads,
+      boundaries,
+    } = this.state;
+
+    let maps = selection.map(item => {
+      return {
+        layers: [
+          ALL_LAYERS[item],
+        ],
+      };
+    });
+
+    if (roads) {
+      maps[0].layers.push(ALL_LAYERS.roads);
+    }
+
+    if (boundaries) {
+      maps[0].layers.push(ALL_LAYERS.boundaries);
+    }
+
+    return maps;
   }
 
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const { maps, roads } = this.state;
+    const { selection, roads, boundaries } = this.state;
 
     return (
       <section className="section">
         <div className="container">
 
-          <MapMenu selection={this.state.selection} showMaps={this.showMaps} />
+          <MapMenu selection={selection} showMaps={this.showMaps} />
 
-          <input
+          <label><input
             type="checkbox"
             checked={roads}
             onChange={() => this.setState({roads: !roads})}
-          />
+          />roads</label>
+          <label><input
+            type="checkbox"
+            checked={boundaries}
+            onChange={() => this.setState({boundaries: !boundaries})}
+          />boundaries</label>
 
-          <SyncedMaps maps={maps} className="synced-maps" />
+          <SyncedMaps maps={this.mapsFromSelection()} className="synced-maps" />
 
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'poi')

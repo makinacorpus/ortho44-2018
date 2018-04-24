@@ -73,14 +73,14 @@ class SyncedMaps extends Component {
       <div className={className}>
         {maps.filter(map => !!map).map(map => (
           <Map
-            key={JSON.stringify(map)}
+            key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
             viewport={viewport || DEFAULT_VIEWPORT}
           >
-            {map.tileLayers && map.tileLayers.map(tileLayer => (
+            {map.layers && map.layers.map(layer => (
               <AutoLayer
-                key={JSON.stringify(tileLayer)}
-                {...tileLayer}
+                key={JSON.stringify(layer)}
+                {...layer}
               />
             ))}
           </Map>

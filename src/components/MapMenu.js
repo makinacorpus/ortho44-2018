@@ -10,7 +10,7 @@ class MapMenu extends Component {
         <select
           value={selection.join('-')}
           onChange={event => showMaps(...event.target.value.split('-'))}>
-          <option>-</option>
+          <option disabled>-</option>
           <option value={DEFAULT_BASE}>Aucun</option>
           {COMPARE_WITH.map(layerID => (
             <option
