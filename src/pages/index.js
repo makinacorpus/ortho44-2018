@@ -14,6 +14,7 @@ export default class IndexPage extends React.Component {
       roads: false,
       boundaries: true,
       boundariesData: null,
+      cadastre: false,
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -29,6 +30,7 @@ export default class IndexPage extends React.Component {
     const {
       selection,
       roads,
+      cadastre,
       boundaries,
       boundariesData,
     } = this.state;
@@ -40,6 +42,13 @@ export default class IndexPage extends React.Component {
         ],
       };
     });
+
+    if (cadastre) {
+      maps[0].layers.push({
+        ...ALL_LAYERS.cadastre,
+        opacity: .6,
+      });
+    }
 
     if (roads) {
       maps[0].layers.push(ALL_LAYERS.roads);
@@ -64,7 +73,7 @@ export default class IndexPage extends React.Component {
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const { selection, roads, boundaries } = this.state;
+    const { selection, roads, boundaries, cadastre } = this.state;
 
     return (
       <section className="section">
@@ -82,6 +91,11 @@ export default class IndexPage extends React.Component {
             checked={boundaries}
             onChange={() => this.setState({boundaries: !boundaries})}
           />boundaries</label>
+          <label><input
+            type="checkbox"
+            checked={cadastre}
+            onChange={() => this.setState({cadastre: !cadastre})}
+          />cadastre</label>
 
           <SyncedMaps maps={this.mapsFromSelection()} className="synced-maps" />
 
