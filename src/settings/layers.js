@@ -12,6 +12,15 @@ export const ALL_LAYERS = {
   boundaries: {
     geojson: true,
     url: 'data/dpt44.geojson',
+    style: {
+      fillColor: "transparent",
+      fillOpacity: 0,
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      interactive: false,
+    },
   },
 
   cadastre: {

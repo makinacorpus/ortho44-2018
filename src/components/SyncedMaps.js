@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Map, TileLayer, WMSTileLayer } from 'react-leaflet';
+import { Map, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet.sync';
 
 import 'leaflet/dist/leaflet.css';
@@ -40,6 +40,10 @@ const AutoLayer = props => {
 
   if (props.wms) {
     Layer = WMSTileLayer;
+  }
+
+  if (props.geojson) {
+    Layer = GeoJSON;
   }
 
   return <Layer {...props} />;

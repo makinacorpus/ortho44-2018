@@ -13,6 +13,7 @@ export default class IndexPage extends React.Component {
       selection: [DEFAULT_BASE],
       roads: false,
       boundaries: true,
+      boundariesData: null,
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -29,6 +30,7 @@ export default class IndexPage extends React.Component {
       selection,
       roads,
       boundaries,
+      boundariesData,
     } = this.state;
 
     let maps = selection.map(item => {
@@ -44,7 +46,16 @@ export default class IndexPage extends React.Component {
     }
 
     if (boundaries) {
-      maps[0].layers.push(ALL_LAYERS.boundaries);
+      if (boundariesData) {
+        maps[0].layers.push({
+          ...ALL_LAYERS.boundaries,
+          data: boundariesData,
+        });
+      } else {
+        (typeof window !== 'undefined') && fetch(ALL_LAYERS.boundaries.url)
+          .then(res => res.json())
+          .then(data => this.setState({ boundariesData: data }));
+      }
     }
 
     return maps;
