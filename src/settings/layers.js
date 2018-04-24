@@ -8,6 +8,29 @@ export const ALL_LAYERS = {
     url: 'http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png'
   },
 
+  cadastre: {
+    wms: true,
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre/MapServer/WMSServer?',
+    layers: '0,1,2,3',
+    opacity: 0.75,
+    tileSize: 512,
+    width: 512,
+    height: 512,
+    maxZoom: 19,
+  },
+
+  cassini: {
+    wms: true,
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cassini/MapServer/WMSServer?',
+    layers: '0',
+  },
+
+  napoleon: {
+    wms: true,
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre_napoleonien/MapServer/WMSServer?',
+    layers: '0',
+  },
+
   1850: {
     url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
     maxZoom: 16,
@@ -52,6 +75,6 @@ export const ALL_LAYERS = {
   },
 };
 
-export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016];
+export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016, 'cadastre', 'cassini', 'napoleon'];
 
 export default ALL_LAYERS;
