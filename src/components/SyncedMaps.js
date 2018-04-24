@@ -70,8 +70,7 @@ class SyncedMaps extends Component {
             {map.tileLayers.map(tileLayer => (
               <TileLayer
                 key={JSON.stringify(tileLayer)}
-                url={tileLayer.url}
-                {...tileLayer.options}
+                {...tileLayer}
               />
             ))}
           </Map>
