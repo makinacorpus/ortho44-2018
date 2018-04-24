@@ -35,7 +35,7 @@ const unsyncMaps = maps => {
     }));
 };
 
-const AutoTileLayer = props => {
+const AutoLayer = props => {
   let Layer = TileLayer;
 
   if (props.wms) {
@@ -77,8 +77,8 @@ class SyncedMaps extends Component {
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
             viewport={viewport || DEFAULT_VIEWPORT}
           >
-            {map.tileLayers.map(tileLayer => (
-              <AutoTileLayer
+            {map.tileLayers && map.tileLayers.map(tileLayer => (
+              <AutoLayer
                 key={JSON.stringify(tileLayer)}
                 {...tileLayer}
               />
