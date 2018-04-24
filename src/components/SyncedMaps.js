@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, TileLayer, WMSTileLayer } from 'react-leaflet';
 import 'leaflet.sync';
 
 import 'leaflet/dist/leaflet.css';
@@ -33,6 +33,16 @@ const unsyncMaps = maps => {
         mapA.unsync(mapB);
       }
     }));
+};
+
+const AutoTileLayer = props => {
+  let Layer = TileLayer;
+
+  if (props.wms) {
+    Layer = WMSTileLayer;
+  }
+
+  return <Layer {...props} />;
 };
 
 class SyncedMaps extends Component {
@@ -68,7 +78,7 @@ class SyncedMaps extends Component {
             viewport={viewport || DEFAULT_VIEWPORT}
           >
             {map.tileLayers.map(tileLayer => (
-              <TileLayer
+              <AutoTileLayer
                 key={JSON.stringify(tileLayer)}
                 {...tileLayer}
               />
