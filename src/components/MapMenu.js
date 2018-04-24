@@ -6,9 +6,9 @@ class MapMenu extends Component {
   render () {
     return (
       <div>
-        <select onChange={event => this.props.showMaps('2012', event.target.value)}>
+        <select value={this.props.selection.join('-')} onChange={event => this.props.showMaps(...event.target.value.split('-'))}>
           {['Aucun', ...ORTHO_LAYERS_IDS].map(layerID =>
-            <option key={layerID} value={layerID}>{layerID}</option>
+            <option key={layerID} value={[2012, layerID].join('-')}>Compare with {layerID}</option>
           )}
         </select>
 

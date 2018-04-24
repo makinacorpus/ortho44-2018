@@ -22,6 +22,7 @@ export default class IndexPage extends React.Component {
     this.state = {
       roads: false,
       maps: [mapFromLayer(ALL_LAYERS[2012])],
+      selection: ['2012'],
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -29,7 +30,8 @@ export default class IndexPage extends React.Component {
 
   showMaps (...IDs) {
     this.setState({
-      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id], this.state.roads))
+      maps: IDs.map(id => mapFromLayer(ALL_LAYERS[id], this.state.roads)),
+      selection: IDs,
     });
   }
 
@@ -42,7 +44,7 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
 
-          <MapMenu showMaps={this.showMaps} />
+          <MapMenu selection={this.state.selection} showMaps={this.showMaps} />
 
           <input
             type="checkbox"
