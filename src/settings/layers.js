@@ -4,10 +4,14 @@ const ignKeys = {
   'vuduciel.loire-atlantique.fr': 'yyo09x3nnux7wfy7pibnjnsl',
 };
 
+const ignKey = (typeof window !== 'undefined' && window.location)
+  ? ignKeys[window.location.host]
+  : 'no-key-found';
+
 export const ALL_LAYERS = {
 
   background: {
-    url: `https://wxs.ign.fr/${ignKeys[location.host]}/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal`,
+    url: `https://wxs.ign.fr/${ignKey}/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal`,
     maxNativeZoom: 18,
   },
 
