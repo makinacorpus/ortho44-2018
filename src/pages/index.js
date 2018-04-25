@@ -151,6 +151,10 @@ export default class IndexPage extends React.Component {
             maps={this.mapsFromSelection()}
             className="synced-maps"
             updateMapRef={ref => { this.firstMap = ref; }}
+            mapsProps={{
+              minZoom: 13,
+              attributionControl: false,
+            }}
           />
 
           {posts

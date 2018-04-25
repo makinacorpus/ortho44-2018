@@ -79,7 +79,7 @@ class SyncedMaps extends Component {
     unsyncMaps(this.mapRefs);
     this.mapRefs = [];
 
-    const { maps, className } = this.props;
+    const { maps, className, mapsProps } = this.props;
 
     return (
       <div className={className}>
@@ -88,7 +88,7 @@ class SyncedMaps extends Component {
             key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
             viewport={this.viewport}
-            attributionControl={false}
+            {...mapsProps}
           >
             {map.layers && map.layers.map(layer => (
               <AutoLayer
