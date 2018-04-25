@@ -7,8 +7,8 @@ import 'leaflet/dist/leaflet.css';
 import './SyncedMaps.scss';
 
 const DEFAULT_VIEWPORT = {
-  center: [47.2254, -1.5487],
-  zoom: 15,
+  center: [46.453, 2.153],
+  zoom: 6,
 };
 
 const SYNC_OPTIONS = {
@@ -50,9 +50,11 @@ const AutoLayer = props => {
 };
 
 class SyncedMaps extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.mapRefs = [];
+
+    this.viewport = props.viewport || DEFAULT_VIEWPORT;
   }
 
   componentDidMount () {
@@ -71,7 +73,7 @@ class SyncedMaps extends Component {
     unsyncMaps(this.mapRefs);
     this.mapRefs = [];
 
-    const { maps, viewport, className } = this.props;
+    const { maps, className } = this.props;
 
     return (
       <div className={className}>
@@ -79,7 +81,7 @@ class SyncedMaps extends Component {
           <Map
             key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
-            viewport={viewport || DEFAULT_VIEWPORT}
+            viewport={this.viewport}
             attributionControl={false}
           >
             {map.layers && map.layers.map(layer => (

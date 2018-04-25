@@ -97,7 +97,11 @@ export default class IndexPage extends React.Component {
             onChange={() => this.setState({cadastre: !cadastre})}
           />cadastre</label>
 
-          <SyncedMaps maps={this.mapsFromSelection()} className="synced-maps" />
+          <SyncedMaps
+            maps={this.mapsFromSelection()}
+            viewport={{ center: [47.2254, -1.5487], zoom: 15 }}
+            className="synced-maps"
+          />
 
           {posts
             .filter(post => post.node.frontmatter.templateKey === 'poi')
