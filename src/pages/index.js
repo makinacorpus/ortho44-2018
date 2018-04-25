@@ -15,6 +15,7 @@ export default class IndexPage extends React.Component {
       boundaries: true,
       boundariesData: null,
       cadastre: false,
+      bgLayer: true,
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -31,16 +32,25 @@ export default class IndexPage extends React.Component {
       selection,
       roads,
       cadastre,
+      bgLayer,
       boundaries,
       boundariesData,
     } = this.state;
 
-    let maps = selection.map(item => {
-      return {
+    const maps = selection.map(item => {
+      const map = {
         layers: [
           ALL_LAYERS[item],
         ],
       };
+
+      if (bgLayer) {
+        map.layers.push({
+          ...ALL_LAYERS.background,
+          zIndex: 0,
+        });
+      }
+      return map;
     });
 
     if (cadastre) {

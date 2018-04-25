@@ -1,7 +1,18 @@
+const ignKeys = {
+  'localhost:8000': 'puaqi516lc6f75saib649eg2',
+  'makinacorpus.github.io': '9z9o6i52lxwch6mxt9wmwro5',
+  'vuduciel.loire-atlantique.fr': 'yyo09x3nnux7wfy7pibnjnsl',
+};
+
 export const ALL_LAYERS = {
 
+  background: {
+    url: `https://wxs.ign.fr/${ignKeys[location.host]}/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal`,
+    maxNativeZoom: 18,
+  },
+
   osm: {
-    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   },
 
   roads: {
@@ -13,7 +24,7 @@ export const ALL_LAYERS = {
     geojson: true,
     url: 'data/dpt44.geojson',
     style: {
-      fillColor: "transparent",
+      fillColor: 'transparent',
       fillOpacity: 0,
       weight: 2,
       opacity: 1,
