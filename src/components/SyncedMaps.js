@@ -59,10 +59,16 @@ class SyncedMaps extends Component {
 
   componentDidMount () {
     syncMaps(this.mapRefs);
+    if (typeof this.props.updateMapRef === 'function') {
+      this.props.updateMapRef(this.mapRefs[0]);
+    }
   }
 
   componentDidUpdate () {
     syncMaps(this.mapRefs);
+    if (typeof this.props.updateMapRef === 'function') {
+      this.props.updateMapRef(this.mapRefs[0]);
+    }
   }
 
   componentWillUnmount () {

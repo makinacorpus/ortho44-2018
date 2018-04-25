@@ -9,7 +9,7 @@ const MapMenu = props => {
     <div className={className}>
 
       <GeoSearch
-        onSelect={result => console.log('result:', result)}
+        onSelect={props.handleResult}
         inputProps={{
           placeholder: 'exemple : 3 quai Ceineray, Nantes',
         }}

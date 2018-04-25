@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import bbox from '@turf/bbox';
+
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 
@@ -16,6 +18,7 @@ export default class IndexPage extends React.Component {
       boundariesData: null,
       cadastre: false,
       bgLayer: true,
+      resultLayer: null,
     };
 
     this.showMaps = this.showMaps.bind(this);
@@ -35,6 +38,7 @@ export default class IndexPage extends React.Component {
       bgLayer,
       boundaries,
       boundariesData,
+      resultLayer,
     } = this.state;
 
     const maps = selection.map(item => {
@@ -77,7 +81,38 @@ export default class IndexPage extends React.Component {
       }
     }
 
+    if (resultLayer) {
+      maps[0].layers.push({
+        geojson: true,
+        data: resultLayer,
+        style: {
+          fillColor: 'transparent',
+          interactive: false,
+        }
+      });
+    }
+
     return maps;
+  }
+
+  handleResult = selection => {
+    const geojson = {
+      type: "Feature",
+      properties: {
+          name: selection.suggestion.label
+      },
+      geometry: selection.suggestion.data._source.geometry
+    };
+
+    const [ minX, minY, maxX, maxY ] = bbox(geojson);
+
+    this.setState({
+      resultLayer: geojson,
+    });
+
+    this.firstMap
+      && this.firstMap.fitBounds
+      && this.firstMap.fitBounds([[minY, minX], [maxY, maxX]]);
   }
 
   render () {
@@ -89,7 +124,12 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
 
-          <MapMenu selection={selection} showMaps={this.showMaps} className="map-menu" />
+          <MapMenu
+            selection={selection}
+            showMaps={this.showMaps}
+            handleResult={this.handleResult}
+            className="map-menu"
+          />
 
           <label><input
             type="checkbox"
@@ -109,8 +149,8 @@ export default class IndexPage extends React.Component {
 
           <SyncedMaps
             maps={this.mapsFromSelection()}
-            viewport={{ center: [47.2254, -1.5487], zoom: 15 }}
             className="synced-maps"
+            updateMapRef={ref => { this.firstMap = ref; }}
           />
 
           {posts
