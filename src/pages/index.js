@@ -21,6 +21,8 @@ export default class IndexPage extends React.Component {
       resultLayer: null,
     };
 
+    this.viewport = { center: [46.453, 2.153], zoom: 6 };
+
     this.showMaps = this.showMaps.bind(this);
   }
 
@@ -152,8 +154,10 @@ export default class IndexPage extends React.Component {
             className="synced-maps"
             updateMapRef={ref => { this.firstMap = ref; }}
             mapsProps={{
-              minZoom: 13,
+              minZoom: 9,
               attributionControl: false,
+              viewport: this.viewport,
+              onViewportChanged: viewport => { this.viewport = viewport; }
             }}
           />
 

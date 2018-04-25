@@ -6,11 +6,6 @@ import 'leaflet.sync';
 import 'leaflet/dist/leaflet.css';
 import './SyncedMaps.scss';
 
-const DEFAULT_VIEWPORT = {
-  center: [46.453, 2.153],
-  zoom: 6,
-};
-
 const SYNC_OPTIONS = {
   syncCursor: true,
 };
@@ -53,8 +48,6 @@ class SyncedMaps extends Component {
   constructor (props) {
     super(props);
     this.mapRefs = [];
-
-    this.viewport = props.viewport || DEFAULT_VIEWPORT;
   }
 
   componentDidMount () {
@@ -87,7 +80,6 @@ class SyncedMaps extends Component {
           <Map
             key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
-            viewport={this.viewport}
             {...mapsProps}
           >
             {map.layers && map.layers.map(layer => (
