@@ -4,9 +4,9 @@ import { DEFAULT_BASE, COMPARE_WITH, ALL_LAYERS } from '../settings/layers';
 import GeoSearch from './GeoSearch';
 
 const MapMenu = props => {
-  const { showMaps, selection } = props;
+  const { showMaps, selection, className } = props;
   return (
-    <div>
+    <div className={className}>
 
       <GeoSearch
         onSelect={result => console.log('result:', result)}

@@ -79,7 +79,7 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
 
-          <MapMenu selection={selection} showMaps={this.showMaps} />
+          <MapMenu selection={selection} showMaps={this.showMaps} className="map-menu" />
 
           <label><input
             type="checkbox"
