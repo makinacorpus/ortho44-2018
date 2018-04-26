@@ -7,6 +7,8 @@ import MapMenu from '../components/MapMenu';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
+import { getRandomPlace } from '../helpers';
+
 export default class IndexPage extends React.Component {
   constructor () {
     super();
@@ -21,7 +23,7 @@ export default class IndexPage extends React.Component {
       resultLayer: null,
     };
 
-    this.viewport = { center: [46.453, 2.153], zoom: 6 };
+    this.viewport = getRandomPlace()[1];
 
     this.showMaps = this.showMaps.bind(this);
   }
