@@ -8,7 +8,7 @@ import MapMenu from '../components/MapMenu';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
-import { getRandomPlace, viewportToHash } from '../helpers';
+import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
 
 export default class IndexPage extends React.Component {
   constructor () {
@@ -25,6 +25,15 @@ export default class IndexPage extends React.Component {
     };
 
     [this.placeName, this.viewport] = getRandomPlace();
+
+    const hash = getHash();
+    if (hash) {
+      const [viewportSerial, layer] = hash.split('!');
+      if (ALL_LAYERS[layer]) {
+        this.state.selection = [DEFAULT_BASE, layer];
+      }
+      this.viewport = unserializeViewport(viewportSerial) || this.viewport;
+    }
 
     this.showMaps = this.showMaps.bind(this);
     this.geolocate = this.geolocate.bind(this);
@@ -127,16 +136,14 @@ export default class IndexPage extends React.Component {
     typeof window !== 'undefined'
       && window.navigator
       && window.navigator.geolocation.getCurrentPosition(({ coords }) => {
-        this.firstMap.flyTo([coords.latitude, coords.longitude], 17);
+        this.firstMap.setView([coords.latitude, coords.longitude], 17);
       });
   }
 
   handleViewportChange (viewport) {
     if (!isEqual(this.viewport, viewport)) {
       this.viewport = viewport;
-      typeof window !== 'undefined'
-        && window.location
-        && (window.location.hash = viewportToHash(viewport));
+      setHash(serializeViewport(viewport));
     }
   }
 

@@ -49,4 +49,21 @@ export const getRandomPlace = () => {
   return places[Math.floor(Math.random() * places.length)];
 };
 
-export const viewportToHash = ({ center: [lat, lng], zoom }) => [zoom, round(lat, 5), round(lng, 5)].join('/');
+export const serializeViewport = ({ center: [lat, lng], zoom }) => [zoom, round(lat, 5), round(lng, 5)].join('/');
+
+export const unserializeViewport = (serial = '') => {
+  const [zoom, latitude, longitude] = serial.split('/').map(value => +value);
+  const sum = zoom + latitude + longitude;
+  if (typeof sum === 'number' && !Number.isNaN(sum)) {
+    return { zoom, center: [latitude, longitude] };
+  }
+  return false;
+};
+
+export const setHash = value => {
+  typeof window !== 'undefined'
+    && window.location
+    && (window.location.hash = value);
+};
+
+export const getHash = () => typeof window !== 'undefined' && window.location && window.location.hash.substr(1);
