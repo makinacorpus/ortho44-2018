@@ -1,3 +1,12 @@
+const roundShift = (num, precision, reverseShift) => {
+  const prec = reverseShift ? -precision : precision;
+  const numArray = `${num}`.split('e');
+  return +(`${numArray[0]}e${(numArray[1] ? (+numArray[1] + prec) : prec)}`);
+};
+
+export const round = (number, precision) =>
+  roundShift(Math.round(roundShift(number, precision, false)), precision, true);
+
 export const _getLabel = (hit, mode) => {
   var label = '';
   if (hit.nom) {
@@ -39,3 +48,5 @@ export const getRandomPlace = () => {
 
   return places[Math.floor(Math.random() * places.length)];
 };
+
+export const viewportToHash = ({ center: [lat, lng], zoom }) => [zoom, round(lat, 5), round(lng, 5)].join('/');
