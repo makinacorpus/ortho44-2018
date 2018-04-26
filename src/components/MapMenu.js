@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import { DEFAULT_BASE, COMPARE_WITH, ALL_LAYERS } from '../settings/layers';
 import GeoSearch from './GeoSearch';
