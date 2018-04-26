@@ -1,13 +1,14 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import bbox from '@turf/bbox';
+import { debounce, isEqual } from 'lodash';
 
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
-import { getRandomPlace } from '../helpers';
+import { getRandomPlace, viewportToHash } from '../helpers';
 
 export default class IndexPage extends React.Component {
   constructor () {
@@ -28,7 +29,7 @@ export default class IndexPage extends React.Component {
     this.showMaps = this.showMaps.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.handleResult = this.handleResult.bind(this);
-    this.handleViewportChange = this.handleViewportChange.bind(this);
+    this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
   }
 
   showMaps (...IDs) {
@@ -131,7 +132,12 @@ export default class IndexPage extends React.Component {
   }
 
   handleViewportChange (viewport) {
-    this.viewport = viewport;
+    if (!isEqual(this.viewport, viewport)) {
+      this.viewport = viewport;
+      typeof window !== 'undefined'
+        && window.location
+        && (window.location.hash = viewportToHash(viewport));
+    }
   }
 
   render () {
