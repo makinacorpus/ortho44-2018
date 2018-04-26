@@ -151,6 +151,16 @@ export default class IndexPage extends React.Component {
             onChange={() => this.setState({cadastre: !cadastre})}
           />cadastre</label>
 
+          <button
+            onClick={() => {
+              typeof window !== 'undefined'
+                && window.navigator
+                && navigator.geolocation.getCurrentPosition(({ coords }) => {
+                  this.firstMap.flyTo([coords.latitude, coords.longitude], 15);
+                });
+            }}
+          >Geolocate</button>
+
           <SyncedMaps
             maps={this.mapsFromSelection()}
             className="synced-maps"
