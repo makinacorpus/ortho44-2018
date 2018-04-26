@@ -7,27 +7,27 @@ const roundShift = (num, precision, reverseShift) => {
 export const round = (number, precision) =>
   roundShift(Math.round(roundShift(number, precision, false)), precision, true);
 
-export const _getLabel = (hit, mode) => {
-  var label = '';
+export const getLabel = (hit, mode) => {
+  let label = '';
   if (hit.nom) {
-    label = hit.nom;
-    if (hit.type && hit.type == 'LIEUDIT') {
-      label += ' (Lieu-dit)'
-      if (hit.commune) {
-        label += ` (${hit.commune})`;
-      }
-    } else {
-      label = `(${label})`;
+    label += hit.nom;
+
+    if (hit.type === 'LIEUDIT') {
+      label += ' (Lieu-dit)';
+      label += hit.commune ? ` ${hit.commune}` : '';
     }
   } else {
-    label = (mode == 'POPUP' && hit.numero ? hit.numero + ' ' : '') + (hit.nom_voie ? hit.nom_voie + ' - ' : '') + (hit.nom_ld ? hit.nom_ld + ', ' : '') + '(' + (hit.commune ? hit.commune : '') + ')';
+    label += (mode === 'POPUP' && hit.numero) ? `${hit.numero} ` : '';
+    label += hit.nom_voie ? `${hit.nom_voie} - ` : '';
+    label += hit.nom_ld ? `${hit.nom_ld}, ` : '';
+    label += `(${hit.commune ? hit.commune : ''})`;
   }
   return label;
 };
 
 export const parseSuggestions = hits => {
   return hits.map(hit => ({
-    label: _getLabel(hit._source, 'LISTING'),
+    label: getLabel(hit._source, 'LISTING'),
     data: hit,
   }));
 };
