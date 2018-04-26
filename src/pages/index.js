@@ -28,6 +28,7 @@ export default class IndexPage extends React.Component {
     this.showMaps = this.showMaps.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.handleResult = this.handleResult.bind(this);
+    this.handleViewportChange = this.handleViewportChange.bind(this);
   }
 
   showMaps (...IDs) {
@@ -129,6 +130,10 @@ export default class IndexPage extends React.Component {
       });
   }
 
+  handleViewportChange (viewport) {
+    this.viewport = viewport;
+  }
+
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
@@ -161,7 +166,7 @@ export default class IndexPage extends React.Component {
               minZoom: 9,
               attributionControl: false,
               viewport: this.viewport,
-              onViewportChanged: viewport => { this.viewport = viewport; },
+              onViewportChanged: this.handleViewportChange,
             }}
           />
 
