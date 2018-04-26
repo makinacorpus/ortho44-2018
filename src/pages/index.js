@@ -26,6 +26,7 @@ export default class IndexPage extends React.Component {
     this.viewport = getRandomPlace()[1];
 
     this.showMaps = this.showMaps.bind(this);
+    this.geolocate = this.geolocate.bind(this);
   }
 
   showMaps (...IDs) {
@@ -119,6 +120,14 @@ export default class IndexPage extends React.Component {
       && this.firstMap.fitBounds([[minY, minX], [maxY, maxX]]);
   }
 
+  geolocate () {
+    typeof window !== 'undefined'
+      && window.navigator
+      && window.navigator.geolocation.getCurrentPosition(({ coords }) => {
+        this.firstMap.flyTo([coords.latitude, coords.longitude], 17);
+      });
+  }
+
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
@@ -135,31 +144,13 @@ export default class IndexPage extends React.Component {
             className="map-menu"
           />
 
-          <label><input
-            type="checkbox"
-            checked={roads}
-            onChange={() => this.setState({roads: !roads})}
-          />roads</label>
-          <label><input
-            type="checkbox"
-            checked={boundaries}
-            onChange={() => this.setState({boundaries: !boundaries})}
-          />boundaries</label>
-          <label><input
-            type="checkbox"
-            checked={cadastre}
-            onChange={() => this.setState({cadastre: !cadastre})}
-          />cadastre</label>
+          <ul>
+            <li><label><input type="checkbox" checked={roads}      onChange={() => this.setState({roads: !roads})}           />roads</label></li>
+            <li><label><input type="checkbox" checked={boundaries} onChange={() => this.setState({boundaries: !boundaries})} />boundaries</label></li>
+            <li><label><input type="checkbox" checked={cadastre}   onChange={() => this.setState({cadastre: !cadastre})}     />cadastre</label></li>
+            <li><button onClick={this.geolocate}>Geolocate</button></li>
+          </ul>
 
-          <button
-            onClick={() => {
-              typeof window !== 'undefined'
-                && window.navigator
-                && navigator.geolocation.getCurrentPosition(({ coords }) => {
-                  this.firstMap.flyTo([coords.latitude, coords.longitude], 15);
-                });
-            }}
-          >Geolocate</button>
 
           <SyncedMaps
             maps={this.mapsFromSelection()}
