@@ -23,10 +23,11 @@ export default class IndexPage extends React.Component {
       resultLayer: null,
     };
 
-    this.viewport = getRandomPlace()[1];
+    [this.placeName, this.viewport] = getRandomPlace();
 
     this.showMaps = this.showMaps.bind(this);
     this.geolocate = this.geolocate.bind(this);
+    this.handleResult = this.handleResult.bind(this);
   }
 
   showMaps (...IDs) {
@@ -100,13 +101,13 @@ export default class IndexPage extends React.Component {
     return maps;
   }
 
-  handleResult = selection => {
+  handleResult (selection) {
     const geojson = {
-      type: "Feature",
+      type: 'Feature',
       properties: {
-          name: selection.suggestion.label
+        name: selection.suggestion.label,
       },
-      geometry: selection.suggestion.data._source.geometry
+      geometry: selection.suggestion.data._source.geometry,
     };
 
     const [ minX, minY, maxX, maxY ] = bbox(geojson);
@@ -160,7 +161,7 @@ export default class IndexPage extends React.Component {
               minZoom: 9,
               attributionControl: false,
               viewport: this.viewport,
-              onViewportChanged: viewport => { this.viewport = viewport; }
+              onViewportChanged: viewport => { this.viewport = viewport; },
             }}
           />
 
