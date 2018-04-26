@@ -7,39 +7,54 @@ import GeoSearch from './GeoSearch';
 class MapMenu extends Component {
   constructor () {
     super();
+
+    this.state = {
+      open: true,
+    };
   }
 
   render () {
-    const { props } = this;
-    const { showMaps, selection, className } = props;
+    const { showMaps, selection, className, handleResult } = this.props;
+    const { open } = this.state;
+
     return (
       <div className={className}>
 
-        <GeoSearch
-          onSelect={props.handleResult}
-          inputProps={{
-            placeholder: 'exemple : 3 quai Ceineray, Nantes',
-          }}
-        />
+        <button
+          className="collapse-toggle"
+          onClick={() => this.setState({ open: !this.state.open })}
+        >
+          Toggle menu
+        </button>
 
-        <select
-          value={selection.join('-')}
-          onChange={event => showMaps(...event.target.value.split('-'))}>
-          <option disabled>-</option>
-          <option value={DEFAULT_BASE}>Aucun</option>
-          {COMPARE_WITH.map(layerID => (
-            <option
-              key={layerID}
-              value={[DEFAULT_BASE, layerID].join('-')}
-            >{ALL_LAYERS[layerID].label || layerID}</option>
-          ))}
-        </select>
+        <div className={classnames('collapsable', { open })}>
+          <GeoSearch
+            onSelect={handleResult}
+            inputProps={{
+              placeholder: 'exemple : 3 quai Ceineray, Nantes',
+            }}
+          />
 
-        <ul>
-          <li><button onClick={() => showMaps('1850')}>Cartes 1850</button></li>
-          <li><button onClick={() => showMaps('cassini')}>Cartes Cassini</button></li>
-          <li><button onClick={() => showMaps('napoleon')}>Cadastre Napoléonien</button></li>
-        </ul>
+          <select
+            value={selection.join('-')}
+            onChange={event => showMaps(...event.target.value.split('-'))}>
+            <option disabled>-</option>
+            <option value={DEFAULT_BASE}>Aucun</option>
+            {COMPARE_WITH.map(layerID => (
+              <option
+                key={layerID}
+                value={[DEFAULT_BASE, layerID].join('-')}
+              >{ALL_LAYERS[layerID].label || layerID}</option>
+            ))}
+          </select>
+
+          <ul>
+            <li><button onClick={() => showMaps('1850')}>Cartes 1850</button></li>
+            <li><button onClick={() => showMaps('cassini')}>Cartes Cassini</button></li>
+            <li><button onClick={() => showMaps('napoleon')}>Cadastre Napoléonien</button></li>
+          </ul>
+        </div>
+
       </div>
     );
   }
