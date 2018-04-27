@@ -5,7 +5,6 @@
   "author": "Austin Green",
   "dependencies": {
     "@turf/bbox": "~6.0.1",
-    "bulma": "~0.6.2",
     "classnames": "~2.2.5",
     "eslint": "~4.19.1",
     "eslint-config-makina": "~0.3.0",
