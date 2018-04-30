@@ -1,0 +1,97 @@
+// Reset 
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+  font-size: calc(1em * 0.625);
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: $color-base;
+  background-color: #fff;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure {
+  margin: 0;
+}
+
+img {
+  height: auto;
+}
+
+img,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+svg {
+fill: currentColor;
+}
+
+svg,
+iframe {
+  display: block;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+select, 
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: inherit;
+  background: transparent;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  cursor: pointer;
+}

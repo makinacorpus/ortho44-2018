@@ -1,0 +1,26 @@
+// Classes utilitaires
+
+.u-site {
+  &__content {
+    min-width: 300px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+.u-icon {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.u-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  top: 0;
+}
