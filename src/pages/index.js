@@ -153,50 +153,49 @@ export default class IndexPage extends React.Component {
     const { selection, roads, boundaries, cadastre } = this.state;
 
     return (
-      <section className="section">
-        <div className="container">
+      <section>
 
-          <MapMenu
-            selection={selection}
-            showMaps={this.showMaps}
-            handleResult={this.handleResult}
-            className="map-menu"
-          />
+        <MapMenu
+          selection={selection}
+          showMaps={this.showMaps}
+          handleResult={this.handleResult}
+          className="c-map-menu"
+        />
 
-          <ul>
-            <li><label><input type="checkbox" checked={roads}      onChange={() => this.setState({roads: !roads})}           />roads</label></li>
-            <li><label><input type="checkbox" checked={boundaries} onChange={() => this.setState({boundaries: !boundaries})} />boundaries</label></li>
-            <li><label><input type="checkbox" checked={cadastre}   onChange={() => this.setState({cadastre: !cadastre})}     />cadastre</label></li>
-            <li><button onClick={this.geolocate}>Geolocate</button></li>
-          </ul>
+        <ul>
+          <li><label><input type="checkbox" checked={roads}      onChange={() => this.setState({roads: !roads})}           />roads</label></li>
+          <li><label><input type="checkbox" checked={boundaries} onChange={() => this.setState({boundaries: !boundaries})} />boundaries</label></li>
+          <li><label><input type="checkbox" checked={cadastre}   onChange={() => this.setState({cadastre: !cadastre})}     />cadastre</label></li>
+          <li><button onClick={this.geolocate}>Geolocate</button></li>
+        </ul>
 
 
-          <SyncedMaps
-            maps={this.mapsFromSelection()}
-            className="synced-maps"
-            updateMapRef={ref => { this.firstMap = ref; }}
-            mapsProps={{
-              minZoom: 9,
-              attributionControl: false,
-              viewport: this.viewport,
-              onViewportChanged: this.handleViewportChange,
-            }}
-          />
+        <SyncedMaps
+          maps={this.mapsFromSelection()}
+          className="synced-maps"
+          updateMapRef={ref => { this.firstMap = ref; }}
+          mapsProps={{
+            minZoom: 9,
+            attributionControl: false,
+            viewport: this.viewport,
+            onViewportChanged: this.handleViewportChange,
+          }}
+        />
 
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'poi')
-            .map(({ node: post }) => (
-              <div key={post.id}>
-                <Link to={post.fields.slug}>
-                  {post.frontmatter.title}
-                </Link>
-                <p>{post.excerpt}</p>
-                <pre>
-                  {JSON.stringify(post, null, 2)}
-                </pre>
-              </div>
-            ))}
-        </div>
+        {posts
+          .filter(post => post.node.frontmatter.templateKey === 'poi')
+          .map(({ node: post }) => (
+            <div key={post.id}>
+              <Link to={post.fields.slug}>
+                {post.frontmatter.title}
+              </Link>
+              <p>{post.excerpt}</p>
+              <pre>
+                {JSON.stringify(post, null, 2)}
+              </pre>
+            </div>
+          ))}
+
       </section>
     );
   }
