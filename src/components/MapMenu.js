@@ -17,7 +17,7 @@ class MapMenu extends Component {
   }
 
   render () {
-    const { showMaps, selection, className, handleResult } = this.props;
+    const { showMaps, selection, toggleCadastre, cadastre, className, handleResult } = this.props;
     const { open } = this.state;
 
     return (
@@ -96,7 +96,7 @@ class MapMenu extends Component {
                 </button>
               </li>
               <li>
-                <button className="c-map-menu__button">
+                <button className={cadastre ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button' } onClick={() => toggleCadastre()}>
                   <Icon name="place" /> 
                   <span className="c-map-menu__button-label">Cadastre</span>
                 </button>

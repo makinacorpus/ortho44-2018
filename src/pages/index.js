@@ -36,6 +36,7 @@ export default class IndexPage extends React.Component {
     }
 
     this.showMaps = this.showMaps.bind(this);
+    this.toggleCadastre = this.toggleCadastre.bind(this);
     this.geolocate = this.geolocate.bind(this);
     this.handleResult = this.handleResult.bind(this);
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
@@ -44,6 +45,12 @@ export default class IndexPage extends React.Component {
   showMaps (...IDs) {
     this.setState({
       selection: IDs,
+    });
+  }
+
+  toggleCadastre () {
+    this.setState({
+      cadastre: !this.state.cadastre,
     });
   }
 
@@ -158,6 +165,8 @@ export default class IndexPage extends React.Component {
         <MapMenu
           selection={selection}
           showMaps={this.showMaps}
+          cadastre={cadastre}
+          toggleCadastre={this.toggleCadastre}
           handleResult={this.handleResult}
           className="c-map-menu"
         />
@@ -165,7 +174,6 @@ export default class IndexPage extends React.Component {
         <ul>
           <li><label><input type="checkbox" checked={roads}      onChange={() => this.setState({roads: !roads})}           />roads</label></li>
           <li><label><input type="checkbox" checked={boundaries} onChange={() => this.setState({boundaries: !boundaries})} />boundaries</label></li>
-          <li><label><input type="checkbox" checked={cadastre}   onChange={() => this.setState({cadastre: !cadastre})}     />cadastre</label></li>
           <li><button onClick={this.geolocate}>Geolocate</button></li>
         </ul>
 
