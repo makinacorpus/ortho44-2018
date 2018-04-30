@@ -76,6 +76,13 @@
     padding: 0 1rem;
     border: 1px dashed;
     align-items: center;
+    transition: color 0.2s, backgroundColor 0.2s;
+    &:hover,
+    &:focus,
+    &--active {
+      color: #000;
+      background: #fff;
+    }
     .u-icon {
       font-size: 2.7rem;
       margin-right: 0.3rem;
