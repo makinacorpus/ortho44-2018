@@ -1,0 +1,73 @@
+@import "../layouts/scss/variables";
+
+.c-footer {
+  padding: 2rem 0 0;
+  background: #eaeaea;
+  overflow: hidden;
+  &__content {
+    text-align: center;
+  }
+  &__menu-list  {
+    margin-bottom: 3rem;
+  }
+  &__menu-item  {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  &__menu-link  {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+  &__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  &__socials-label {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  &__social-list {
+    display: flex;
+    margin-left: 2rem;
+  }
+  &__social-item {
+    margin-left: 2rem;
+  }
+  &__footnote {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (min-width: $medium) {
+  .c-footer {
+    &__menu-list {
+      display: flex;
+      justify-content: center;
+    }
+    &__menu-item  {
+      padding: 0 2rem;
+      border-left: 1px solid #b1b1b1;
+      &:first-child {
+        padding-left: 0;
+        border: 0;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $large) {
+  .c-footer {
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
