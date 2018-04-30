@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import './Header.scss';
+
 import logo from '../img/logo.svg';
 import Icon from './Icon';
 

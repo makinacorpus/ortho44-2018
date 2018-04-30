@@ -1,0 +1,61 @@
+@import "../layouts/scss/variables";
+
+.c-header {
+  &__top-nav {
+    background: #eaeaea;
+    height: 1.8rem;
+    box-shadow: 0 3px 2px #d1d1d1;
+  }
+  &__top-nav-link {
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    font-size: 1.5rem;
+    padding: 0.1rem 1.8rem;
+  }
+  &__banner {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    flex: 1 1 auto;
+  }
+  &__action-item + &__action-item {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dotted #808080;
+  }
+  &__action-button {
+    display: inline-flex;
+    align-items: center;
+  }
+  &__action-button-label {
+    margin-right: 1rem;
+  }
+}
+.c-logo {
+  display: block;
+  max-width: 50rem;
+}
+
+@media (min-width: $small) {
+  .c-header {
+    &__top-nav-link {
+      font-size: 1.7rem;
+    }
+    &__action-list {
+      display: flex;
+      align-items: center; 
+    }
+    &__action-item + &__action-item {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 1px dotted #808080;
+    }
+  }
+}
