@@ -84,7 +84,7 @@ export default class IndexPage extends React.Component {
     if (cadastre) {
       maps[0].layers.push({
         ...ALL_LAYERS.cadastre,
-        opacity: .6,
+        opacity: 0.6,
       });
     }
 

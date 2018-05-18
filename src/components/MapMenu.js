@@ -68,19 +68,19 @@ class MapMenu extends Component {
             <ul>
               <li>
                 <button className={selection.includes('1850') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('1850')}>
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Cartes 1850</span>
                 </button>
               </li>
               <li>
                 <button className={selection.includes('cassini') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('cassini')}>
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Cartes Cassini</span>
                 </button>
               </li>
               <li>
                 <button className={selection.includes('napoleon') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('napoleon')}>
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Cadastre Napoléonien</span>
                 </button>
               </li>
@@ -91,26 +91,26 @@ class MapMenu extends Component {
             <ul>
               <li>
                 <button className="c-map-menu__button">
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Exporter l'image</span>
                 </button>
               </li>
               <li>
                 <button className={cadastre ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button' } onClick={() => toggleCadastre()}>
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Cadastre</span>
                 </button>
               </li>
               <li>
                 <button className="c-map-menu__button">
-                  <Icon name="place" /> 
+                  <Icon name="place" />
                   <span className="c-map-menu__button-label">Flux WMS</span>
                 </button>
               </li>
             </ul>
           </div>
         </div>
-        { open == true ? (
+        { open ? (
           <div>
             <button
               className="c-map-menu__close"
