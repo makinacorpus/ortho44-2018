@@ -2,6 +2,11 @@
 @import "scss/reset";
 @import "scss/utils";
 
+@font-face {
+  font-family: "Winterthur";
+  src: url("/font/winterthurcondensed/winterthurcondensed-webfont.woff") format("woff");
+ }
+
 .map-menu {
   position: relative;
   z-index: 1;
