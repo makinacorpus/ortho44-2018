@@ -1,0 +1,19 @@
+@import "./variables";
+
+// Markdown
+.t-md {
+  margin: 2rem 0 5rem;
+  h3 {
+    margin-top: 3rem;
+  }
+  p {
+    margin-top: 1.5rem;
+  }
+  a {
+    color: $color-primary;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
