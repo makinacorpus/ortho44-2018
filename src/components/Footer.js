@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
+
+import logo from '../img/logo-loire-atlantique.svg';
 import Icon from './Icon';
 
 import './Footer.scss';
@@ -37,9 +39,9 @@ const Footer = () => (
           </li>
         </ul>
       </div>
-      <div className="c-footer__footnote">
-        <p>Un service du Département <a href="https://www.loire-atlantique.fr/">Loire-Atlantique</a></p>
-      </div>
+      <p className="c-footer__footnote">
+        <span>Un service du Département </span><a href="https://www.loire-atlantique.fr/"><img className="c-footer__footnote-img" src={logo} alt="Loire-Atlantique" /></a>
+      </p>
     </div>
   </footer>
 );

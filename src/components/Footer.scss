@@ -39,7 +39,14 @@
     margin-left: 2rem;
   }
   &__footnote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 3rem;
+  }
+  &__footnote-img {
+    margin-left: 3rem;
+    width: 103px;
   }
 }
 
