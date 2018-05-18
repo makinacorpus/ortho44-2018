@@ -10,11 +10,11 @@ const Footer = () => (
   <footer role="contentinfo" className="u-site__footer c-footer">
     <div className="u-site__content c-footer__content">
       <ul className="c-footer__menu-list">
-        <li className="c-footer__menu-item"><Link to="/" className="c-footer__menu-link">À propos</Link></li>
-        <li className="c-footer__menu-item"><Link to="/" className="c-footer__menu-link">Mention légales</Link></li>
-        <li className="c-footer__menu-item"><Link to="/" className="c-footer__menu-link">Contact</Link></li>
-        <li className="c-footer__menu-item"><Link to="/" className="c-footer__menu-link">Utiliser les photos</Link></li>
-        <li className="c-footer__menu-item"><Link to="/" className="c-footer__menu-link">Accéder au serveur WMS</Link></li>
+        <li className="c-footer__menu-item"><Link to="/a-propos" className="c-footer__menu-link">À propos</Link></li>
+        <li className="c-footer__menu-item"><Link to="/mentions-legales" className="c-footer__menu-link">Mention légales</Link></li>
+        <li className="c-footer__menu-item"><Link to="/contact" className="c-footer__menu-link">Contact</Link></li>
+        <li className="c-footer__menu-item"><Link to="/utiliser-les-photos" className="c-footer__menu-link">Utiliser les photos</Link></li>
+        <li className="c-footer__menu-item"><Link to="/serveur-wms" className="c-footer__menu-link">Accéder au serveur WMS</Link></li>
       </ul>
       <div className="c-footer__socials">
         <p className="c-footer__socials-label">Suivez-nous</p>
