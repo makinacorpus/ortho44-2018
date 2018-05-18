@@ -10,22 +10,22 @@
     display: inline-block;
     color: #fff;
     background: #000;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     padding: 0.1rem 1.8rem;
   }
   &__banner {
-    padding-top: 2.4rem;
-    padding-bottom: 2.4rem;
-    display: flex;
-    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
-  &__logo {
-    flex: 1 1 auto;
+  &__action-list {
+    display: flex;
+    align-items: center; 
+    padding-top: 3rem;
   }
   &__action-item + &__action-item {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-    border-top: 1px dotted #808080;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px dotted #808080;
   }
   &__action-button {
     display: inline-flex;
@@ -38,24 +38,25 @@
 .c-logo {
   display: block;
   max-width: 50rem;
+  margin-right: 2rem;
+  &__img {
+    display: block;
+    width: 490px;
+    height: 41px;
+  }
 }
 
-@media (min-width: $small) {
+@media (min-width: $medium) {
   .c-header {
-    &__top-nav-link {
-      font-size: 1.7rem;
-    }
-    &__action-list {
+    &__banner {
       display: flex;
-      align-items: center; 
+      align-items: center;
     }
-    &__action-item + &__action-item {
-      margin-top: 0;
+    &__logo {
+      flex: 1 1 auto;
+    }
+    &__action-list { 
       padding-top: 0;
-      border-top: 0;
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 1px dotted #808080;
     }
   }
 }

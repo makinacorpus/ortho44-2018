@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
-import './Header.scss';
-
 import logo from '../img/logo.svg';
 import Icon from './Icon';
+
+import './Header.scss';
 
 const Header = () => (
   <header role="banner" className="u-site__header c-header">
@@ -14,7 +14,7 @@ const Header = () => (
     <div className="u-site__content c-header__banner">
       <figure className="c-header__logo">
         <Link to="/" rel="home" className="c-logo">
-          <img src={logo} alt="Vuduciel.loireatlantique.fr" />
+          <img className="c-logo__img" src={logo} alt="Vuduciel.loireatlantique.fr" />
         </Link>
       </figure>
       <ul className="c-header__action-list">
