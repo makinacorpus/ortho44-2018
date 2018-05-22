@@ -5,6 +5,7 @@
   padding: 4.5rem 5% 1.5rem;
   min-height: 5.8rem;
   background: $color-brand;
+  z-index: 1;
   &__toggle {
     position: absolute;
     top: 1.5rem;

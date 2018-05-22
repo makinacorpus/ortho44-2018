@@ -1,7 +1,8 @@
-.synced-maps {
+.c-synced-maps {
+  position: relative;
   display: flex;
   height: 600px;
-
+  z-index: 0;
   > * {
     flex: 1 1 auto;
   }
