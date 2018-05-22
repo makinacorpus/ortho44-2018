@@ -46,6 +46,8 @@ export default class IndexPage extends React.Component {
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
     this.handleResult = this.handleResult.bind(this);
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
+    this.zoomIn = this.zoomIn.bind(this);
+    this.zoomOut = this.zoomOut.bind(this);
   }
 
   showMaps (...IDs) {
@@ -178,6 +180,14 @@ export default class IndexPage extends React.Component {
     }
   }
 
+  zoomIn () {
+    this.firstMap.zoomIn();
+  }
+
+  zoomOut () {
+    this.firstMap.zoomOut();
+  }
+
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
@@ -206,6 +216,8 @@ export default class IndexPage extends React.Component {
               toggleBoundaries={this.toggleBoundaries}
               fullscreen={fullscreen}
               toggleFullscreen={this.toggleFullscreen}
+              zoomIn={this.zoomIn}
+              zoomOut={this.zoomOut}
             />
           </div>
           <div className="c-map-layout__synced-map">

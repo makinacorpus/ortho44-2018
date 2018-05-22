@@ -81,6 +81,7 @@ class SyncedMaps extends Component {
             key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
             {...mapsProps}
+            zoomControl={false}
           >
             {map.layers && map.layers.map(layer => (
               <AutoLayer

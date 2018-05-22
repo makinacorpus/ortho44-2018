@@ -23,7 +23,18 @@ class MapActions extends Component {
   }
 
   render() {
-    const { className, geolocate, roads, toggleRoads, boundaries, toggleBoundaries, fullscreen, toggleFullscreen } = this.props;
+    const { 
+      className,
+      geolocate,
+      roads,
+      toggleRoads,
+      boundaries,
+      toggleBoundaries,
+      fullscreen,
+      toggleFullscreen,
+      zoomIn,
+      zoomOut
+    } = this.props;
     const { displayRoadsAndBoundaries } = this.state;
     return (
       <ul className={className}>
@@ -48,13 +59,13 @@ class MapActions extends Component {
           )}
         </li>
         <li className={`${className}__item`}>
-          <button className={`${className}__button`} type="button" title="Zoomer">
+          <button className={`${className}__button`} type="button" onClick={() => zoomIn()} title="Zoomer">
             <Icon name="zoom-in" />
             <span className="u-visually-hidden">Zoomer</span>
           </button>
         </li>
         <li className={`${className}__item`}>
-          <button className={`${className}__button`} type="button" title="Dézoomer">
+          <button className={`${className}__button`} type="button" onClick={() => zoomOut()} title="Dézoomer">
             <Icon name="zoom-out" />
             <span className="u-visually-hidden">Dézoomer</span>
           </button>
