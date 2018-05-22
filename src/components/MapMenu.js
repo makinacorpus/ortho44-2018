@@ -39,7 +39,7 @@ class MapMenu extends Component {
             <GeoSearch
               onSelect={handleResult}
               inputProps={{
-                placeholder: 'Ex : 3 quai Ceineray, Nantes',
+                placeholder: 'Lac de grandlieu',
               }}
             />
           </div>

@@ -7,6 +7,15 @@
   padding: 8px 14px;
   font-size: 1em;
   border: 1px solid #000;
+  // Below : SVG "location" converted to base64 image
+  // <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  //   <path d="M14.2,17.5c2.1-3.2,4.9-7.9,4.9-10.4C19.1,3.2,15.9,0,12,0S4.9,3.2,4.9,7.1c0,2.5,2.8,7.2,4.9,10.4 c-4.8,0.3-8.2,1.6-8.2,3.2C1.6,22.6,6,24,12,24s10.4-1.4,10.4-3.3C22.4,19,19,17.8,14.2,17.5z M8.3,7.1c0-2,1.6-3.7,3.7-3.7 s3.7,1.6,3.7,3.7S14,10.8,12,10.8S8.3,9.1,8.3,7.1z M12,23.4c-5.3,0-9.9-1.3-9.9-2.8c0-1.3,3.6-2.4,8-2.7c1.1,1.6,1.9,2.7,1.9,2.7 s0.8-1.1,1.9-2.7c4.5,0.3,8,1.4,8,2.7C21.9,22.1,17.3,23.4,12,23.4z"/>
+  // </svg>
+  // Converter tool : https://websemantics.uk/tools/image-to-data-uri-converter/
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgPHBhdGggZD0iTTE0LjIsMTcuNWMyLjEtMy4yLDQuOS03LjksNC45LTEwLjRDMTkuMSwzLjIsMTUuOSwwLDEyLDBTNC45LDMuMiw0LjksNy4xYzAsMi41LDIuOCw3LjIsNC45LDEwLjQgYy00LjgsMC4zLTguMiwxLjYtOC4yLDMuMkMxLjYsMjIuNiw2LDI0LDEyLDI0czEwLjQtMS40LDEwLjQtMy4zQzIyLjQsMTksMTksMTcuOCwxNC4yLDE3LjV6IE04LjMsNy4xYzAtMiwxLjYtMy43LDMuNy0zLjcgczMuNywxLjYsMy43LDMuN1MxNCwxMC44LDEyLDEwLjhTOC4zLDkuMSw4LjMsNy4xeiBNMTIsMjMuNGMtNS4zLDAtOS45LTEuMy05LjktMi44YzAtMS4zLDMuNi0yLjQsOC0yLjdjMS4xLDEuNiwxLjksMi43LDEuOSwyLjcgczAuOC0xLjEsMS45LTIuN2M0LjUsMC4zLDgsMS40LDgsMi43QzIxLjksMjIuMSwxNy4zLDIzLjQsMTIsMjMuNHoiLz4KPC9zdmc+);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) 50%;
 }
 
 .react-autosuggest__input--focused {
