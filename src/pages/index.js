@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import bbox from '@turf/bbox';
 import { debounce, isEqual } from 'lodash';
+import classnames from 'classnames';
 
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
@@ -23,6 +24,7 @@ export default class IndexPage extends React.Component {
       cadastre: false,
       bgLayer: true,
       resultLayer: null,
+      fullscreen: false,
     };
 
     [this.placeName, this.viewport] = getRandomPlace();
@@ -41,6 +43,7 @@ export default class IndexPage extends React.Component {
     this.geolocate = this.geolocate.bind(this);
     this.toggleRoads = this.toggleRoads.bind(this);
     this.toggleBoundaries = this.toggleBoundaries.bind(this);
+    this.toggleFullscreen = this.toggleFullscreen.bind(this);
     this.handleResult = this.handleResult.bind(this);
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
   }
@@ -66,6 +69,12 @@ export default class IndexPage extends React.Component {
   toggleBoundaries () {
     this.setState({
       boundaries: !this.state.boundaries,
+    });
+  }
+
+  toggleFullscreen () {
+    this.setState({
+      fullscreen: !this.state.fullscreen,
     });
   }
 
@@ -172,7 +181,7 @@ export default class IndexPage extends React.Component {
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const { selection, roads, boundaries, cadastre } = this.state;
+    const { selection, roads, boundaries, cadastre, fullscreen } = this.state;
 
     return (
       <section>
@@ -186,26 +195,33 @@ export default class IndexPage extends React.Component {
           className="c-map-menu"
         />
 
-        <MapActions
-          className="c-map-actions"
-          geolocate={this.geolocate}
-          roads={roads}
-          toggleRoads={this.toggleRoads}
-          boundaries={boundaries}
-          toggleBoundaries={this.toggleBoundaries}
-        />
-
-        <SyncedMaps
-          maps={this.mapsFromSelection()}
-          className="c-synced-maps"
-          updateMapRef={ref => { this.firstMap = ref; }}
-          mapsProps={{
-            minZoom: 9,
-            attributionControl: false,
-            viewport: this.viewport,
-            onViewportChanged: this.handleViewportChange,
-          }}
-        />
+        <div className={classnames('c-map-layout', { 'c-map-layout--fullscreen': fullscreen })}>
+          <div className="c-map-layout__actions">
+            <MapActions
+              className="c-map-actions"
+              geolocate={this.geolocate}
+              roads={roads}
+              toggleRoads={this.toggleRoads}
+              boundaries={boundaries}
+              toggleBoundaries={this.toggleBoundaries}
+              fullscreen={fullscreen}
+              toggleFullscreen={this.toggleFullscreen}
+            />
+          </div>
+          <div className="c-map-layout__synced-map">
+            <SyncedMaps
+              maps={this.mapsFromSelection()}
+              className="c-synced-maps"
+              updateMapRef={ref => { this.firstMap = ref; }}
+              mapsProps={{
+                minZoom: 9,
+                attributionControl: false,
+                viewport: this.viewport,
+                onViewportChanged: this.handleViewportChange,
+              }}
+            />
+          </div>
+        </div>
 
         {posts
           .filter(post => post.node.frontmatter.templateKey === 'poi')

@@ -7,3 +7,24 @@
   font-family: "Winterthur";
   src: url("/font/winterthurcondensed/winterthurcondensed-webfont.woff") format("woff");
  }
+
+ .c-map-layout {
+   position: relative;
+   &--fullscreen {
+     position: fixed;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     z-index: 4;
+     & .c-synced-maps {
+       height: 100vh;
+     }
+   }
+   &__actions {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+     z-index: 2;
+   }
+ }
