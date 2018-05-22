@@ -5,6 +5,7 @@ import { debounce, isEqual } from 'lodash';
 
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
+import MapActions from '../components/MapActions';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
@@ -38,6 +39,8 @@ export default class IndexPage extends React.Component {
     this.showMaps = this.showMaps.bind(this);
     this.toggleCadastre = this.toggleCadastre.bind(this);
     this.geolocate = this.geolocate.bind(this);
+    this.toggleRoads = this.toggleRoads.bind(this);
+    this.toggleBoundaries = this.toggleBoundaries.bind(this);
     this.handleResult = this.handleResult.bind(this);
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
   }
@@ -51,6 +54,18 @@ export default class IndexPage extends React.Component {
   toggleCadastre () {
     this.setState({
       cadastre: !this.state.cadastre,
+    });
+  }
+
+  toggleRoads () {
+    this.setState({
+      roads: !this.state.roads,
+    });
+  }
+
+  toggleBoundaries () {
+    this.setState({
+      boundaries: !this.state.boundaries,
     });
   }
 
@@ -171,16 +186,18 @@ export default class IndexPage extends React.Component {
           className="c-map-menu"
         />
 
-        <ul>
-          <li><label><input type="checkbox" checked={roads}      onChange={() => this.setState({roads: !roads})}           />roads</label></li>
-          <li><label><input type="checkbox" checked={boundaries} onChange={() => this.setState({boundaries: !boundaries})} />boundaries</label></li>
-          <li><button onClick={this.geolocate}>Geolocate</button></li>
-        </ul>
-
+        <MapActions
+          className="c-map-actions"
+          geolocate={this.geolocate}
+          roads={roads}
+          toggleRoads={this.toggleRoads}
+          boundaries={boundaries}
+          toggleBoundaries={this.toggleBoundaries}
+        />
 
         <SyncedMaps
           maps={this.mapsFromSelection()}
-          className="synced-maps"
+          className="c-synced-maps"
           updateMapRef={ref => { this.firstMap = ref; }}
           mapsProps={{
             minZoom: 9,
