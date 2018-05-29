@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import bbox from '@turf/bbox';
 import { debounce, isEqual } from 'lodash';
 import classnames from 'classnames';
@@ -7,6 +6,7 @@ import classnames from 'classnames';
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 import MapActions from '../components/MapActions';
+import CarouselPOI from '../components/CarouselPOI';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
@@ -235,19 +235,11 @@ export default class IndexPage extends React.Component {
           </div>
         </div>
 
-        {posts
-          .filter(post => post.node.frontmatter.templateKey === 'poi')
-          .map(({ node: post }) => (
-            <div key={post.id}>
-              <Link to={post.fields.slug}>
-                {post.frontmatter.title}
-              </Link>
-              <p>{post.excerpt}</p>
-              <pre>
-                {JSON.stringify(post, null, 2)}
-              </pre>
-            </div>
-          ))}
+        <CarouselPOI
+          posts={posts}
+          className="c-carousel" 
+        />
+
 
       </section>
     );
@@ -267,6 +259,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
+            picture
           }
         }
       }

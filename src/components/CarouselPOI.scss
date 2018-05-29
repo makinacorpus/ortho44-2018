@@ -1,0 +1,152 @@
+@import "../layouts/scss/variables";
+
+$maxWidth: 1234px;
+$ratioImg: 1234 / 777;
+
+.c-carousel {
+  max-width: $maxWidth;
+  margin: 3rem auto;
+  padding: $ratioImg;
+  &__title {
+    margin: 0 2rem;
+    font-family: "Winterthur", sans-serif;
+    font-size: 3rem;
+    border-bottom: 1px dotted #7f7f7f;
+  }
+  &__list {
+    margin-top: 3.5rem;
+    & .slider-list {
+      height: calc(100vw / #{$ratioImg} - 3rem) !important;
+    }
+  }
+  &__item {
+    position: relative;
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+  }
+  &__img {
+    display: block;
+    margin: auto;
+  }
+  &__item-title {
+    font-family: "Winterthur", sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    z-index: 1; 
+  }
+  &__button {
+    margin-top: 3rem;
+    font-family: "Winterthur", sans-serif;
+    font-size: 1.6rem;
+    padding: 0.3rem 2rem;
+    color: #fff;
+    border: 0.3rem solid;
+    z-index: 1;
+    transition: 0.2s color;
+    &:hover,
+    &focus {
+      color: #ccc;
+    }
+  }
+  &__prev,
+  &__next {
+    height: 8rem;
+    color: #fff;
+    background: #000;
+    font-size: 2.5rem;
+    transition: 0.2s background;
+    &:hover,
+    &:focus {
+      background: #7f7f7f;
+    }
+    .u-icon {
+      transform: rotate(-90deg);
+    }
+  }
+  &__next {
+    .u-icon {
+      transform: rotate(90deg);
+    }
+  }
+  &__control-list {
+    padding: 1rem;
+  }
+  &__control {
+    padding: 0.2rem 0.5rem;
+    color: #000;
+    background: #7f7f7f;
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    transition: 0.2s background;
+    &:hover,
+    &:focus,
+    &[data-active=true] {
+      background: #fff;
+    }
+  }
+}
+
+@media (min-width: $medium) {
+  .c-carousel {
+    margin: 6rem 2rem;
+    &__title {
+      margin: 0;
+    }
+    &__item-title {
+      font-size: 6rem;
+    }
+    &__button {
+      margin-top: 3rem;
+      font-size: 2.4rem;
+      padding: 0.3rem 3rem;
+    }
+    &__prev,
+    &__next {
+      height: 12.4rem;
+      font-size: 3.3rem;
+    }
+  }
+}
+
+@media (min-width: $large) {
+  .c-carousel {
+    padding: 0 8rem;
+    &__title {
+      font-size: 6rem;
+    }
+    &__prev {
+      position: relative;
+      left: -6rem;
+    }
+    &__next {
+      position: relative;
+      right: -6rem;
+    }
+    &__list {
+      & .slider-list {
+        height: calc(100vw / #{$ratioImg} - 14rem) !important;
+        max-height: calc(#{$maxWidth} / #{$ratioImg} - 14rem);
+      }
+    }
+  }
+}
