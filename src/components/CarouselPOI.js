@@ -13,7 +13,6 @@ const CarouselPOI = props => {
     <div className={className}>
       <h1 className={`${className}__title`}>Les sites remarquables de Loire-Atlantique</h1>
       <Carousel
-        fixedHeight={false}
         className={`${className}__list`}
         renderCenterLeftControls={({ previousSlide }) => (
           <button className={`${className}__prev`} onClick={previousSlide}>
