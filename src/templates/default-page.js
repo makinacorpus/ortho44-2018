@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Content, { HTMLContent } from '../components/Content';
 
-export const DefaultPageTemplate = ({ title, content, contentComponent }) => {
+export const DefaultPageTemplate = ({
+  title,
+  content,
+  contentComponent,
+  helmet,
+}) => {
   const PageContent = contentComponent || Content;
 
   return (
     <section className="u-site__content">
+      {helmet || ''}
       <h2 className="u-site__title">
         {title}
       </h2>
@@ -28,6 +35,7 @@ const DefaultPage = ({ data }) => {
     <DefaultPageTemplate
       contentComponent={HTMLContent}
       title={post.frontmatter.title}
+      helmet={<Helmet title={`${post.frontmatter.title}`} />}
       content={post.html}
     />
   );
