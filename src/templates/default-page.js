@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Content, { HTMLContent } from '../components/Content';
+import { getLocationHref } from '../helpers';
 
 export const DefaultPageTemplate = ({
   title,
@@ -35,7 +36,15 @@ const DefaultPage = ({ data }) => {
     <DefaultPageTemplate
       contentComponent={HTMLContent}
       title={post.frontmatter.title}
-      helmet={<Helmet title={`${post.frontmatter.title}`} />}
+      helmet={
+        <Helmet>
+          <html lang="fr" prefix="og: http://ogp.me/ns#" />
+          <title>{post.frontmatter.title} | La Loire-Atlantique vue du ciel</title>
+          <meta property="og:title" content={`${post.frontmatter.title} | La Loire-Atlantique vue du ciel`} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={getLocationHref()} />
+        </Helmet>
+      }
       content={post.html}
     />
   );

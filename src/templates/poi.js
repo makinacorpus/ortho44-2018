@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Content, { HTMLContent } from '../components/Content';
+import { getLocationHref } from '../helpers';
 
 export const PoiPageTemplate = ({
   content,
@@ -31,8 +32,15 @@ const PoiPage = ({ data }) => {
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Point d'intérêt`} />}
-      tags={post.frontmatter.tags}
+      helmet={
+        <Helmet>
+          <html lang="fr" prefix="og: http://ogp.me/ns#" />
+          <title>{post.frontmatter.title} | Point d'intérêt</title>
+          <meta property="og:title" content={`${post.frontmatter.title} | Point d'intérêt`} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={getLocationHref()} />
+        </Helmet>
+      }
       title={post.frontmatter.title}
     />
   );
