@@ -67,3 +67,5 @@ export const setHash = value => {
 };
 
 export const getHash = () => typeof window !== 'undefined' && window.location && window.location.hash.substr(1);
+
+export const getLocationHref = () => typeof window !== 'undefined' && window.location && window.location.href;
