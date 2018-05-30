@@ -27,12 +27,81 @@
     padding-left: 1rem;
     border-left: 1px dotted #808080;
   }
+  &__action-item {
+    &--share {
+      position: relative;
+    }
+  }
   &__action-button {
     display: inline-flex;
     align-items: center;
+    transition: 0.2s color;
+    &:hover,
+    &:focus {
+      color: $color-brand;
+    }
   }
   &__action-button-label {
     margin-right: 1rem;
+  }
+  &__share-list {
+    position: relative;
+    top: 100%;
+    right: 0;
+    position: absolute;
+    display: none;
+    z-index: 4;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #fff;
+    border: 1px solid #7f7f7f;
+    &::before {
+      content: "";
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      top: -0.6rem;
+      right: 2rem;
+      transform: rotate(-45deg);
+      background: #fff;
+      border: solid #7f7f7f;
+      border-width: 1px 1px 0 0;
+      z-index: 1; 
+    }
+    &::after {
+      content: "";
+      display: block;
+      background: #fff;
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      left: 0;
+      height: 1rem;
+      border-bottom: 1px solid #7f7f7f;
+    }
+  }
+  &__action-item--share:hover &__action-button,
+  &__action-item--share:focus &__action-button {
+    color: $color-brand;
+  }
+  &__action-item--share:hover &__share-list,
+  &__action-item--share:focus &__share-list {
+    display: block;
+  }
+  &__share-link {
+    display: inline-flex;
+    width: 11rem;
+    align-items: center;
+    margin: 0.8rem;
+    transition: 0.2s color;
+    &:hover,
+    &:focus {
+      color: $color-brand;
+    }
+    .u-icon {
+      margin-right: 1rem;
+    }
   }
 }
 .c-logo {

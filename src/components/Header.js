@@ -1,10 +1,14 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import { getLocationHref } from '../helpers';
 
 import logo from '../img/logo.svg';
 import Icon from './Icon';
 
 import './Header.scss';
+
+export const getCurrentUrl = () =>
+  encodeURIComponent(getLocationHref());
 
 const Header = () => (
   <header role="banner" className="u-site__header c-header">
@@ -24,11 +28,31 @@ const Header = () => (
             <Icon name="print" />
           </button>
         </li>
-        <li className="c-header__action-item">
+        <li className="c-header__action-item c-header__action-item--share">
           <button className="c-header__action-button" type="button">
             <span className="c-header__action-button-label">Partager</span>
             <Icon name="share" />
           </button>
+          <ul className="c-header__share-list">
+            <li className="c-header__share-item">
+              <a className="c-header__share-link" href={`https://www.facebook.com/sharer.php?u=${getCurrentUrl()}`}>
+                <Icon name="network-facebook" />
+                Facebook
+              </a>
+            </li>
+            <li className="c-header__share-item">
+              <a className="c-header__share-link" href={`https://twitter.com/intent/tweet?url=${getCurrentUrl()}`}>
+                <Icon name="network-twitter" />
+                Twitter
+              </a>
+            </li>
+            <li className="c-header__share-item">
+              <a className="c-header__share-link" href={`https://plus.google.com/share?url=${getCurrentUrl()}`}>
+                <Icon name="network-google" />
+                Google +
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
