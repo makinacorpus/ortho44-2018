@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Photographies aériennes de la Loire-Atlantique | La Loire-Atlantique vue du ciel',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
