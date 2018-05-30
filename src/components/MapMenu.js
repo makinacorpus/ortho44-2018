@@ -12,12 +12,12 @@ class MapMenu extends Component {
     super();
 
     this.state = {
-      open: false,
+      open: true,
     };
   }
 
   render () {
-    const { showMaps, selection, toggleCadastre, cadastre, className, handleResult } = this.props;
+    const { showMaps, selection, toggleCadastre, cadastre, className, handleResult, placeName } = this.props;
     const { open } = this.state;
 
     return (
@@ -39,7 +39,7 @@ class MapMenu extends Component {
             <GeoSearch
               onSelect={handleResult}
               inputProps={{
-                placeholder: 'Lac de grandlieu',
+                placeholder: placeName,
               }}
             />
           </div>

@@ -202,6 +202,7 @@ export default class IndexPage extends React.Component {
           cadastre={cadastre}
           toggleCadastre={this.toggleCadastre}
           handleResult={this.handleResult}
+          placeName={this.placeName}
           className="c-map-menu"
         />
 
@@ -237,9 +238,8 @@ export default class IndexPage extends React.Component {
 
         <CarouselPOI
           posts={posts}
-          className="c-carousel" 
+          className="c-carousel"
         />
-
 
       </section>
     );
