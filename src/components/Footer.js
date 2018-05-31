@@ -1,20 +1,65 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import Modal from './Modal';
 
 import logo from '../img/logo-loire-atlantique.svg';
 import Icon from './Icon';
 
 import './Footer.scss';
 
-const Footer = () => (
+const Footer = props => (
   <footer role="contentinfo" className="u-site__footer c-footer">
     <div className="u-site__content c-footer__content">
       <ul className="c-footer__menu-list">
-        <li className="c-footer__menu-item"><Link to="/a-propos" className="c-footer__menu-link">À propos</Link></li>
-        <li className="c-footer__menu-item"><Link to="/mentions-legales" className="c-footer__menu-link">Mention légales</Link></li>
-        <li className="c-footer__menu-item"><Link to="/contact" className="c-footer__menu-link">Contact</Link></li>
-        <li className="c-footer__menu-item"><Link to="/utiliser-les-photos" className="c-footer__menu-link">Utiliser les photos</Link></li>
-        <li className="c-footer__menu-item"><Link to="/serveur-wms" className="c-footer__menu-link">Accéder au serveur WMS</Link></li>
+        <li className="c-footer__menu-item">
+          <Modal
+            query={props.query}
+            to="/a-propos"
+            link={{
+              className: 'c-footer__menu-link',
+              label: 'À propos',
+            }}
+          />
+        </li>
+        <li className="c-footer__menu-item">
+          <Modal
+            query={props.query}
+            to="/mentions-legales"
+            link={{
+              className: 'c-footer__menu-link',
+              label: 'Mention légales',
+            }}
+          />
+        </li>
+        <li className="c-footer__menu-item">
+          <Modal
+            query={props.query}
+            to="/contact"
+            link={{
+              className: 'c-footer__menu-link',
+              label: 'Contact',
+            }}
+          />
+        </li>
+        <li className="c-footer__menu-item">
+          <Modal
+            query={props.query}
+            to="/utiliser-les-photos"
+            link={{
+              className: 'c-footer__menu-link',
+              label: 'Utiliser les photos',
+            }}
+          />
+        </li>
+        <li className="c-footer__menu-item">
+          <Modal
+            query={props.query}
+            to="/serveur-wms"
+            link={{
+              className: 'c-footer__menu-link',
+              label: 'Accéder au serveur WMS',
+            }}
+          />
+        </li>
       </ul>
       <div className="c-footer__socials">
         <p className="c-footer__socials-label">Suivez-nous</p>
@@ -47,3 +92,23 @@ const Footer = () => (
 );
 
 export default Footer;
+
+export const pageQuery = graphql`
+  query PlopQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          excerpt(pruneLength: 400)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            templateKey
+          }
+        }
+      }
+    }
+  }
+`;

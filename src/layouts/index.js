@@ -18,7 +18,7 @@ const TemplateWrapper = ({ data, children }) => (
     </Helmet>
     <Header />
     <main role="main">{children()}</main>
-    <Footer />
+    <Footer query={data} />
   </div>
 );
 
@@ -29,10 +29,23 @@ TemplateWrapper.propTypes = {
 export default TemplateWrapper;
 
 export const query = graphql`
-  query AboutQuery {
+  query ModalQuery {
     site {
       siteMetadata {
         title
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
       }
     }
   }
