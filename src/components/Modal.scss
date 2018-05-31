@@ -1,0 +1,26 @@
+.c-modal {
+  text-align: left;
+  &__container {
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+  &__content {
+    padding: 3rem 3rem 0;
+  }
+  &__close {
+    position: fixed;
+    right: 0rem;
+    top: -3rem;
+    color: #fff;
+  }
+}
+
+// Override plugin
+.react-router-modal__modal {
+  border-radius: 0;
+  border: 0;
+}
+
+.react-router-modal__backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
