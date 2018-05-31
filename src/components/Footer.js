@@ -92,23 +92,3 @@ const Footer = props => (
 );
 
 export default Footer;
-
-export const pageQuery = graphql`
-  query PlopQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-          }
-        }
-      }
-    }
-  }
-`;
