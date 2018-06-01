@@ -8,13 +8,15 @@ export const PoiPageTemplate = ({
   contentComponent,
   description,
   title,
+  picture,
   helmet,
 }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="u-site__content">
+    <section className="u-site__page">
       {helmet || ''}
+      <img className="u-site__picture" src={picture} alt="" />
       <h1 className="u-site__title">
         {title}
       </h1>
@@ -32,6 +34,7 @@ const PoiPage = ({ data }) => {
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
+      picture={post.frontmatter.picture}
       helmet={
         <Helmet>
           <html lang="fr" prefix="og: http://ogp.me/ns#" />
@@ -56,6 +59,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
+        picture
       }
     }
   }

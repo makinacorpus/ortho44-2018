@@ -2,14 +2,21 @@
 
 .u-site {
   &__content {
-    min-width: 300px;
+    min-width: 30rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+  }
+  &__page {
+    max-width: 75rem;
+    margin: auto;
   }
   &__title {
     font-family: "Winterthur";
     font-size: 3rem;
-    margin-bottom: 3rem;
+    margin: 3rem 2rem 0;
+  }
+  &__excerpt {
+    margin: 3rem 2rem 0;
   }
 }
 

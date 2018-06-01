@@ -13,7 +13,7 @@ export const DefaultPageTemplate = ({
   const PageContent = contentComponent || Content;
 
   return (
-    <section className="u-site__content">
+    <section className="u-site__page">
       {helmet || ''}
       <h2 className="u-site__title">
         {title}
