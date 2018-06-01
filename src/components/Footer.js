@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './Modal';
+import Link from "gatsby-link";
 
 import logo from '../img/logo-loire-atlantique.svg';
 import Icon from './Icon';
@@ -11,54 +11,19 @@ const Footer = props => (
     <div className="u-site__content c-footer__content">
       <ul className="c-footer__menu-list">
         <li className="c-footer__menu-item">
-          <Modal
-            query={props.query}
-            to="/a-propos"
-            link={{
-              className: 'c-footer__menu-link',
-              label: 'À propos',
-            }}
-          />
+          <Link to="/a-propos" className="c-footer__menu-link">À propos</Link>
         </li>
         <li className="c-footer__menu-item">
-          <Modal
-            query={props.query}
-            to="/mentions-legales"
-            link={{
-              className: 'c-footer__menu-link',
-              label: 'Mention légales',
-            }}
-          />
+          <Link to="/mentions-legales" className="c-footer__menu-link">Mention légales</Link>
         </li>
         <li className="c-footer__menu-item">
-          <Modal
-            query={props.query}
-            to="/contact"
-            link={{
-              className: 'c-footer__menu-link',
-              label: 'Contact',
-            }}
-          />
+          <Link to="/contact" className="c-footer__menu-link">Contact</Link>
         </li>
         <li className="c-footer__menu-item">
-          <Modal
-            query={props.query}
-            to="/utiliser-les-photos"
-            link={{
-              className: 'c-footer__menu-link',
-              label: 'Utiliser les photos',
-            }}
-          />
+          <Link to="/utiliser-les-photos" className="c-footer__menu-link">Utiliser les photos</Link>
         </li>
         <li className="c-footer__menu-item">
-          <Modal
-            query={props.query}
-            to="/serveur-wms"
-            link={{
-              className: 'c-footer__menu-link',
-              label: 'Accéder au serveur WMS',
-            }}
-          />
+          <Link to="/serveur-wms" className="c-footer__menu-link">Accéder au serveur WMS</Link>
         </li>
       </ul>
       <div className="c-footer__socials">
