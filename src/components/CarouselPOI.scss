@@ -130,6 +130,8 @@ $ratioImg: 123.4rem / 77.7rem;
 
 @media (min-width: $large) {
   .c-carousel {
+    margin-right: auto;
+    margin-left: auto;
     padding: 0 8rem;
     &__title {
       font-size: 6rem;
