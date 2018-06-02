@@ -12,6 +12,19 @@ const CarouselPOI = props => {
   return (
     <div className={className}>
       <h1 className={`${className}__title`}>Les sites remarquables de Loire-Atlantique</h1>
+      <div className={`${className}__for-print`} aria-hidden="true">
+        {posts
+          .filter(post => post.node.frontmatter.templateKey === 'poi')
+          .map(({ node: post }) => (
+            <div className={`${className}__for-print-item`} key={post.id}>
+              <img className={`${className}__for-print-img`} src={post.frontmatter.picture} alt="" />
+              <div className={`${className}__for-print-content`}>
+                <h2 className={`${className}__for-print-title`}>{post.frontmatter.title}</h2>
+                <p className={`${className}__for-print-desc`}>{post.excerpt}</p>
+              </div>
+            </div>
+          ))}
+      </div>
       <Carousel
         className={`${className}__list`}
         renderCenterLeftControls={({ previousSlide }) => (

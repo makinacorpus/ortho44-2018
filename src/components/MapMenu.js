@@ -20,9 +20,10 @@ class MapMenu extends Component {
     const { showMaps, selection, toggleCadastre, cadastre, className, handleResult, placeName } = this.props;
     const { open } = this.state;
 
-    return (
-      <div className={className}>
+    const displayPrintSelection = selection.length === 1 ? `Carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}` : `À gauche: carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}; À droite: carte ${selection[1]}`;
 
+    return (
+      <div className={className} data-print-selection={displayPrintSelection}>
         <button
           className="c-map-menu__toggle" 
           aria-expanded={ open }

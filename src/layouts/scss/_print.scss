@@ -1,0 +1,49 @@
+@import "./variables";
+
+.c-carousel__for-print {
+  display: none;
+}
+@media print {
+  .c-header__top-nav,
+  .c-header__action-list,
+  .c-map-menu *,
+  .c-map-layout__actions,
+  .c-carousel__list,
+  .c-footer__menu-list,
+  .c-footer__socials {
+    display: none !important;
+  }
+  .c-map-menu {
+    padding: 5pt !important;
+    min-height: auto !important;
+    background: $color-brand;
+  }
+  .c-map-menu::before {
+    content: attr(data-print-selection);
+    display: block;
+  }
+
+  .c-carousel {
+    &__title {
+      margin: 0 !important;
+    }
+    &__for-print {
+        display: block;
+        &-title {
+          font-family: "Winterthur", sans-serif
+        }
+        &-item {
+          page-break-inside: avoid;
+          margin-top: 20pt;
+          padding-bottom: 20pt;
+          overflow: hidden;
+          border-bottom: 1px dotted#7f7f7f
+        }
+        &-img {
+          width: 25%;
+          float: left;
+          margin-right: 20pt;
+        }
+      }
+    }
+}

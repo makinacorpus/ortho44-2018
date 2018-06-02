@@ -23,7 +23,7 @@ const Header = () => (
       </figure>
       <ul className="c-header__action-list">
         <li className="c-header__action-item">
-          <button className="c-header__action-button" type="button">
+          <button className="c-header__action-button" type="button" onClick={() => typeof window !== 'undefined' && window.print()}>
             <span className="c-header__action-button-label">Imprimer</span>
             <Icon name="print" />
           </button>
