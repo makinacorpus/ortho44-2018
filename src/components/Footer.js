@@ -1,12 +1,12 @@
 import React from 'react';
-import Link from "gatsby-link";
+import Link from 'gatsby-link';
 
 import logo from '../img/logo-loire-atlantique.svg';
 import Icon from './Icon';
 
 import './Footer.scss';
 
-const Footer = props => (
+const Footer = () => (
   <footer role="contentinfo" className="u-site__footer c-footer">
     <div className="u-site__content c-footer__content">
       <ul className="c-footer__menu-list">

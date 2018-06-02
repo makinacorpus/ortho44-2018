@@ -25,8 +25,8 @@ class MapMenu extends Component {
     return (
       <div className={className} data-print-selection={displayPrintSelection}>
         <button
-          className="c-map-menu__toggle" 
-          aria-expanded={ open }
+          className="c-map-menu__toggle"
+          aria-expanded={open}
           aria-controls="c-map-menu__collapsable"
           onClick={() => this.setState({ open: !this.state.open })}
         >
@@ -52,14 +52,16 @@ class MapMenu extends Component {
                 id="c-map-menu__year"
                 className="c-map-menu__select"
                 value={selection.join('-')}
-                onChange={event => showMaps(...event.target.value.split('-'))}>
+                onChange={event => showMaps(...event.target.value.split('-'))}
+              >
                 <option disabled>-</option>
                 <option value={DEFAULT_BASE}>Aucun</option>
                 {COMPARE_WITH.map(layerID => (
                   <option
                     key={layerID}
                     value={[DEFAULT_BASE, layerID].join('-')}
-                  >{ALL_LAYERS[layerID].label || layerID}</option>
+                  >{ALL_LAYERS[layerID].label || layerID}
+                  </option>
                 ))}
               </select>
             </div>
@@ -97,7 +99,7 @@ class MapMenu extends Component {
                 </button>
               </li>
               <li>
-                <button className={cadastre ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button' } onClick={() => toggleCadastre()}>
+                <button className={cadastre ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => toggleCadastre()}>
                   <Icon name="cadastre" />
                   <span className="c-map-menu__button-label">Cadastre</span>
                 </button>
