@@ -5,7 +5,7 @@ import { getLocationHref } from '../helpers';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Modal from '../components/modal';
+import Modal from '../components/Modal';
 import './main.scss';
 
 export default class TemplateWrapper extends React.Component {
