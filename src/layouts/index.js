@@ -8,6 +8,8 @@ import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 import './main.scss';
 
+import favicon from '../img/favicon.ico';
+
 export default class TemplateWrapper extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
@@ -81,6 +83,7 @@ export default class TemplateWrapper extends React.Component {
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:type" content="website" />
           <meta property="og:url" content={getLocationHref()} />
+          <link rel="shortcut icon" type="image/png" href={favicon} />
         </Helmet>
         <Header />
         <main role="main">
