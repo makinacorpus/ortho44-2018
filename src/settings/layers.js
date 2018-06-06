@@ -8,6 +8,11 @@ const ignKey = (typeof window !== 'undefined' && window.location)
   ? ignKeys[window.location.host]
   : 'no-key-found';
 
+
+const legacyTileServer = 'http://{s}.tiles.cg44.makina-corpus.net';
+const newTileServer    = 'https://{s}-tiles-vuduciel2.makina-corpus.net';
+const mainTileServer   = newTileServer;
+
 export const ALL_LAYERS = {
 
   background: {
@@ -20,7 +25,7 @@ export const ALL_LAYERS = {
   },
 
   roads: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png',
+    url: `${mainTileServer}/osm/{z}/{x}/{y}.png`,
     opacity: .75,
   },
 
@@ -65,45 +70,45 @@ export const ALL_LAYERS = {
   },
 
   1850: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-1850/{z}/{x}/{y}.png`,
     maxNativeZoom: 16,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   1949: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1949/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-1949/{z}/{x}/{y}.png`,
     maxNativeZoom: 18,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   1999: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1999/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-1999/{z}/{x}/{y}.png`,
     maxNativeZoom: 18,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   2004: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-2004/{z}/{x}/{y}.png`,
     maxNativeZoom: 18,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   2009: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-2009/{z}/{x}/{y}.png`,
     maxNativeZoom: 18,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   2012: {
-    url: 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg',
+    url: `${mainTileServer}/ortho-2012/{z}/{x}/{y}.png`,
     maxNativeZoom: 19,
     tms: true,
-    subdomains: 'abcdefgh',
+    subdomains: 'abcd',
   },
   2016: {
-    url: 'http://{s}.tiles.cg44new.makina-corpus.net/{z}/{x}/{y}.png',
-    maxNativeZoom: 18,
-    subdomains: 'bcd',
+    url: `${mainTileServer}/ortho-2016/{z}/{x}/{y}.png`,
+    maxNativeZoom: 20,
+    subdomains: 'abcd',
   },
 };
 
