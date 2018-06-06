@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { navigateTo } from 'gatsby-link';
 import Icon from './Icon';
 
 import './MapMenu.scss';
@@ -105,7 +106,7 @@ class MapMenu extends Component {
                 </button>
               </li>
               <li>
-                <button className="c-map-menu__button">
+                <button className="c-map-menu__button" onClick={() => navigateTo('/serveur-wms')}>
                   <Icon name="flux" />
                   <span className="c-map-menu__button-label">Flux WMS</span>
                 </button>
