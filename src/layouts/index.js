@@ -5,7 +5,7 @@ import { getLocationHref } from '../helpers';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Modal from '../components/Modal';
+import CustomModal from '../components/CustomModal';
 import './main.scss';
 
 import favicon from '../img/favicon.ico';
@@ -98,9 +98,9 @@ export default class TemplateWrapper extends React.Component {
 
           <div>
             {isModal && (
-              <Modal isOpen location={location}>
+              <CustomModal isOpen location={location}>
                 {this.props.children}
-              </Modal>
+              </CustomModal>
             )}
           </div>
         </main>
