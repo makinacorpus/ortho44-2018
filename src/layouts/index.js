@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { getLocationHref } from '../helpers';
+import { navigateTo } from 'gatsby-link';
 
+import { getLocationHref } from '../helpers';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CustomModal from '../components/CustomModal';
@@ -69,6 +70,7 @@ export default class TemplateWrapper extends React.Component {
 
     let isModal = false;
     if (
+      typeof window !== 'undefined' &&
       this.props.location.pathname !== '/' &&
       this.windowWidth > 750
     ) {
@@ -98,8 +100,11 @@ export default class TemplateWrapper extends React.Component {
 
           <div>
             {isModal && (
-              <CustomModal isOpen location={location}>
-                {this.props.children}
+              <CustomModal
+                isOpen
+                handleClose={() => navigateTo('/')}
+              >
+                {this.props.children({ location: { pathname: location.pathname } })}
               </CustomModal>
             )}
           </div>
