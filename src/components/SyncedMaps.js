@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 
 import { Map, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet.sync';
+import 'leaflet-minimap';
+import 'leaflet-minimap/src/Control.MiniMap.css';
 
 import 'leaflet/dist/leaflet.css';
 import './SyncedMaps.scss';
+
+import ALL_LAYERS from '../settings/layers';
 
 const SYNC_OPTIONS = {
   syncCursor: true,
@@ -12,7 +16,6 @@ const SYNC_OPTIONS = {
 
 const syncMaps = maps => {
   maps.forEach(map => map.invalidateSize(false));
-
   maps.forEach(mapA =>
     maps.forEach(mapB => {
       if (mapA !== mapB && !mapA.isSynced(mapB)) {
@@ -48,9 +51,18 @@ class SyncedMaps extends Component {
   constructor (props) {
     super(props);
     this.mapRefs = [];
+
+    const { L } = window;
+    this.miniMap = new L.Control.MiniMap(
+      new L.TileLayer(ALL_LAYERS.osm.url),
+      {
+        position: 'topright',
+      },
+    );
   }
 
   componentDidMount () {
+    this.bindMiniMap();
     syncMaps(this.mapRefs);
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
@@ -58,6 +70,7 @@ class SyncedMaps extends Component {
   }
 
   componentDidUpdate () {
+    this.bindMiniMap();
     syncMaps(this.mapRefs);
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
@@ -66,6 +79,16 @@ class SyncedMaps extends Component {
 
   componentWillUnmount () {
     unsyncMaps(this.mapRefs);
+  }
+
+  bindMiniMap () {
+    if (this.miniMap) {
+      if (this.mapRefs.length === 1) {
+        this.miniMap.addTo(this.mapRefs[0]);
+      } else {
+        this.miniMap.remove();
+      }
+    }
   }
 
   render () {
