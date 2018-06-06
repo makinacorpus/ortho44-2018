@@ -13,6 +13,11 @@ const legacyTileServer = 'http://{s}.tiles.cg44.makina-corpus.net';
 const newTileServer    = 'https://{s}-tiles-vuduciel2.makina-corpus.net';
 const mainTileServer   = newTileServer;
 
+const minMaxZoom = {
+  minZoom: 9,
+  maxZoom: 20,
+};
+
 export const ALL_LAYERS = {
 
   background: {
@@ -70,44 +75,58 @@ export const ALL_LAYERS = {
   },
 
   1850: {
-    url: `${mainTileServer}/ortho-1850/{z}/{x}/{y}.png`,
+    url: `${mainTileServer}/ortho-1850/{z}/{x}/{y}.jpg`,
+    minNativeZoom: 9,
     maxNativeZoom: 16,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   1949: {
     url: `${mainTileServer}/ortho-1949/{z}/{x}/{y}.png`,
+    minNativeZoom: 9,
     maxNativeZoom: 18,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   1999: {
     url: `${mainTileServer}/ortho-1999/{z}/{x}/{y}.png`,
+    minNativeZoom: 9,
     maxNativeZoom: 18,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   2004: {
     url: `${mainTileServer}/ortho-2004/{z}/{x}/{y}.png`,
+    minNativeZoom: 9,
     maxNativeZoom: 18,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   2009: {
     url: `${mainTileServer}/ortho-2009/{z}/{x}/{y}.png`,
+    minNativeZoom: 9,
     maxNativeZoom: 18,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   2012: {
     url: `${mainTileServer}/ortho-2012/{z}/{x}/{y}.png`,
-    maxNativeZoom: 19,
+    minNativeZoom: 10,
+    maxNativeZoom: 18,
+    ...minMaxZoom,
     tms: true,
     subdomains: 'abcd',
   },
   2016: {
     url: `${mainTileServer}/ortho-2016/{z}/{x}/{y}.png`,
+    minNativeZoom: 10,
     maxNativeZoom: 20,
+    ...minMaxZoom,
     subdomains: 'abcd',
   },
 };

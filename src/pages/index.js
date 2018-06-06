@@ -227,7 +227,6 @@ export default class IndexPage extends React.Component {
               className="c-synced-maps"
               updateMapRef={ref => { this.firstMap = ref; }}
               mapsProps={{
-                minZoom: 9,
                 attributionControl: false,
                 viewport: this.viewport,
                 onViewportChanged: this.handleViewportChange,
