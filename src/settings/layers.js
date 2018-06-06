@@ -58,6 +58,7 @@ export const ALL_LAYERS = {
     width: 512,
     height: 512,
     maxNativeZoom: 19,
+    ...minMaxZoom,
   },
 
   cassini: {
@@ -65,6 +66,7 @@ export const ALL_LAYERS = {
     wms: true,
     url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cassini/MapServer/WMSServer?',
     layers: '0',
+    ...minMaxZoom,
   },
 
   napoleon: {
@@ -72,6 +74,7 @@ export const ALL_LAYERS = {
     wms: true,
     url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre_napoleonien/MapServer/WMSServer?',
     layers: '0',
+    ...minMaxZoom,
   },
 
   1850: {
