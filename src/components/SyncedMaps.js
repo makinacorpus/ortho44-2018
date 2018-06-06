@@ -56,7 +56,7 @@ class SyncedMaps extends Component {
     this.miniMap = new L.Control.MiniMap(
       new L.TileLayer(ALL_LAYERS.osm.url),
       {
-        position: 'topright',
+        position: 'bottomleft',
       },
     );
   }
