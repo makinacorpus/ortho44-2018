@@ -7,6 +7,7 @@ import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 import MapActions from '../components/MapActions';
 import CarouselPOI from '../components/CarouselPOI';
+import CustomModal from '../components/CustomModal';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
@@ -25,6 +26,7 @@ export default class IndexPage extends React.Component {
       bgLayer: true,
       resultLayer: null,
       fullscreen: false,
+      dlNotice: false,
     };
 
     [this.placeName, this.viewport] = getRandomPlace();
@@ -44,6 +46,7 @@ export default class IndexPage extends React.Component {
     this.toggleRoads = this.toggleRoads.bind(this);
     this.toggleBoundaries = this.toggleBoundaries.bind(this);
     this.toggleFullscreen = this.toggleFullscreen.bind(this);
+    this.toggleDlNotice = this.toggleDlNotice.bind(this);
     this.handleResult = this.handleResult.bind(this);
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
     this.zoomIn = this.zoomIn.bind(this);
@@ -188,19 +191,73 @@ export default class IndexPage extends React.Component {
     this.firstMap.zoomOut();
   }
 
+  getECWUrl () {
+    const bounds = this.firstMap.getBounds();
+    return 'http://services.vuduciel.loire-atlantique.fr/download?'
+    + `&x0=${bounds._southWest.lng}`
+    + `&x1=${bounds._northEast.lng}`
+    + `&y0=${bounds._southWest.lat}`
+    + `&y1=${bounds._northEast.lat}`;
+  }
+
+  getWMSPictureUrl () {
+    const bounds = this.firstMap.getBounds();
+    const { x, y } = this.firstMap.getSize();
+    const layerName = 'cg44:ortho44-2016';
+
+    return `${ALL_LAYERS.wms.url}/geoserver/wms/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap`
+      + `&BBOX=${bounds._southWest.lat},${bounds._southWest.lng},${bounds._northEast.lat},${bounds._northEast.lng}`
+      + `&WIDTH=${x}&HEIGHT=${y}&LAYERS=${layerName}`
+      + '&SRS=EPSG:4326&STYLES=&FORMAT=image/jpeg&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE';
+  }
+
+  toggleDlNotice (visible) {
+    this.setState({
+      dlNotice: typeof visible === 'boolean' ? visible : !this.state.dlNotice,
+    });
+  }
+
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
     const { selection, roads, boundaries, cadastre, fullscreen } = this.state;
 
+    const exportPictureText = () => ({
+      __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
+    });
+
     return (
       <section>
+
+        {typeof window !== 'undefined' && <CustomModal
+          isOpen={this.state.dlNotice}
+          handleClose={() => this.setState({ dlNotice: false })}
+        >
+          <div className="t-md">
+            <div
+              dangerouslySetInnerHTML={exportPictureText()}
+            />
+            <ul className="download-links">
+              {
+                this.firstMap && this.firstMap.getZoom() > 13
+                ?
+                  [
+                    <li>{<a href={this.getECWUrl()}>Télécharger l'image en dalles ECW</a>}</li>,
+                    <li>{<a href={this.getWMSPictureUrl()}>Télécharger l'image haute résolution JPG</a>}</li>,
+                  ]
+                :
+                  <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
+              }
+            </ul>
+          </div>
+        </CustomModal>}
 
         <MapMenu
           selection={selection}
           showMaps={this.showMaps}
           cadastre={cadastre}
           toggleCadastre={this.toggleCadastre}
+          toggleDlNotice={() => this.toggleDlNotice()}
           handleResult={this.handleResult}
           placeName={this.placeName}
           className="c-map-menu"
@@ -252,6 +309,7 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt(pruneLength: 400)
+          html
           id
           fields {
             slug
@@ -260,6 +318,7 @@ export const pageQuery = graphql`
             title
             templateKey
             picture
+            id
           }
         }
       }

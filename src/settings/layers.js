@@ -8,6 +8,8 @@ const ignKey = (typeof window !== 'undefined' && window.location)
   ? ignKeys[window.location.host]
   : 'no-key-found';
 
+const legacyWMS = 'http://services.vuduciel.loire-atlantique.fr';
+const tempWMS = 'https://wms-vuduciel2.makina-corpus.net';
 
 const legacyTileServer = 'http://{s}.tiles.cg44.makina-corpus.net';
 const newTileServer    = 'https://{s}-tiles-vuduciel2.makina-corpus.net';
@@ -19,6 +21,11 @@ const minMaxZoom = {
 };
 
 export const ALL_LAYERS = {
+
+  wms: {
+    wms: true,
+    url: tempWMS,
+  },
 
   background: {
     url: `https://wxs.ign.fr/${ignKey}/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal`,

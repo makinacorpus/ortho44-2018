@@ -17,7 +17,7 @@ class MapMenu extends Component {
   }
 
   render () {
-    const { showMaps, selection, toggleCadastre, cadastre, className, handleResult, placeName } = this.props;
+    const { showMaps, selection, toggleCadastre, toggleDlNotice, cadastre, className, handleResult, placeName } = this.props;
     const { open } = this.state;
 
     const displayPrintSelection = selection.length === 1 ? `Carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}` : `À gauche: carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}; À droite: carte ${selection[1]}`;
@@ -93,7 +93,7 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Les plus</h2>
             <ul>
               <li>
-                <button className="c-map-menu__button">
+                <button className="c-map-menu__button" onClick={toggleDlNotice}>
                   <Icon name="export" />
                   <span className="c-map-menu__button-label">Exporter l'image</span>
                 </button>
