@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { navigateTo } from 'gatsby-link';
 
-import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker } from 'react-leaflet';
+import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet.sync';
 import 'leaflet-minimap';
@@ -123,12 +124,15 @@ class SyncedMaps extends Component {
                 {...layer}
               />
             ))}
-            {markers.map(({ position }) => (
+            {markers.map(({ position, title, slug }) => (
               <Marker
                 key={JSON.stringify(position)}
                 position={position}
                 icon={this.defaultIcon}
-              />
+                onClick={() => (slug && navigateTo(slug))}
+              >
+                {title && <Tooltip><span>{title}</span></Tooltip>}
+              </Marker>
             ))}
           </Map>
         ))}

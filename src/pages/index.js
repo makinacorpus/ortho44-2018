@@ -225,14 +225,14 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
     const { selection, roads, boundaries, cadastre, fullscreen } = this.state;
 
-    const markers = [
-      {
-        position: [47.19959, -1.57434],
-      },
-      {
-        position: [47.2, -1.58],
-      },
-    ];
+
+    const isValidPoi = res => (res.node.frontmatter.templateKey === 'poi' && res.node.frontmatter.lat && res.node.frontmatter.lng);
+
+    const markers = posts.filter(el => isValidPoi(el)).map(({ node }) => ({
+      position: [node.frontmatter.lat, node.frontmatter.lng],
+      title: node.frontmatter.title,
+      slug: node.fields.slug,
+    }));
 
     const exportPictureText = () => ({
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
@@ -339,6 +339,8 @@ export const pageQuery = graphql`
             templateKey
             picture
             id
+            lat
+            lng
           }
         }
       }
