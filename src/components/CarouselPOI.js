@@ -6,6 +6,8 @@ import Icon from './Icon';
 
 import './CarouselPOI.scss';
 
+const iArray = count => Array.from(Array(count).keys());
+
 const CustomCarouselButton = ({ onClick, className, text }) => (
   <button className={className} onClick={onClick}>
     <Icon name="arrow-top" />
@@ -31,14 +33,14 @@ const CustomCarouselNext = ({ onClick, classNamePrefix }) => (
 
 const CustomCarouselItemList = ({ classNamePrefix, slideCount, currentSlide, goToSlide }) => (
   <div className={`${classNamePrefix}__control-list`}>
-    {Array.apply(0, Array(slideCount)).map((slide, index) => (
+    {iArray(slideCount).map(slide => (
       <button
         className={`${classNamePrefix}__control`}
-        key={index} // eslint-disable-line react/no-array-index-key
-        onClick={() => goToSlide(index)}
-        data-active={currentSlide === index}
+        key={slide}
+        onClick={() => goToSlide(slide)}
+        data-active={currentSlide === slide}
       >
-        {index + 1}
+        {slide + 1}
       </button>
     ))}
   </div>
