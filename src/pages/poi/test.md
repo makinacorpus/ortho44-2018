@@ -1,12 +1,13 @@
 ---
 templateKey: poi
-title: test
-description: test
-lat: 45.5
-lng: 2.3
+title: 'Deuxième exemple avec coodonnées, mais hors carousel'
+description: 'Ce contenu est présent sur la carte, mais pas dans le carousel.'
+lat: 47.4
+lng: -2
 marker_type: Second type
+media_type: Drone
 picture: /img/poi1.jpg
-promote: true
+promote: false
 link: 'http://www.perdu.com'
 ---
-test
+
