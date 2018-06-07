@@ -37,7 +37,7 @@ export const ALL_LAYERS = {
   },
 
   roads: {
-    url: `${mainTileServer}/osm/{z}/{x}/{y}.png`,
+    url: `${legacyTileServer}/osm/{z}/{x}/{y}.png`,
     opacity: 0.75,
   },
 
