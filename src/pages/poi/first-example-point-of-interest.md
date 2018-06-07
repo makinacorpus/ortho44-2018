@@ -1,11 +1,11 @@
 ---
 templateKey: poi
-title: First example point of interest
-description: short description of the poi
-promote: false
+title: Autre exemple sans coordonnées
+description: Description du l'élément remarquable qui n'a pas de coordonnées
+marker_type: default
+media_type: Photo
 picture: /img/poi1.jpg
+promote: true
 link: 'http://example.com'
 ---
-Body text  of the poi
 
-With multiples lines
