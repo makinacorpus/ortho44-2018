@@ -243,12 +243,12 @@ export default class IndexPage extends React.Component {
                 this.firstMap && this.firstMap.getZoom() > 13
                 ?
                   [
-                    <li>
+                    <li key="ecw">
                       <a href={this.getECWUrl()} target="_blank">
                         Télécharger l'image en dalles ECW
                       </a>
                     </li>,
-                    <li>
+                    <li key="jpg">
                       <a href={this.getWMSPictureUrl()} target="_blank">
                         Télécharger l'image haute résolution JPG
                       </a>
