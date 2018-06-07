@@ -1,7 +1,11 @@
 ---
 templateKey: poi
-title: titre du nouveau poi
-description: description texte simple
+title: Exemple de contenu 1 avec coordonnées
+description: >-
+  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+  dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
+  congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
+  eleifend mi, non fermentum diam nisl sit amet erat.
 lat: 47.2485
 lng: -1.5947
 marker_type: custom1
