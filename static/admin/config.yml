@@ -20,10 +20,20 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "poi"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Body", name: "body", widget: "markdown", required: false}
       - {label: "Latitude", name: "lat", widget: "number", valueType: "float", min: -90, max: 90, required: false}
       - {label: "Longitude", name: "lng", widget: "number", valueType: "float", min: -180, max: 360, required: false}
-      - {label: "Marker", name: "marker_type", widget: "select", options: ["default", "custom1"]}
+      - {label: "Marker icon", name: "marker_type", widget: "select", options: ["default", "custom1", "custom2", "custom3"]}
+      - {label: "Media type", name: "media_type", widget: "select", options: ["Drone", "Video", "360", "Photo"]}
       - {label: "Main picture", name: "picture", widget: "image", required: false}
-      - {label: "Promote", name: "promote", widget: "boolean", default: false}
+      - {label: "Main iframe", name: "iframe", widget: "text", required: false}
+      - {label: "Carousel", name: "promote", widget: "boolean", default: false}
       - {label: "Link", name: "link", widget: "string", required: false}
+
+  - name: "pages"
+    label: "Pages de contenus"
+    files:
+      - label: "Header carousel"
+        name: "carousel"
+        file: "/src/pages/carousel/index.md"
+        fields:
+          - {label: "Description", name: "body", widget: "markdown", required: true}
