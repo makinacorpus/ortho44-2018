@@ -30,10 +30,15 @@ collections:
       - {label: "Link", name: "link", widget: "string", required: false}
 
   - name: "pages"
-    label: "Pages de contenus"
+    label: "Textes modifiables"
     files:
-      - label: "Header carousel"
+      - label: "Entête carousel"
         name: "carousel"
         file: "/src/pages/carousel/index.md"
+        fields:
+          - {label: "Description", name: "body", widget: "markdown", required: true}
+      - label: "Export d'image"
+        name: "exporter-l-image"
+        file: "/src/pages/exporter-l-image/index.md"
         fields:
           - {label: "Description", name: "body", widget: "markdown", required: true}
