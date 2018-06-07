@@ -6,12 +6,36 @@ import Icon from './Icon';
 
 import './CarouselPOI.scss';
 
+const CustomCarouselButton = ({ onClick, className, text }) => (
+  <button className={className} onClick={onClick}>
+    <Icon name="arrow-top" />
+    <span className="u-visually-hidden">{text}</span>
+  </button>
+);
+
+const CustomCarouselPrev = ({ onClick, classNamePrefix }) => (
+  <CustomCarouselButton
+    onClick={onClick}
+    className={`${classNamePrefix}__prev`}
+    text="Précédent"
+  />
+);
+
+const CustomCarouselNext = ({ onClick, classNamePrefix }) => (
+  <CustomCarouselButton
+    onClick={onClick}
+    className={`${classNamePrefix}__next`}
+    text="Suivant"
+  />
+);
+
 const CarouselPOI = props => {
   const { className, posts } = props;
 
   return (
     <div className={className}>
       <h1 className={`${className}__title`}>Les sites remarquables de Loire-Atlantique</h1>
+
       <div className={`${className}__for-print`} aria-hidden="true">
         {posts
           .filter(post => post.node.frontmatter.templateKey === 'poi')
@@ -25,20 +49,13 @@ const CarouselPOI = props => {
             </div>
           ))}
       </div>
+
       <Carousel
         className={`${className}__list`}
-        renderCenterLeftControls={({ previousSlide }) => (
-          <button className={`${className}__prev`} onClick={previousSlide}>
-            <Icon name="arrow-top" />
-            <span className="u-visually-hidden">Précédent</span>
-          </button>
-        )}
-        renderCenterRightControls={({ nextSlide }) => (
-          <button className={`${className}__next`} onClick={nextSlide}>
-            <Icon name="arrow-top" />
-            <span className="u-visually-hidden">Suivant</span>
-          </button>
-        )}
+        renderCenterLeftControls={({ previousSlide }) =>
+          <CustomCarouselPrev onClick={previousSlide} classNamePrefix={className} />}
+        renderCenterRightControls={({ nextSlide }) =>
+          <CustomCarouselNext onClick={nextSlide} classNamePrefix={className} />}
         renderBottomCenterControls={() => {}}
         renderBottomLeftControls={({
           slideCount,
