@@ -234,7 +234,7 @@ export default class IndexPage extends React.Component {
       slug: node.fields.slug,
     }));
 
-    const exportPictureText = () => ({
+    const downloadModalText = () => ({
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
     });
 
@@ -247,7 +247,7 @@ export default class IndexPage extends React.Component {
           handleClose={() => this.setState({ dlNotice: false })}
         >
           <div className="t-md">
-            <div dangerouslySetInnerHTML={exportPictureText()} />
+            <div dangerouslySetInnerHTML={downloadModalText()} />
             <ul className="download-links">
               {
                 this.firstMap && this.firstMap.getZoom() > 13
