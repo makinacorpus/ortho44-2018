@@ -95,10 +95,10 @@ class SyncedMaps extends Component {
 
   bindMiniMap () {
     if (this.miniMap) {
+      this.miniMap.remove();
+
       if (this.mapRefs.length === 1) {
         this.miniMap.addTo(this.mapRefs[0]);
-      } else {
-        this.miniMap.remove();
       }
     }
   }
