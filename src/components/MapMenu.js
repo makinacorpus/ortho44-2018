@@ -73,19 +73,19 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Cartes historiques</h2>
             <ul>
               <li>
-                <button className={buttonClasses(selection.includes('1850'))} onClick={() => showMaps('1850')}>
+                <button className={buttonClasses(selection[0] === '1850')} onClick={() => showMaps('1850')}>
                   <Icon name="place-1850" />
                   <span className="c-map-menu__button-label">Cartes 1850</span>
                 </button>
               </li>
               <li>
-                <button className={buttonClasses(selection.includes('cassini'))} onClick={() => showMaps('cassini')}>
+                <button className={buttonClasses(selection[0] === 'cassini')} onClick={() => showMaps('cassini')}>
                   <Icon name="place-cassini" />
                   <span className="c-map-menu__button-label">Cartes Cassini</span>
                 </button>
               </li>
               <li>
-                <button className={buttonClasses(selection.includes('napoleon'))} onClick={() => showMaps('napoleon')}>
+                <button className={buttonClasses(selection[0] === 'napoleon')} onClick={() => showMaps('napoleon')}>
                   <Icon name="place-napoleon" />
                   <span className="c-map-menu__button-label">Cadastre Napoléonien</span>
                 </button>
