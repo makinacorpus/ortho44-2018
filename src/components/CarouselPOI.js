@@ -59,11 +59,11 @@ const CustomCarouselSlide = ({ node, classNamePrefix }) => (
 );
 
 const CarouselPOI = props => {
-  const { className, posts } = props;
+  const { className, posts, headerContent } = props;
 
   return (
     <div className={className}>
-      <h1 className={`${className}__title`}>Les sites remarquables de Loire-Atlantique</h1>
+      <div className="t-md" dangerouslySetInnerHTML={headerContent} />
 
       <div className={`${className}__for-print`} aria-hidden="true">
         {posts

@@ -242,6 +242,10 @@ export default class IndexPage extends React.Component {
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
     });
 
+    const carouselHeaderContent = () => ({
+      __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'carousel'))[0].node.html,
+    });
+
     return (
       <section>
 
@@ -318,8 +322,9 @@ export default class IndexPage extends React.Component {
         </div>
 
         <CarouselPOI
-          posts={posts}
           className="c-carousel"
+          posts={posts}
+          headerContent={carouselHeaderContent()}
         />
 
       </section>

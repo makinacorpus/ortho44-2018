@@ -7,8 +7,15 @@ $ratioImg: 123.4rem / 77.7rem;
   max-width: $maxWidth;
   margin: 3rem auto;
   padding: $ratioImg;
+
+  > .t-md {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  h1,
   &__title {
-    margin: 0 2rem;
+    // margin: 0 2rem;
     font-family: "Winterthur", sans-serif;
     font-size: 3rem;
     border-bottom: 1px dotted #7f7f7f;
