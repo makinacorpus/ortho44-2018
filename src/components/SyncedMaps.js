@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Map, TileLayer, WMSTileLayer, GeoJSON } from 'react-leaflet';
+import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet.sync';
 import 'leaflet-minimap';
 import 'leaflet-minimap/src/Control.MiniMap.css';
@@ -9,6 +10,10 @@ import 'leaflet/dist/leaflet.css';
 import './SyncedMaps.scss';
 
 import ALL_LAYERS from '../settings/layers';
+
+import markerUrl from '../img/marker-icon.png';
+import markerShadowUrl from '../img/marker-shadow.png';
+import markerRetinaUrl from '../img/marker-icon-2x.png';
 
 const SYNC_OPTIONS = {
   syncCursor: true,
@@ -59,6 +64,13 @@ class SyncedMaps extends Component {
         position: 'bottomleft',
       },
     );
+
+    this.defaultIcon = new L.Icon({
+      ...L.Icon.Default.prototype.options,
+      iconUrl: markerUrl,
+      shadowUrl: markerShadowUrl,
+      iconRetinaUrl: markerRetinaUrl,
+    });
   }
 
   componentDidMount () {
@@ -95,7 +107,7 @@ class SyncedMaps extends Component {
     unsyncMaps(this.mapRefs);
     this.mapRefs = [];
 
-    const { maps, className, mapsProps } = this.props;
+    const { maps, className, mapsProps, markers } = this.props;
 
     return (
       <div className={className}>
@@ -110,6 +122,13 @@ class SyncedMaps extends Component {
               <AutoLayer
                 key={JSON.stringify(layer)}
                 {...layer}
+              />
+            ))}
+            {markers.map(({ position }) => (
+              <Marker
+                key={JSON.stringify(position)}
+                position={position}
+                icon={this.defaultIcon}
               />
             ))}
           </Map>

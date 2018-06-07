@@ -13,6 +13,7 @@ import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
 
+
 /* eslint no-underscore-dangle: off */
 
 export default class IndexPage extends React.Component {
@@ -224,6 +225,15 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
     const { selection, roads, boundaries, cadastre, fullscreen } = this.state;
 
+    const markers = [
+      {
+        position: [47.19959, -1.57434],
+      },
+      {
+        position: [47.2, -1.58],
+      },
+    ];
+
     const exportPictureText = () => ({
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
     });
@@ -290,6 +300,7 @@ export default class IndexPage extends React.Component {
           <div className="c-map-layout__synced-map">
             <SyncedMaps
               maps={this.mapsFromSelection()}
+              markers={markers}
               className="c-synced-maps"
               updateMapRef={ref => { this.firstMap = ref; }}
               mapsProps={{
