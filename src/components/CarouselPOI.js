@@ -46,6 +46,18 @@ const CustomCarouselItemList = ({ classNamePrefix, slideCount, currentSlide, goT
   </div>
 );
 
+const CustomCarouselSlide = ({ node, classNamePrefix }) => (
+  <div className={`${classNamePrefix}__item`}>
+    <img className={`${classNamePrefix}__img`} src={node.frontmatter.picture} alt="" />
+    <div className={`${classNamePrefix}__content`}>
+      <h2 className={`${classNamePrefix}__item-title`}>{node.frontmatter.title}</h2>
+      <Link className={`${classNamePrefix}__button`} to={node.fields.slug}>
+        Découvrir
+      </Link>
+    </div>
+  </div>
+);
+
 const CarouselPOI = props => {
   const { className, posts } = props;
 
@@ -79,16 +91,12 @@ const CarouselPOI = props => {
       >
         {posts
           .filter(post => post.node.frontmatter.templateKey === 'poi')
-          .map(({ node: post }) => (
-            <div className={`${className}__item`} key={post.id}>
-              <img className={`${className}__img`} src={post.frontmatter.picture} alt="" />
-              <div className={`${className}__content`}>
-                <h2 className={`${className}__item-title`}>{post.frontmatter.title}</h2>
-                <Link className={`${className}__button`} to={post.fields.slug}>
-                  Découvrir
-                </Link>
-              </div>
-            </div>
+          .map(({ node }) => (
+            <CustomCarouselSlide
+              key={node.id}
+              node={node}
+              classNamePrefix={className}
+            />
           ))}
       </Carousel>
     </div>
