@@ -13,6 +13,8 @@ import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
 
+/* eslint no-underscore-dangle: off */
+
 export default class IndexPage extends React.Component {
   constructor () {
     super();
@@ -51,6 +53,26 @@ export default class IndexPage extends React.Component {
     this.handleViewportChange = debounce(this.handleViewportChange.bind(this), 100);
     this.zoomIn = this.zoomIn.bind(this);
     this.zoomOut = this.zoomOut.bind(this);
+  }
+
+  getECWUrl () {
+    const bounds = this.firstMap.getBounds();
+    return 'http://services.vuduciel.loire-atlantique.fr/download?'
+    + `&x0=${bounds._southWest.lng}`
+    + `&x1=${bounds._northEast.lng}`
+    + `&y0=${bounds._southWest.lat}`
+    + `&y1=${bounds._northEast.lat}`;
+  }
+
+  getWMSPictureUrl () {
+    const bounds = this.firstMap.getBounds();
+    const { x, y } = this.firstMap.getSize();
+    const layerName = 'cg44:ortho44-2016';
+
+    return `${ALL_LAYERS.wms.url}/geoserver/wms/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap`
+      + `&BBOX=${bounds._southWest.lat},${bounds._southWest.lng},${bounds._northEast.lat},${bounds._northEast.lng}`
+      + `&WIDTH=${x}&HEIGHT=${y}&LAYERS=${layerName}`
+      + '&SRS=EPSG:4326&STYLES=&FORMAT=image/jpeg&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE';
   }
 
   showMaps (...IDs) {
@@ -141,7 +163,7 @@ export default class IndexPage extends React.Component {
         style: {
           fillColor: 'transparent',
           interactive: false,
-        }
+        },
       });
     }
 
@@ -157,7 +179,7 @@ export default class IndexPage extends React.Component {
       geometry: selection.suggestion.data._source.geometry,
     };
 
-    const [ minX, minY, maxX, maxY ] = bbox(geojson);
+    const [minX, minY, maxX, maxY] = bbox(geojson);
 
     this.setState({
       resultLayer: geojson,
@@ -191,26 +213,6 @@ export default class IndexPage extends React.Component {
     this.firstMap.zoomOut();
   }
 
-  getECWUrl () {
-    const bounds = this.firstMap.getBounds();
-    return 'http://services.vuduciel.loire-atlantique.fr/download?'
-    + `&x0=${bounds._southWest.lng}`
-    + `&x1=${bounds._northEast.lng}`
-    + `&y0=${bounds._southWest.lat}`
-    + `&y1=${bounds._northEast.lat}`;
-  }
-
-  getWMSPictureUrl () {
-    const bounds = this.firstMap.getBounds();
-    const { x, y } = this.firstMap.getSize();
-    const layerName = 'cg44:ortho44-2016';
-
-    return `${ALL_LAYERS.wms.url}/geoserver/wms/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap`
-      + `&BBOX=${bounds._southWest.lat},${bounds._southWest.lng},${bounds._northEast.lat},${bounds._northEast.lng}`
-      + `&WIDTH=${x}&HEIGHT=${y}&LAYERS=${layerName}`
-      + '&SRS=EPSG:4326&STYLES=&FORMAT=image/jpeg&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE';
-  }
-
   toggleDlNotice (visible) {
     this.setState({
       dlNotice: typeof visible === 'boolean' ? visible : !this.state.dlNotice,
@@ -229,21 +231,28 @@ export default class IndexPage extends React.Component {
     return (
       <section>
 
-        {typeof window !== 'undefined' && <CustomModal
+        {typeof window !== 'undefined' &&
+        <CustomModal
           isOpen={this.state.dlNotice}
           handleClose={() => this.setState({ dlNotice: false })}
         >
           <div className="t-md">
-            <div
-              dangerouslySetInnerHTML={exportPictureText()}
-            />
+            <div dangerouslySetInnerHTML={exportPictureText()} />
             <ul className="download-links">
               {
                 this.firstMap && this.firstMap.getZoom() > 13
                 ?
                   [
-                    <li>{<a href={this.getECWUrl()} target="_blank">Télécharger l'image en dalles ECW</a>}</li>,
-                    <li>{<a href={this.getWMSPictureUrl()} target="_blank">Télécharger l'image haute résolution JPG</a>}</li>,
+                    <li>
+                      <a href={this.getECWUrl()} target="_blank">
+                        Télécharger l'image en dalles ECW
+                      </a>
+                    </li>,
+                    <li>
+                      <a href={this.getWMSPictureUrl()} target="_blank">
+                        Télécharger l'image haute résolution JPG
+                      </a>
+                    </li>,
                   ]
                 :
                   <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
