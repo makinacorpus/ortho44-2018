@@ -59,17 +59,17 @@ const CustomModal = props => (
     <div>
       <div style={modalInnerStyle}>
         {props.children}
+        <button
+          data-testid="modal-close"
+          onClick={props.handleClose}
+          style={modalCloseStyle}
+        >
+          <Icon name="cross" />
+          <span className="u-visually-hidden">Fermer</span>
+        </button>
       </div>
     </div>
 
-    <button
-      data-testid="modal-close"
-      onClick={props.handleClose}
-      style={modalCloseStyle}
-    >
-      <Icon name="cross" />
-      <span className="u-visually-hidden">Fermer</span>
-    </button>
 
   </Modal>
 );
