@@ -77,9 +77,13 @@ export default class IndexPage extends React.Component {
   }
 
   showMaps (...IDs) {
-    this.setState({
-      selection: IDs,
-    });
+    let selection = IDs;
+
+    if (IDs.length === 1 && IDs[0] === this.state.selection[0]) {
+      selection = [DEFAULT_BASE];
+    }
+
+    this.setState({ selection });
   }
 
   toggleCadastre () {
