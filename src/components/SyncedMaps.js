@@ -57,7 +57,6 @@ class SyncedMaps extends Component {
     super(props);
     this.mapRefs = [];
 
-    const { L } = window;
     this.miniMap = new L.Control.MiniMap(
       new L.TileLayer(ALL_LAYERS.osm.url),
       {
