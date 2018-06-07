@@ -8,6 +8,8 @@ import './MapMenu.scss';
 import { DEFAULT_BASE, COMPARE_WITH, ALL_LAYERS } from '../settings/layers';
 import GeoSearch from './GeoSearch';
 
+const buttonClasses = active => classnames('c-map-menu__button', { 'c-map-menu__button--active': active });
+
 class MapMenu extends Component {
   constructor () {
     super();
@@ -71,19 +73,19 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Cartes historiques</h2>
             <ul>
               <li>
-                <button className={selection.includes('1850') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('1850')}>
+                <button className={buttonClasses(selection.includes('1850'))} onClick={() => showMaps('1850')}>
                   <Icon name="place-1850" />
                   <span className="c-map-menu__button-label">Cartes 1850</span>
                 </button>
               </li>
               <li>
-                <button className={selection.includes('cassini') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('cassini')}>
+                <button className={buttonClasses(selection.includes('cassini'))} onClick={() => showMaps('cassini')}>
                   <Icon name="place-cassini" />
                   <span className="c-map-menu__button-label">Cartes Cassini</span>
                 </button>
               </li>
               <li>
-                <button className={selection.includes('napoleon') ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => showMaps('napoleon')}>
+                <button className={buttonClasses(selection.includes('napoleon'))} onClick={() => showMaps('napoleon')}>
                   <Icon name="place-napoleon" />
                   <span className="c-map-menu__button-label">Cadastre Napoléonien</span>
                 </button>
@@ -100,7 +102,7 @@ class MapMenu extends Component {
                 </button>
               </li>
               <li>
-                <button className={cadastre ? 'c-map-menu__button c-map-menu__button--active' : 'c-map-menu__button'} onClick={() => toggleCadastre()}>
+                <button className={buttonClasses(cadastre)} onClick={() => toggleCadastre()}>
                   <Icon name="cadastre" />
                   <span className="c-map-menu__button-label">Cadastre</span>
                 </button>
