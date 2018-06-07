@@ -29,6 +29,21 @@ const CustomCarouselNext = ({ onClick, classNamePrefix }) => (
   />
 );
 
+const CustomCarouselItemList = ({ classNamePrefix, slideCount, currentSlide, goToSlide }) => (
+  <div className={`${classNamePrefix}__control-list`}>
+    {Array.apply(0, Array(slideCount)).map((slide, index) => (
+      <button
+        className={`${classNamePrefix}__control`}
+        key={index} // eslint-disable-line react/no-array-index-key
+        onClick={() => goToSlide(index)}
+        data-active={currentSlide === index}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+);
+
 const CarouselPOI = props => {
   const { className, posts } = props;
 
@@ -57,24 +72,8 @@ const CarouselPOI = props => {
         renderCenterRightControls={({ nextSlide }) =>
           <CustomCarouselNext onClick={nextSlide} classNamePrefix={className} />}
         renderBottomCenterControls={() => {}}
-        renderBottomLeftControls={({
-          slideCount,
-          currentSlide,
-          goToSlide,
-        }) => (
-          <div className={`${className}__control-list`}>
-            {Array.apply(0, Array(slideCount)).map((slide, index) => (
-              <button
-                className={`${className}__control`}
-                key={index} // eslint-disable-line react/no-array-index-key
-                onClick={() => goToSlide(index)}
-                data-active={currentSlide === index}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
-        )}
+        renderBottomLeftControls={params =>
+          <CustomCarouselItemList {...params} classNamePrefix={className} />}
       >
         {posts
           .filter(post => post.node.frontmatter.templateKey === 'poi')
