@@ -16,6 +16,8 @@ collections:
     folder: "/src/pages/poi"
     create: true
     slug: "{{slug}}"
+    editor:
+      preview: false
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "poi"}
       - {label: "Title", name: "title", widget: "string"}
@@ -54,6 +56,8 @@ collections:
 
   - name: "pages"
     label: "Textes modifiables"
+    editor:
+      preview: false
     files:
       - label: "Entête carousel"
         name: "carousel"
