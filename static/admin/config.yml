@@ -12,7 +12,7 @@ slug:
 collections:
 
   - name: "poi"
-    label: "Point of interest"
+    label: "Points d'intérêt"
     folder: "/src/pages/poi"
     create: true
     slug: "{{slug}}"
@@ -24,12 +24,12 @@ collections:
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Latitude", name: "lat", widget: "number", valueType: "float", min: -90, max: 90, required: false}
       - {label: "Longitude", name: "lng", widget: "number", valueType: "float", min: -180, max: 360, required: false}
-      - {label: "Main picture", name: "picture", widget: "image", required: false}
-      - {label: "Main iframe", name: "iframe", widget: "text", required: false}
+      - {label: "Image principale", name: "picture", widget: "image", required: false}
+      - {label: "Iframe", name: "iframe", widget: "text", required: false}
       - {label: "Carousel", name: "promote", widget: "boolean", default: false}
-      - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "Lien (En savoir plus…)", name: "link", widget: "string", required: false}
 
-      - label: "Marker icon"
+      - label: "Type de marker"
         name: "marker_type"
         widget: "select"
         required: false
@@ -43,7 +43,7 @@ collections:
           - { label: "Rouge", value: "red"}
           - { label: "Violet", value: "violet"}
           - { label: "Jaune", value: "yellow"}
-      - label: "Media type"
+      - label: "Type de media"
         name: "media_type"
         widget: "select"
         required: false
