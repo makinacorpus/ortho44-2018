@@ -148,7 +148,10 @@
     padding: 1.5rem 5%;
     &__collapsable {
       margin: 0 10%;
-    } 
+      &.open {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
