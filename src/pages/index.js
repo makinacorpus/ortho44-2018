@@ -316,6 +316,8 @@ export default class IndexPage extends React.Component {
                 attributionControl: false,
                 viewport: this.viewport,
                 onViewportChanged: this.handleViewportChange,
+                wakeMessage: 'Toucher ou survoler pour activer le zoom',
+                sleepOpacity: 1,
               }}
             />
           </div>

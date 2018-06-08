@@ -4,6 +4,7 @@ import { navigateTo } from 'gatsby-link';
 import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker, Tooltip, ScaleControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet.sync';
+import 'leaflet-sleep';
 import 'leaflet-minimap';
 import 'leaflet-minimap/src/Control.MiniMap.css';
 
@@ -62,6 +63,9 @@ class SyncedMaps extends Component {
       new L.TileLayer(ALL_LAYERS.osm.url),
       {
         position: 'bottomleft',
+        mapOptions: {
+          sleep: false,
+        },
       },
     );
 
