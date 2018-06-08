@@ -356,6 +356,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            promote
             title
             templateKey
             picture

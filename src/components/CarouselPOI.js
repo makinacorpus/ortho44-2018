@@ -60,14 +60,16 @@ const CustomCarouselSlide = ({ node, classNamePrefix }) => (
 
 const CarouselPOI = props => {
   const { className, posts, headerContent } = props;
+  const filteredPosts = posts
+    .filter(post => post.node.frontmatter.templateKey === 'poi')
+    .filter(post => post.node.frontmatter.promote);
 
   return (
     <div className={className}>
       <div className="t-md" dangerouslySetInnerHTML={headerContent} />
 
       <div className={`${className}__for-print`} aria-hidden="true">
-        {posts
-          .filter(post => post.node.frontmatter.templateKey === 'poi')
+        {filteredPosts
           .map(({ node: post }) => (
             <div className={`${className}__for-print-item`} key={post.id}>
               <img className={`${className}__for-print-img`} src={post.frontmatter.picture} alt="" />
@@ -89,8 +91,7 @@ const CarouselPOI = props => {
         renderBottomLeftControls={params =>
           <CustomCarouselItemList {...params} classNamePrefix={className} />}
       >
-        {posts
-          .filter(post => post.node.frontmatter.templateKey === 'poi')
+        {filteredPosts
           .map(({ node }) => (
             <CustomCarouselSlide
               key={node.id}
