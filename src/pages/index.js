@@ -245,6 +245,7 @@ export default class IndexPage extends React.Component {
       position: [node.frontmatter.lat, node.frontmatter.lng],
       title: node.frontmatter.title,
       slug: node.fields.slug,
+      icon: node.frontmatter.marker_type,
     }));
 
     const downloadModalText = () => ({
@@ -356,13 +357,18 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            id
+            templateKey
+
+            iframe
+            lat
+            link
+            lng
+            marker_type
+            media_type
+            picture
             promote
             title
-            templateKey
-            picture
-            id
-            lat
-            lng
           }
         }
       }

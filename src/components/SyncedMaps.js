@@ -119,11 +119,11 @@ class SyncedMaps extends Component {
                 {...layer}
               />
             ))}
-            {markers.map(({ position, title, slug }) => (
+            {markers.map(({ position, title, slug, icon }) => (
               <Marker
                 key={JSON.stringify(position)}
                 position={position}
-                icon={markerIcons.default}
+                icon={markerIcons[icon] || markerIcons.default}
                 onClick={() => (slug && navigateTo(slug))}
               >
                 {title && <Tooltip><span>{title}</span></Tooltip>}

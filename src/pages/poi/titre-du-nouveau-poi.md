@@ -8,7 +8,7 @@ description: >-
   eleifend mi, non fermentum diam nisl sit amet erat.
 lat: 47.2485
 lng: -1.5947
-marker_type: custom1
+marker_type: red
 media_type: Video
 picture: /img/products-full-width.jpg
 iframe: >-
