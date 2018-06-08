@@ -15,20 +15,18 @@ const CustomModal = props => (
     overlayClassName={styles.overlay}
   >
 
-    <div>
-      <div className={styles.modalInnerStyle}>
-        {props.children}
-        <button
-          data-testid="modal-close"
-          onClick={props.handleClose}
-          className={styles.modalCloseStyle}
-        >
-          <Icon name="cross" />
-          <span className="u-visually-hidden">Fermer</span>
-        </button>
-      </div>
-    </div>
+    <button
+      data-testid="modal-close"
+      onClick={props.handleClose}
+      className={styles.closeButton}
+    >
+      <Icon name="cross" />
+      <span className="u-visually-hidden">Fermer</span>
+    </button>
 
+    <div className={styles.inner}>
+      {props.children}
+    </div>
 
   </Modal>
 );
