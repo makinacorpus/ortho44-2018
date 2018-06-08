@@ -54,6 +54,12 @@ $ratioImg: 123.4rem / 77.7rem;
     display: block;
     margin: auto;
   }
+  &__type-img {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    max-width: 10%;
+  }
   &__item-title {
     font-family: "Winterthur", sans-serif;
     font-size: 3rem;

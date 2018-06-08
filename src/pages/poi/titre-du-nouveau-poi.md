@@ -9,7 +9,7 @@ description: >-
 lat: 47.2485
 lng: -1.5947
 marker_type: red
-media_type: Video
+media_type: drone
 picture: /img/products-full-width.jpg
 iframe: >-
   <iframe width="560" height="315"

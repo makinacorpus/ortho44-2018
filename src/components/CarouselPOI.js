@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import Carousel from 'nuka-carousel';
 
 import Icon from './Icon';
+import mediaTypes from '../helpers/mediaTypes';
 
 import './CarouselPOI.scss';
 
@@ -49,6 +50,7 @@ const CustomCarouselItemList = ({ classNamePrefix, slideCount, currentSlide, goT
 const CustomCarouselSlide = ({ node, classNamePrefix }) => (
   <div className={`${classNamePrefix}__item`}>
     <img className={`${classNamePrefix}__img`} src={node.frontmatter.picture} alt="" />
+    <img className={`${classNamePrefix}__type-img`} src={mediaTypes[node.frontmatter.media_type]} alt={node.frontmatter.media_type} />
     <div className={`${classNamePrefix}__content`}>
       <h2 className={`${classNamePrefix}__item-title`}>{node.frontmatter.title}</h2>
       <Link className={`${classNamePrefix}__button`} to={node.fields.slug}>
