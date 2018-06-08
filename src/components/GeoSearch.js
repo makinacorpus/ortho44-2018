@@ -91,7 +91,7 @@ class GeoSearch extends Component {
       <div>
         <Autosuggest
           suggestions={suggestions}
-          onSuggestionsFetchRequested={({ val }) => this.loadSuggestions(val)}
+          onSuggestionsFetchRequested={res => this.loadSuggestions(res.value)}
           onSuggestionsClearRequested={() => this.setState({ suggestions: [] })}
           onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={this.getSuggestionValue}
