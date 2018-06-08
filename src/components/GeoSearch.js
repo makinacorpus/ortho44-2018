@@ -108,7 +108,7 @@ class GeoSearch extends Component {
     };
 
     return (
-      <div>
+      <div className={this.state.isLoading ? 'loading' : ''}>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={res => this.loadSuggestions(res.value)}
