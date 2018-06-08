@@ -25,12 +25,11 @@ export const getLabel = (hit, mode) => {
   return label;
 };
 
-export const parseSuggestions = hits => {
-  return hits.map(hit => ({
-    label: getLabel(hit._source, 'LISTING'),
+export const parseSuggestions = hits =>
+  hits.map(hit => ({
+    label: getLabel(hit._source, 'LISTING'), // eslint-disable-line no-underscore-dangle
     data: hit,
   }));
-};
 
 export const getRandomPlace = () => {
   const places = [

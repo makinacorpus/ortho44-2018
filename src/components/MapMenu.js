@@ -20,7 +20,16 @@ class MapMenu extends Component {
   }
 
   render () {
-    const { showMaps, selection, toggleCadastre, toggleDlNotice, cadastre, className, handleResult, placeName } = this.props;
+    const {
+      showMaps,
+      selection,
+      toggleCadastre,
+      toggleDlNotice,
+      cadastre,
+      className,
+      handleResult,
+      placeName,
+    } = this.props;
     const { open } = this.state;
 
     const displayPrintSelection = selection.length === 1 ? `Carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}` : `À gauche: carte ${selection[0]} ${cadastre ? 'avec affichage du cadastre' : ''}; À droite: carte ${selection[1]}`;

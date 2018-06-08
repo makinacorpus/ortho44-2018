@@ -2,37 +2,35 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 
-class TagRoute extends React.Component {
-  render () {
-    const posts = this.props.data.allMarkdownRemark.edges;
-    const postLinks = posts.map(post => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <h2>{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
-    ));
-    const { tag, title, totalCount } = this.props.pathContext;
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`;
+const TagRoute = props => {
+  const posts = props.data.allMarkdownRemark.edges;
+  const postLinks = posts.map(post => (
+    <li key={post.node.fields.slug}>
+      <Link to={post.node.fields.slug}>
+        <h2>{post.node.frontmatter.title}</h2>
+      </Link>
+    </li>
+  ));
+  const { tag, title, totalCount } = props.pathContext;
+  const tagHeader = `${totalCount} post${
+    totalCount === 1 ? '' : 's'
+  } tagged with “${tag}”`;
 
-    return (
-      <section>
-        <Helmet title={`${tag} | ${title}`} />
-          <div
-            style={{ marginBottom: '6rem' }}
-          >
-            <h3>{tagHeader}</h3>
-            <ul>{postLinks}</ul>
-            <p>
-              <Link to="/tags/">Browse all tags</Link>
-            </p>
-          </div>
-      </section>
-    );
-  }
-}
+  return (
+    <section>
+      <Helmet title={`${tag} | ${title}`} />
+      <div
+        style={{ marginBottom: '6rem' }}
+      >
+        <h3>{tagHeader}</h3>
+        <ul>{postLinks}</ul>
+        <p>
+          <Link to="/tags/">Browse all tags</Link>
+        </p>
+      </div>
+    </section>
+  );
+};
 
 export default TagRoute;
 

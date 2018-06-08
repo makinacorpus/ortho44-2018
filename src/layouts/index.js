@@ -22,13 +22,11 @@ export default class TemplateWrapper extends React.Component {
   static childContextTypes = {
     setPosts: PropTypes.func,
   }
-  getChildContext = () => {
-    return {
-      setPosts: posts => {
-        this.posts = posts;
-      },
-    }
-  }
+  getChildContext = () => ({
+    setPosts: posts => {
+      this.posts = posts;
+    },
+  })
 
   componentDidMount = () => {
     // Create references to html/body elements
@@ -39,7 +37,7 @@ export default class TemplateWrapper extends React.Component {
     this.windowWidth = window.innerWidth;
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = nextProps => {
     // if we're changing to a non-homepage page, put things in
     // a modal (unless we're on mobile).
     if (

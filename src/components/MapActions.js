@@ -22,8 +22,8 @@ class MapActions extends Component {
     this.setState({ displayRoadsAndBoundaries: false });
   }
 
-  render() {
-    const { 
+  render () {
+    const {
       className,
       geolocate,
       roads,
@@ -33,7 +33,7 @@ class MapActions extends Component {
       fullscreen,
       toggleFullscreen,
       zoomIn,
-      zoomOut
+      zoomOut,
     } = this.props;
     const { displayRoadsAndBoundaries } = this.state;
     return (
@@ -44,7 +44,7 @@ class MapActions extends Component {
             <span className="u-visually-hidden">Géolocaliser</span>
           </button>
         </li>
-        
+
         <li className={`${className}__item`}>
           { fullscreen ? (
             <button className={`${className}__button`} type="button" onClick={() => toggleFullscreen()} title="Enlever le plein écran">
@@ -94,9 +94,9 @@ class MapActions extends Component {
           </ul>
         </li>
       </ul>
-    )
+    );
   }
-};
+}
 
 export default MapActions;
 

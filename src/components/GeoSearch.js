@@ -7,26 +7,37 @@ import { parseSuggestions } from '../helpers';
 
 import './GeoSearch.scss';
 
-const renderSuggestion = (suggestion, { isHighlighted }) => {
-  return (
-    <span>{suggestion.label}</span>
-  );
-};
+const renderSuggestion = suggestion => <span>{suggestion.label}</span>;
 
 class GeoSearch extends Component {
-  constructor() {
+  constructor () {
     super();
 
     this.state = {
       value: '',
-      suggestions: []
+      isLoading: false,
+      suggestions: [],
     };
 
     this.loadSuggestions = debounce(this.loadSuggestions, 500);
   }
 
+  onChange = (event, { newValue }) => {
+    this.setState({
+      value: newValue,
+    });
+  };
 
-  loadSuggestions(value) {
+  onSuggestionSelected = (event, selection) => {
+    // const { suggestion, suggestionValue, suggestionIndex, sectionIndex, method } = selection;
+    if (typeof this.props.onSelect === 'function') {
+      this.props.onSelect(selection);
+    }
+  };
+
+  getSuggestionValue = suggestion => suggestion.label;
+
+  loadSuggestions (value) {
     this.setState({
       isLoading: true,
     });
@@ -47,12 +58,12 @@ class GeoSearch extends Component {
         if (data.hits.total === 0) {
           fetch(`https://es.makina-corpus.net/cg44/address/_search?default_operator=AND&q=${value}`)
             .then(res => res.json())
-            .then(data => {
+            .then(data2 => {
               this.setState({
                 isLoading: false,
-                suggestions: parseSuggestions(data.hits.hits),
+                suggestions: parseSuggestions(data2.hits.hits),
               });
-            })
+            });
         } else {
           this.setState({
             isLoading: false,
@@ -62,36 +73,19 @@ class GeoSearch extends Component {
       });
   }
 
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue,
-    });
-  };
-
-  getSuggestionValue = suggestion => {
-    return suggestion.label;
-  };
-
-  onSuggestionSelected = (event, selection) => {
-    // const { suggestion, suggestionValue, suggestionIndex, sectionIndex, method } = selection;
-    if (typeof this.props.onSelect === 'function') {
-      this.props.onSelect(selection);
-    }
-  };
-
-  render() {
-    const { value, suggestions, isLoading } = this.state;
+  render () {
+    const { value, suggestions } = this.state;
     const inputProps = {
       ...this.props.inputProps,
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
     };
 
     return (
       <div>
         <Autosuggest
           suggestions={suggestions}
-          onSuggestionsFetchRequested={({ value }) => this.loadSuggestions(value)}
+          onSuggestionsFetchRequested={({ val }) => this.loadSuggestions(val)}
           onSuggestionsClearRequested={() => this.setState({ suggestions: [] })}
           onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={this.getSuggestionValue}

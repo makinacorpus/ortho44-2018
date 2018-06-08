@@ -262,12 +262,12 @@ export default class IndexPage extends React.Component {
                 ?
                   [
                     <li key="ecw">
-                      <a href={this.getECWUrl()} target="_blank">
+                      <a href={this.getECWUrl()} target="_blank" rel="noopener noreferrer">
                         Télécharger l'image en dalles ECW
                       </a>
                     </li>,
                     <li key="jpg">
-                      <a href={this.getWMSPictureUrl()} target="_blank">
+                      <a href={this.getWMSPictureUrl()} target="_blank" rel="noopener noreferrer">
                         Télécharger l'image haute résolution JPG
                       </a>
                     </li>,
