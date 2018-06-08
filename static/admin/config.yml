@@ -36,9 +36,15 @@ collections:
         name: "carousel"
         file: "/src/pages/carousel/index.md"
         fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "carousel"}
+          - {label: "Title", name: "title", widget: "hidden", default: "Introduction du carousel"}
           - {label: "Description", name: "body", widget: "markdown", required: true}
       - label: "Export d'image"
         name: "exporter-l-image"
         file: "/src/pages/exporter-l-image/index.md"
         fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "picture-export"}
+          - {label: "Title", name: "title", widget: "hidden", default: "Texte de la fenêtre d'export d'image"}
           - {label: "Description", name: "body", widget: "markdown", required: true}
