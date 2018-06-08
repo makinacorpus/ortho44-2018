@@ -203,11 +203,16 @@ export default class IndexPage extends React.Component {
       });
   }
 
+  updateHash () {
+    const compareWith = this.state.selection[1];
+    setHash(serializeViewport(this.viewport) + (compareWith ? `!${compareWith}` : ''));
+  }
+
   handleViewportChange (viewport) {
     if (!isEqual(this.viewport, viewport)) {
       this.viewport = viewport;
-      setHash(serializeViewport(viewport));
     }
+    this.updateHash();
   }
 
   zoomIn () {
