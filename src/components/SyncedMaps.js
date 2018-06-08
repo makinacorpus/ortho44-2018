@@ -13,9 +13,7 @@ import './SyncedMaps.scss';
 
 import ALL_LAYERS from '../settings/layers';
 
-import markerUrl from '../img/marker-icon.png';
-import markerShadowUrl from '../img/marker-shadow.png';
-import markerRetinaUrl from '../img/marker-icon-2x.png';
+import markerIcons from '../helpers/markerIcons';
 
 const SYNC_OPTIONS = {
   syncCursor: true,
@@ -68,13 +66,6 @@ class SyncedMaps extends Component {
         },
       },
     );
-
-    this.defaultIcon = new L.Icon({
-      ...L.Icon.Default.prototype.options,
-      iconUrl: markerUrl,
-      shadowUrl: markerShadowUrl,
-      iconRetinaUrl: markerRetinaUrl,
-    });
   }
 
   componentDidMount () {
@@ -132,7 +123,7 @@ class SyncedMaps extends Component {
               <Marker
                 key={JSON.stringify(position)}
                 position={position}
-                icon={this.defaultIcon}
+                icon={markerIcons.default}
                 onClick={() => (slug && navigateTo(slug))}
               >
                 {title && <Tooltip><span>{title}</span></Tooltip>}
