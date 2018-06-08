@@ -9,6 +9,20 @@ import './GeoSearch.scss';
 
 const renderSuggestion = suggestion => <span>{suggestion.label}</span>;
 
+const buildJSONQuery = (
+  value,
+  fields = ['nom', 'type'],
+  querySuffix = 'AND COMMUNE',
+) => JSON.stringify({
+  query: {
+    query_string: {
+      fields,
+      query: `${value} ${querySuffix}`,
+      default_operator: 'AND',
+    },
+  },
+});
+
 class GeoSearch extends Component {
   constructor () {
     super();
@@ -42,15 +56,7 @@ class GeoSearch extends Component {
       isLoading: true,
     });
 
-    const nameLookup = JSON.stringify({
-      query: {
-        query_string: {
-          fields: ['nom', 'type'],
-          query: `${value} AND COMMUNE`,
-          default_operator: 'AND',
-        },
-      },
-    });
+    const nameLookup = buildJSONQuery(value);
 
     fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${nameLookup}`)
       .then(res => res.json())
