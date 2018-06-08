@@ -36,11 +36,15 @@ export default class IndexPage extends React.Component {
 
     const hash = getHash();
     if (hash) {
-      const [viewportSerial, layer] = hash.split('!');
-      if (ALL_LAYERS[layer]) {
-        this.state.selection = [DEFAULT_BASE, layer];
+      if (hash.includes('=')) {
+        this.initialSearch = hash;
+      } else {
+        const [viewportSerial, layer] = hash.split('!');
+        if (ALL_LAYERS[layer]) {
+          this.state.selection = [DEFAULT_BASE, layer];
+        }
+        this.viewport = unserializeViewport(viewportSerial) || this.viewport;
       }
-      this.viewport = unserializeViewport(viewportSerial) || this.viewport;
     }
 
     this.showMaps = this.showMaps.bind(this);
@@ -291,6 +295,7 @@ export default class IndexPage extends React.Component {
           toggleCadastre={this.toggleCadastre}
           toggleDlNotice={() => this.toggleDlNotice()}
           handleResult={this.handleResult}
+          initialSearch={this.initialSearch}
           placeName={this.placeName}
           className="c-map-menu"
         />

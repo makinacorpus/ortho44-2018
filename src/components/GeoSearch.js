@@ -24,8 +24,8 @@ const buildJSONQuery = (
 });
 
 class GeoSearch extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
 
     this.state = {
       value: '',
@@ -34,6 +34,10 @@ class GeoSearch extends Component {
     };
 
     this.loadSuggestions = debounce(this.loadSuggestions, 500);
+
+    if (props.initialSearch) {
+      this.directSearch(props.initialSearch.split('=')[1]);
+    }
   }
 
   onChange = (event, { newValue }) => {
@@ -50,6 +54,22 @@ class GeoSearch extends Component {
   };
 
   getSuggestionValue = suggestion => suggestion.label;
+
+  directSearch (value) {
+    const lookup = buildJSONQuery(value, ['code_insee', 'type'], 'AND COMMUNE OR CANTON');
+
+    fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${lookup}`)
+      .then(res => res.json())
+      .then(data => {
+        const suggestion = {
+          suggestion: {
+            label: 'noname',
+            data: data.hits.hits[0],
+          },
+        };
+        this.onSuggestionSelected(null, suggestion);
+      });
+  }
 
   loadSuggestions (value) {
     this.setState({

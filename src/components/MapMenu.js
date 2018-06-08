@@ -28,6 +28,7 @@ class MapMenu extends Component {
       cadastre,
       className,
       handleResult,
+      initialSearch,
       placeName,
     } = this.props;
     const { open } = this.state;
@@ -51,6 +52,7 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Rechercher</h2>
             <GeoSearch
               onSelect={handleResult}
+              initialSearch={initialSearch}
               inputProps={{
                 placeholder: placeName,
               }}
