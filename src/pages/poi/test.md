@@ -7,7 +7,7 @@ lng: -2
 picture: /img/poi1.jpg
 promote: false
 link: 'http://www.perdu.com'
-marker_type: green
+marker_type: orange
 media_type: Drone
 ---
 
