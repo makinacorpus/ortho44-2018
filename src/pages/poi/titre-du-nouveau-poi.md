@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Exemple de contenu 1 avec coordonnées
+title: Exemple de contenu image
 description: >-
   Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
   dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
@@ -8,8 +8,6 @@ description: >-
   eleifend mi, non fermentum diam nisl sit amet erat.
 lat: 47.2485
 lng: -1.5947
-marker_type: red
-media_type: drone
 picture: /img/products-full-width.jpg
 iframe: >-
   <iframe width="560" height="315"
@@ -17,5 +15,7 @@ iframe: >-
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
 link: 'http://perdu.com'
+marker_type: red
+media_type: drone
 ---
 
