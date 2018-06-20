@@ -60,16 +60,7 @@ export default class IndexPage extends React.Component {
     this.zoomOut = this.zoomOut.bind(this);
   }
 
-  getTIFFUrl () {
-    const bounds = this.firstMap.getBounds();
-    return 'http://services.vuduciel.loire-atlantique.fr/download?'
-    + `&x0=${bounds._southWest.lng}`
-    + `&x1=${bounds._northEast.lng}`
-    + `&y0=${bounds._southWest.lat}`
-    + `&y1=${bounds._northEast.lat}`;
-  }
-
-  getWMSPictureUrl () {
+  getWMSPictureUrl (mime = 'jpeg') {
     const bounds = this.firstMap.getBounds();
     const { x, y } = this.firstMap.getSize();
     const layerName = 'cg44:ortho44-2016';
@@ -77,7 +68,7 @@ export default class IndexPage extends React.Component {
     return `${ALL_LAYERS.wms.url}/geoserver/wms/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap`
       + `&BBOX=${bounds._southWest.lat},${bounds._southWest.lng},${bounds._northEast.lat},${bounds._northEast.lng}`
       + `&WIDTH=${x}&HEIGHT=${y}&LAYERS=${layerName}`
-      + '&SRS=EPSG:4326&STYLES=&FORMAT=image/jpeg&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE';
+      + `&SRS=EPSG:4326&STYLES=&FORMAT=image/${mime}&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE`;
   }
 
   showMaps (...IDs) {
@@ -271,13 +262,13 @@ export default class IndexPage extends React.Component {
                 this.firstMap && this.firstMap.getZoom() > 13
                 ?
                   [
-                    <li key="ecw">
-                      <a href={this.getTIFFUrl()} target="_blank" rel="noopener noreferrer">
-                        Télécharger l'image en dalles GeoTIFF
+                    <li key="geotiff">
+                      <a href={this.getWMSPictureUrl('geotiff')} target="_blank" rel="noopener noreferrer">
+                      Télécharger l'image haute résolution GeoTIFF
                       </a>
                     </li>,
                     <li key="jpg">
-                      <a href={this.getWMSPictureUrl()} target="_blank" rel="noopener noreferrer">
+                      <a href={this.getWMSPictureUrl('jpeg')} target="_blank" rel="noopener noreferrer">
                         Télécharger l'image haute résolution JPG
                       </a>
                     </li>,
