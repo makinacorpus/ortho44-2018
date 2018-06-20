@@ -107,7 +107,11 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Les plus</h2>
             <ul>
               <li>
-                <button className="c-map-menu__button" onClick={toggleDlNotice}>
+                <button
+                  className="c-map-menu__button"
+                  onClick={toggleDlNotice}
+                  title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
+                >
                   <Icon name="export" />
                   <span className="c-map-menu__button-label">Exporter l'image</span>
                 </button>
@@ -119,7 +123,11 @@ class MapMenu extends Component {
                 </button>
               </li>
               <li>
-                <button className="c-map-menu__button" onClick={() => navigateTo('/serveur-wms')}>
+                <button
+                  className="c-map-menu__button"
+                  onClick={() => navigateTo('/serveur-wms')}
+                  title="Fonction permettant d'accéder au serveur WMS du site."
+                >
                   <Icon name="flux" />
                   <span className="c-map-menu__button-label">Flux WMS</span>
                 </button>
