@@ -8,8 +8,7 @@ const ignKey = (typeof window !== 'undefined' && window.location)
   ? ignKeys[window.location.host]
   : 'no-key-found';
 
-const legacyWMS = 'http://services.vuduciel.loire-atlantique.fr'; // eslint-disable-line no-unused-vars
-const tempWMS = 'https://wms-vuduciel2.makina-corpus.net';
+const legacyWMS = 'http://services.vuduciel.loire-atlantique.fr';
 
 const legacyTileServer = 'http://{s}.tiles.cg44.makina-corpus.net'; // eslint-disable-line no-unused-vars
 const newTileServer    = 'https://{s}-tiles-vuduciel2.makina-corpus.net';
@@ -24,7 +23,7 @@ export const ALL_LAYERS = {
 
   wms: {
     wms: true,
-    url: tempWMS,
+    url: legacyWMS,
   },
 
   background: {
