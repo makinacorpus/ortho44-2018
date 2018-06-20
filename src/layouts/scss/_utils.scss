@@ -1,6 +1,18 @@
 // Classes utilitaires
 
 .u-site {
+  &__iframe {
+    position: relative;
+    padding-bottom: 100% / (16/9); // 16/9 ~ 56.25%
+    height: 0;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
   &__content {
     min-width: 30rem;
     padding-right: 1.5rem;
@@ -9,6 +21,7 @@
   &__page {
     max-width: 75rem;
     margin: auto;
+    padding-bottom: 2rem;
   }
   &__title {
     font-family: "Winterthur";
@@ -17,6 +30,25 @@
   }
   &__excerpt {
     margin: 3rem 2rem 0;
+  }
+  &__readmore {
+    margin: 3rem 2rem 0;
+    text-align: right;
+
+    a {
+      &:before {
+        content: '›';
+        background-color: black;
+        color: white;
+        display: inline-block;
+        height: 0.87em;
+        width: 0.8em;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 0.8;
+        margin-right: 0.25em;
+      }
+    }
   }
 }
 

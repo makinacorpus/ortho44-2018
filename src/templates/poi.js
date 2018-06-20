@@ -1,40 +1,48 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Content, { HTMLContent } from '../components/Content';
+import { HTMLContent } from '../components/Content';
 import { getLocationHref } from '../helpers';
 
 export const PoiPageTemplate = ({
-  content,
-  contentComponent,
   description,
   title,
   picture,
   helmet,
-}) => {
-  const PageContent = contentComponent || Content;
+  link,
+  iframe,
+}) => (
+  <section className="u-site__page">
+    {helmet || ''}
 
-  return (
-    <section className="u-site__page">
-      {helmet || ''}
+    {iframe &&
+      <HTMLContent content={iframe} className="u-site__iframe" />
+    }
+    {!iframe &&
       <img className="u-site__picture" src={picture} alt="" />
-      <h1 className="u-site__title">
-        {title}
-      </h1>
-      <p className="u-site__excerpt">{description}</p>
-      <PageContent className="t-md" content={content} />
-    </section>
-  );
-};
+    }
+
+    <h1 className="u-site__title">
+      {title}
+    </h1>
+
+    <p className="u-site__excerpt">{description}</p>
+
+    {link &&
+      <p className="u-site__readmore">
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          En savoir +
+        </a>
+      </p>
+    }
+  </section>
+);
 
 const PoiPage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
     <PoiPageTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      picture={post.frontmatter.picture}
+      {...post.frontmatter}
       helmet={
         <Helmet>
           <html lang="fr" prefix="og: http://ogp.me/ns#" />
@@ -44,7 +52,6 @@ const PoiPage = ({ data }) => {
           <meta property="og:url" content={getLocationHref()} />
         </Helmet>
       }
-      title={post.frontmatter.title}
     />
   );
 };
@@ -60,6 +67,8 @@ export const pageQuery = graphql`
         title
         description
         picture
+        iframe
+        link
       }
     }
   }
