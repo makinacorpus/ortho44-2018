@@ -28,6 +28,12 @@
      left: 10px;
      z-index: 2;
    }
+   &__attributions {
+     font-size: 0.7em;
+     font-style: italic;
+     text-align: right;
+     padding: .2em 1em;
+   }
  }
 
 .download-links {

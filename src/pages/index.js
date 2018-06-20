@@ -332,6 +332,9 @@ export default class IndexPage extends React.Component {
               }}
             />
           </div>
+          <div className="c-map-layout__attributions">
+            Source: Département de Loire-Atlantique - <span role="img" aria-label="copyright">©</span> IGN
+          </div>
         </div>
 
         <CarouselPOI
