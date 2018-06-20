@@ -60,7 +60,7 @@ export default class IndexPage extends React.Component {
     this.zoomOut = this.zoomOut.bind(this);
   }
 
-  getECWUrl () {
+  getTIFFUrl () {
     const bounds = this.firstMap.getBounds();
     return 'http://services.vuduciel.loire-atlantique.fr/download?'
     + `&x0=${bounds._southWest.lng}`
@@ -272,8 +272,8 @@ export default class IndexPage extends React.Component {
                 ?
                   [
                     <li key="ecw">
-                      <a href={this.getECWUrl()} target="_blank" rel="noopener noreferrer">
-                        Télécharger l'image en dalles ECW
+                      <a href={this.getTIFFUrl()} target="_blank" rel="noopener noreferrer">
+                        Télécharger l'image en dalles GeoTIFF
                       </a>
                     </li>,
                     <li key="jpg">
