@@ -40,6 +40,7 @@ const unsyncMaps = maps => {
 
 const AutoLayer = props => {
   let Layer = TileLayer;
+  const customProps = {};
 
   if (props.wms) {
     Layer = WMSTileLayer;
@@ -47,9 +48,13 @@ const AutoLayer = props => {
 
   if (props.geojson) {
     Layer = GeoJSON;
+
+    // Define default marker for GeoJSON points
+    customProps.pointToLayer = (feature, latlng) =>
+      L.marker(latlng, { icon: markerIcons.default });
   }
 
-  return <Layer {...props} />;
+  return <Layer {...props} {...customProps} />;
 };
 
 class SyncedMaps extends Component {
