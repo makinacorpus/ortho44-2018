@@ -4,7 +4,7 @@ title: Exemple Flickr
 description: >
   Texte de description de l'exemple (pas de poi sur la carte, car pas de
   coordonnées)
-picture: /img/products-grid1.jpg
+picture: /img/poi1.jpg
 iframe: >-
   <iframe
   src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/loireatlantique/&sort=0&by=user&theme=slider&scale=fill&limit=10&skin=default&autoplay=true"
