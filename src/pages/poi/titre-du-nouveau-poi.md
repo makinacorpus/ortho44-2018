@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Exemple Vidéo Youtube
+title: Ex Vidéo Youtube
 description: >-
   Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
   dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
