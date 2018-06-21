@@ -8,7 +8,7 @@ description: >-
   eleifend mi, non fermentum diam nisl sit amet erat.
 lat: 47.2485
 lng: -1.5947
-picture: /img/products-full-width.jpg
+picture: /img/poi1.jpg
 iframe: >-
   <iframe width="560" height="315"
   src="https://www.youtube.com/embed/b_2JDXKyOKQ" frameborder="0"
