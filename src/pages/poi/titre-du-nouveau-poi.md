@@ -2,10 +2,10 @@
 templateKey: poi
 title: Ex Vidéo Youtube
 description: >-
-  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-  dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
-  congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
-  eleifend mi, non fermentum diam nisl sit amet erat.
+  Sur une vidéo Youtube, cliquer sur "Partager" et sélectionner "Partager un
+  lien > Intégrer" : Le code HTML à utiliser est fourni. Quelques options
+  d'intégration sont également disponibles (afficher les suggestions à la fin de
+  la lecture, etc.). 
 lat: 47.2485
 lng: -1.5947
 picture: /img/poi1.jpg
