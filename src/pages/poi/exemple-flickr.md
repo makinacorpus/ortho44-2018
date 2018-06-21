@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Exemple Flickr
+title: Ex Flickr
 description: >
   Texte de description de l'exemple (pas de poi sur la carte, car pas de
   coordonnées)
