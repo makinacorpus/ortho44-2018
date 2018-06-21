@@ -2,8 +2,6 @@
 templateKey: 'default-page'
 title: Mentions légales
 ---
-# Mentions légales #
-
 ## Crédits
 
 **Département de Loire-Atlantique**  
