@@ -10,4 +10,4 @@ Son utilisation nécessite de disposer d’un client WMS tel que Quantum GIS, JU
 
 Après avoir lancé la commande permettant d’ouvrir une couche WMS, le logiciel SIG demande de saisir une adresse WMS.
 
-Pour le site Vuduciel, elle correspond à l’URL du serveur cartographique (http://services.vuduciel.loire-atlantique.fr/geoserver/ows)
+Pour le site Vuduciel, elle correspond à l’URL du serveur cartographique http://services.vuduciel.loire-atlantique.fr/geoserver/ows
