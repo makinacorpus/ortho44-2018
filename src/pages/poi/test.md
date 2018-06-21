@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Ex PIO hors carousel
+title: Ex POI hors carousel
 description: 'Ce contenu est présent sur la carte, mais pas dans le carousel.'
 lat: 47.4
 lng: -2
