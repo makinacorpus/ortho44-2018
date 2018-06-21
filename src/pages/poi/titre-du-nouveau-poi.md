@@ -15,7 +15,7 @@ iframe: >-
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
 link: ''
-marker_type: red
+marker_type: yellow
 media_type: ''
 ---
 
