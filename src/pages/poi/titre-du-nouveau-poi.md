@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Exemple de contenu image
+title: Exemple Vidéo Youtube
 description: >-
   Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
   dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
