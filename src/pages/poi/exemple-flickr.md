@@ -2,8 +2,10 @@
 templateKey: poi
 title: Ex Galerie Flickr
 description: >
-  Texte de description de l'exemple (pas de poi sur la carte, car pas de
-  coordonnées)
+  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+  dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
+  congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
+  eleifend mi, non fermentum diam nisl sit amet erat.
 picture: /img/poi1.jpg
 iframe: >-
   <iframe
