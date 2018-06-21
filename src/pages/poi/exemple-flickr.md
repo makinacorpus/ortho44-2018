@@ -4,7 +4,8 @@ title: Ex Galerie Flickr
 description: >
   Nous proposons l'utilisation du service gratuit https://flickrembed.com. Le
   layout à utiliser doit être "Responsive" et il est nécessaire de supprimer
-  l'attribut "style" et son contenu.
+  l'attribut "style" et son contenu. Nous conseillons de mettre l'url de l'album
+  flickr dans le lien "En savoir +".
 lat: 47.2858
 lng: -1.959
 picture: /img/poi1.jpg
