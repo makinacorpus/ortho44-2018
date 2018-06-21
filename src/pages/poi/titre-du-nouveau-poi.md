@@ -16,6 +16,6 @@ iframe: >-
 promote: true
 link: ''
 marker_type: red
-media_type: drone
+media_type: ''
 ---
 
