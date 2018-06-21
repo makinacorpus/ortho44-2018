@@ -14,7 +14,7 @@ iframe: >-
   src="https://www.youtube.com/embed/b_2JDXKyOKQ" frameborder="0"
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
-link: 'http://perdu.com'
+link: ''
 marker_type: red
 media_type: drone
 ---
