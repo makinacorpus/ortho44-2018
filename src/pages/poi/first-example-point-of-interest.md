@@ -9,6 +9,6 @@ picture: /img/poi1.jpg
 promote: true
 link: 'http://example.com'
 marker_type: default
-media_type: video
+media_type: drone
 ---
 
