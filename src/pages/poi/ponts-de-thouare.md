@@ -9,7 +9,7 @@ description: >-
   point de passage de la Loire important pour la circulation entre
   l'agglomération nantaise et le "Vignoble nantais", surtout lors de
   l'encombrement des Ponts de Bellevue, situé en aval.
-picture: /img/cg44b0043760.jpg
+picture: /img/16777325.jpg
 iframe: >-
   <iframe width="560" height="315"
   src="http://pano.loire-atlantique.fr/www/pont-thouare/index.html"
