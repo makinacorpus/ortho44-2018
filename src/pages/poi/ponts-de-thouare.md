@@ -14,7 +14,7 @@ lng: -1.433388
 picture: /img/16777325.jpg
 iframe: >-
   <iframe width="100%" height="315"
-  src="http://pano.loire-atlantique.fr/pont-thouare/index.html" frameborder="0"
+  src="https://pano.loire-atlantique.fr/pont-thouare/index.html" frameborder="0"
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
 link: >-
