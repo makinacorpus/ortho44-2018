@@ -37,11 +37,15 @@
   &__col {
     flex: 1 1 100%;
     padding: 0 0  1.5rem;
+    > * {
+      max-width: 21.8rem;
+      margin: auto;
+    }
   }
   &__title {
-    margin-bottom: 1.8rem;
+    margin-bottom: 0.9rem;
     font-family: "Winterthur", sans-serif;
-    font-size: 3.5rem;
+    font-size: 2.2rem;
   }
   &__row {
     display: flex;
@@ -73,8 +77,8 @@
     text-align: left;
     margin-top: 1.8rem;
     color: #fff;
-    background: #000;
-    padding: 0.1rem 1rem;
+    background: #303030;
+    padding: 0.2rem 1rem;
     border: 1px dashed;
     align-items: center;
     transition: color 0.2s, background-color 0.2s;
@@ -99,10 +103,16 @@
   &__button-label {
     padding: 0.8rem 0 0.8rem 0.5rem;
   }
+  li:first-child &__button {
+    margin-top: 0.9rem;
+  }
 }
 
 @media (min-width: $small) {
   .c-map-menu {
+    &__title {
+      font-size: 2.8rem;
+    }
     &__col {
       flex-basis: auto;
       max-width: 300px;
@@ -126,7 +136,10 @@
 }
 
 @media (min-width: $large) {
-  .c-map-menu {   
+  .c-map-menu {
+    &__title {
+      font-size: 3.5rem;
+    }
     &__col {
       padding: 0 1.5rem 1.5rem;
       width: 25%;
@@ -145,7 +158,7 @@
 
 @media (min-width: $Xlarge) {
   .c-map-menu {
-    padding: 1.5rem 5%;
+    padding: 1.4rem 5%;
     &__collapsable {
       margin: 0 10%;
       &.open {

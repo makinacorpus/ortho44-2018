@@ -7,7 +7,8 @@
 @font-face {
   font-family: "Winterthur";
   src: url("/font/winterthurcondensed/winterthurcondensed-webfont.woff") format("woff");
- }
+  font-weight: 300;
+}
 
  .c-map-layout {
    position: relative;
