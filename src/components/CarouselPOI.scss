@@ -1,7 +1,7 @@
 @import "../layouts/scss/variables";
 
-$maxWidth: 123.4rem;
-$ratioImg: 123.4rem / 77.7rem;
+$maxWidth: (123.2rem + 16rem);
+$ratioImg: $maxWidth / 59.2rem;
 
 .c-carousel {
   max-width: $maxWidth;
@@ -13,21 +13,18 @@ $ratioImg: 123.4rem / 77.7rem;
     margin-right: 0;
   }
 
-  h1,
+  .t-md h1,
   &__title {
-    // margin: 0 2rem;
     font-family: "Winterthur", sans-serif;
     font-size: 3rem;
+    font-weight: 300;
     border-bottom: 1px dotted #7f7f7f;
   }
   &__list {
     margin-top: 3.5rem;
     & .slider-list {
-      height: calc(100vw / #{$ratioImg} - 3rem) !important;
+      height: calc(100vw / #{$ratioImg}) !important;
     }
-  }
-  &__item {
-    position: relative;
   }
   &__content {
     position: absolute;
@@ -51,6 +48,10 @@ $ratioImg: 123.4rem / 77.7rem;
     }
   }
   &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: block;
     margin: auto;
   }
@@ -124,9 +125,8 @@ $ratioImg: 123.4rem / 77.7rem;
 @media (min-width: $medium) {
   .c-carousel {
     margin: 6rem 2rem;
-    &__title {
-      margin: 0;
-    }
+    .t-md h1,
+    &__title,
     &__item-title {
       font-size: 6rem;
     }
@@ -151,6 +151,10 @@ $ratioImg: 123.4rem / 77.7rem;
     &__title {
       font-size: 6rem;
     }
+    .t-md p {
+      margin-top: 2.4rem;
+      font-size: 2.4rem;
+    }
     &__prev {
       position: relative;
       left: -6rem;
@@ -161,8 +165,8 @@ $ratioImg: 123.4rem / 77.7rem;
     }
     &__list {
       & .slider-list {
-        height: calc(100vw / #{$ratioImg} - 14rem) !important;
-        max-height: calc(#{$maxWidth} / #{$ratioImg} - 14rem);
+        height: calc(100vw / #{$ratioImg}) !important;
+        max-height: calc(#{$maxWidth} / #{$ratioImg});
       }
     }
   }
