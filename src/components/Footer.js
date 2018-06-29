@@ -50,7 +50,7 @@ const Footer = () => (
         </ul>
       </div>
       <p className="c-footer__footnote">
-        <span>Un service du Département </span><a href="https://www.loire-atlantique.fr/"><img className="c-footer__footnote-img" src={logo} alt="Loire-Atlantique" /></a>
+        <span className="c-footer__footnote-label">Un service du Département </span><a href="https://www.loire-atlantique.fr/"><img className="c-footer__footnote-img" src={logo} alt="Loire-Atlantique" /></a>
       </p>
     </div>
   </footer>

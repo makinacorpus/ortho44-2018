@@ -1,20 +1,18 @@
 @import "../layouts/scss/variables";
 
 .c-footer {
-  padding: 2rem 0 0;
+  padding: 0.8rem 0 0;
   background: #eaeaea;
   overflow: hidden;
   &__content {
     text-align: center;
   }
   &__menu-list  {
-    margin-bottom: 3rem;
-  }
-  &__menu-item  {
-    margin: 0.5rem 0;
+    margin-bottom: 2rem;
+    line-height: 2rem;
   }
   &__menu-link  {
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: bold;
     &:hover,
     &:focus {
@@ -25,24 +23,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   &__socials-label {
-    font-size: 1.4rem;
+    display: none;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   &__social-list {
     display: flex;
-    margin-left: 2rem;
   }
   &__social-item {
     margin-left: 2rem;
+    .u-icon {
+      font-size: 2.5rem;
+    }
   }
   &__footnote {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+  }
+  &__footnote-label {
+    display: none;
+    font-size: 1.5rem;
   }
   &__footnote-img {
     margin-left: 3rem;
@@ -52,12 +57,18 @@
 
 @media (min-width: $medium) {
   .c-footer {
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
     &__menu-list {
       display: flex;
       justify-content: center;
     }
     &__menu-item  {
-      padding: 0 2rem;
+      padding: 0 1rem;
       border-left: 1px solid #b1b1b1;
       &:first-child {
         padding-left: 0;
@@ -67,14 +78,40 @@
   }
 }
 
-
 @media (min-width: $large) {
   .c-footer {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 6rem;
+      left: 0;
+      width: calc(100vw - 14.7rem);
+      border-bottom: 0.6rem solid #d1d1d1;
+    }
+    &__menu-link  {
+      font-size: 1.15rem;
+    }
+    &__footnote-label {
+      display: block;
+    }
     &__content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+    }
+  }
+}
+
+@media (min-width: $Xlarge) {
+  .c-footer {
+    &__menu-item  {
+      padding: 0 1.4rem;
+    }
+    &__socials-label {
+      display: block;
     }
   }
 }
