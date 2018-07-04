@@ -17,6 +17,6 @@ iframe: >-
 promote: true
 link: ''
 marker_type: yellow
-media_type: ''
+media_type: video
 ---
 
