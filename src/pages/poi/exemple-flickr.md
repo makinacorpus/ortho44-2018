@@ -21,6 +21,6 @@ iframe: >-
 promote: true
 link: 'https://www.flickr.com/photos/loireatlantique/albums/72157665811134782'
 marker_type: violet
-media_type: drone
+media_type: photo
 ---
 
