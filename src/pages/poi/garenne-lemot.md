@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: Garenne Lemot
+description: Lorem ipsum dolor sit amet
 lat: 47.08613
 lng: -1.27342
 picture: /img/garenne-lemot.jpg
