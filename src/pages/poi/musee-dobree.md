@@ -15,6 +15,7 @@ description: >
   portes en 2021.
 lat: 47.212849
 lng: -1.566456
+picture: /img/muse-e-dobre-e.jpg
 iframe: >-
   <iframe
   src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157697479991784&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
