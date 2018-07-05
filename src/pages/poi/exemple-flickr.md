@@ -18,7 +18,7 @@ iframe: >-
   by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe><script
   type="text/javascript">function showpics(){var
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
-promote: true
+promote: false
 link: 'https://www.flickr.com/photos/loireatlantique/albums/72157665811134782'
 marker_type: violet
 media_type: photo
