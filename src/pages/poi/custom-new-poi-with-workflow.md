@@ -9,7 +9,7 @@ description: >-
 lat: 47.66539
 lng: -1.5604
 picture: /img/poi1.jpg
-promote: true
+promote: false
 marker_type: default
 media_type: drone
 ---
