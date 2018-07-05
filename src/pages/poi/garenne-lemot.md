@@ -3,6 +3,7 @@ templateKey: poi
 title: Garenne Lemot
 lat: 47.08613
 lng: 1.27342
+picture: /img/garenne-lemot-cg44b0041844.jpg
 iframe: >-
   <iframe
   src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157668106486357&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
