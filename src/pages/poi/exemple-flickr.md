@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Ex Galerie Flickr
+title: '[Exemple] Galerie Flickr'
 description: >
   Nous proposons l'utilisation du service gratuit https://flickrembed.com. Le
   layout à utiliser doit être "Responsive" et il est nécessaire de supprimer
