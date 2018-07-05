@@ -1,7 +1,18 @@
 ---
 templateKey: poi
 title: Garenne Lemot
-description: Lorem ipsum dolor sit amet
+description: >-
+  C’est dans l’imaginaire du sculpteur François-Frédéric Lemot (1771-1827) que
+  germe le projet de la Garenne Lemot. Entre 1805 et 1827, sur les bords de la
+  Sèvre Nantaise, l'artiste donne naissance à un ensemble architectural
+  remarquable et à un parc d'exception.
+
+
+  Entrées et expositions gratuites.
+
+  Visite découverte (durée : 1h) du 1er mai au 30 septembre, tous les jours à
+  16h30, et du 1er octobre au 30 avril, le dimanche à 14h30, tarif : 2,50 €.
+  Visite conférence le jeudi, tarif : 3,50 €.
 lat: 47.08613
 lng: -1.27342
 picture: /img/garenne-lemot.jpg
