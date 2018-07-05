@@ -20,7 +20,7 @@ lat: 47.719612
 picture: /img/cha-teau-cha-teaubriant.jpg
 iframe: >+
   <iframe
-  src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157668106486357&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
+  src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157670146169948&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
   scrolling="no" frameborder="0" allowFullScreen="true"
   webkitallowfullscreen="true" mozallowfullscreen="true"><p><a 
   href="http://www.embedgooglemap.co.uk">http://www.embedgooglemap.co.uk/</a></p><small>Powered
