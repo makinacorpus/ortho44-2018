@@ -17,24 +17,14 @@ lat: 47.138692
 lng: -1.696542
 picture: /img/poi1.jpg
 iframe: >-
-  <iframe style="position: relative; top: 0; left: 0; width: 100%; height:
-  100%;"
-  src="https://www.flickr.com/photos/loireatlantique/albums/72157697479913974"
+  <iframe
+  src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157697479913974&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
   scrolling="no" frameborder="0" allowFullScreen="true"
-  webkitallowfullscreen="true" mozallowfullscreen="true">
-
-  </iframe>
-
-  <script type="text/javascript">function showpics(){var
+  webkitallowfullscreen="true" mozallowfullscreen="true"><p><a 
+  href="http://www.embedgooglemap.co.uk">http://www.embedgooglemap.co.uk/</a></p><small>Powered
+  by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe><script
+  type="text/javascript">function showpics(){var
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
-
-
-  <a data-flickr-embed="true" 
-  href="https://www.flickr.com/photos/loireatlantique/albums/72157697479913974"
-  title="Maison du Lac"><img
-  src="https://farm2.staticflickr.com/1740/41914858245_781279c62e_z.jpg"
-  width="640" height="360" alt="Maison du Lac"></a><script async
-  src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 promote: true
 link: ' http://maisondulacdegrandlieu.com/'
 marker_type: default
