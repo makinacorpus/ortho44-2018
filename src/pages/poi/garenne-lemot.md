@@ -2,7 +2,7 @@
 templateKey: poi
 title: Garenne Lemot
 lat: 47.08613
-lng: 1.27342
+lng: -1.27342
 picture: /img/garenne-lemot.jpg
 iframe: >-
   <iframe
