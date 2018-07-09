@@ -7,7 +7,11 @@
     flex: 1 1 auto;
     z-index: 1;
   }
-
+  &:hover {
+    .sleep-note {
+      opacity: 0 !important;
+    }
+  }
   &:after {
     content: '';
     display: block;
