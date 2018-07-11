@@ -19,7 +19,7 @@ iframe: >-
 promote: true
 link: >-
   https://inforoutes.loire-atlantique.fr/jcms/projets-routiers/zoom-sur-les-grands-travaux/retour-sur-la-renovation-des-ponts-de-thouare/revivez-les-etapes-du-chantier/suivez-le-chantier-des-ponts-de-thouare-fr-p2_26284?portal=dev_5121&category=p2_26282
-marker_type: yellow
+marker_type: default
 media_type: '360'
 ---
 
