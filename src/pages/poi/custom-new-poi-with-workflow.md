@@ -6,8 +6,8 @@ description: >-
   dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
   congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est
   eleifend mi, non fermentum diam nisl sit amet erat.
-lat: 47.66539
-lng: -1.5604
+lat: .nan
+lng: .nan
 picture: /img/poi1.jpg
 promote: false
 marker_type: default
