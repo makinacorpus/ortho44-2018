@@ -11,7 +11,7 @@ description: >-
   l'encombrement des Ponts de Bellevue, situé en aval.
 lat: 47.261785
 lng: -1.433388
-picture: /img/16777325.jpg
+picture: /img/cg44b0043768.jpg
 iframe: >-
   <iframe width="100%" height="315"
   src="https://pano.loire-atlantique.fr/pont-thouare/index.html" frameborder="0"
