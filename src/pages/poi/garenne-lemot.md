@@ -3,13 +3,16 @@ templateKey: poi
 title: ' Domaine de la Garenne Lemot'
 description: >-
   Sur les bords de la Sèvre nantaise, une architecture aux inspirations
-  italiennes, dans un parc d'exception. C’est dans l’imaginaire de
-  François-Frédéric Lemot, sculpteur de Napoléon, que naît magnifique décor du
-  domaine de la Garenne Lemot. Au coeur du bois de la Garenne, il fait élever
-  une maison de style toscan et une villa néoclassique. Au milieu du parc de
-  treize hectares, des fabriques ornementales (statues, grotte, colonne,
-  tombeau...) ponctuent la promenade. Aujourd'hui, ce site, classé monument
-  historique, est propriété du Département de Loire-Atlantique.
+  italiennes, dans un parc d'exception. 
+
+  C’est dans l’imaginaire de François-Frédéric Lemot, sculpteur de Napoléon, que
+  naît magnifique décor du domaine de la Garenne Lemot. Au cœur du bois de la
+  Garenne, il fait élever une maison de style toscan et une villa néoclassique.
+  Au milieu du parc de treize hectares, des fabriques ornementales (statues,
+  grotte, colonne, tombeau...) ponctuent la promenade. 
+
+  Aujourd'hui, ce site, classé monument historique, est propriété du Département
+  de Loire-Atlantique.
 lat: 47.08613
 lng: -1.27342
 picture: /img/garenne-lemot.jpg
