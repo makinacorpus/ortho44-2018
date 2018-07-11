@@ -1,7 +1,7 @@
 ---
+templateKey: default-page
 id: carousel
-templateKey: 'default-page'
 ---
 # Les sites remarquables de Loire-Atlantique
 
-Lorem ipsum dolor sit amet, **consectetur adipiscing** elit. Sed _non risus_. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
+Découvrez sous de nouveaux angles de vues, les sites remarquables qui foisonnent en Loire-Atlantique ! Du patrimoine bâti aux espaces naturels protégés, des vidéos, des diaporama mais aussi des vues immersives 360° vous plongeront au cœur des richesses du département…
