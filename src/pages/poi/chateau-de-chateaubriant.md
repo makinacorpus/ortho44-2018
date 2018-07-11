@@ -17,6 +17,7 @@ description: >
   par son petit-fils, Jean de Laval (1486-1543), qui amena le château jusqu’à la
   Renaissance.
 lat: 47.719612
+lng: -1.372886
 picture: /img/cha-teau-cha-teaubriant.jpg
 iframe: >+
   <iframe
