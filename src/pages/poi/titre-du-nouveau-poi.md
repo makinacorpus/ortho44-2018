@@ -7,8 +7,8 @@ description: >-
   d'intégration sont également disponibles (afficher les suggestions à la fin de
   la lecture, etc.). Nous conseillons de mettre l'url de la vidéo Youtube dans
   le lien "En savoir +".
-lat: 47.2485
-lng: -1.5947
+lat: .nan
+lng: .nan
 picture: /img/poi1.jpg
 iframe: >-
   <iframe width="560" height="315"
