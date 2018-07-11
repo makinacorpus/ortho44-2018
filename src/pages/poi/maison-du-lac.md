@@ -15,7 +15,7 @@ description: >
   ponctuée d’installations multimédias.
 lat: 47.138692
 lng: -1.696542
-picture: /img/poi1.jpg
+picture: /img/maison-du-lac-cg44ac0009151.jpg
 iframe: >-
   <iframe
   src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157697479913974&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
