@@ -1,6 +1,6 @@
 ---
 templateKey: poi
-title: Garenne Lemot
+title: ' Domaine de la Garenne Lemot'
 description: >-
   C’est dans l’imaginaire du sculpteur François-Frédéric Lemot (1771-1827) que
   germe le projet de la Garenne Lemot. Entre 1805 et 1827, sur les bords de la
