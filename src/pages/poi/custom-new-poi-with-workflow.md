@@ -8,7 +8,7 @@ description: >-
   eleifend mi, non fermentum diam nisl sit amet erat.
 lat: .nan
 lng: .nan
-picture: /img/poi1.jpg
+picture: /img/ancenis.jpg
 promote: false
 marker_type: default
 media_type: drone
