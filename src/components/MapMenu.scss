@@ -36,7 +36,7 @@
   }
   &__col {
     flex: 1 1 100%;
-    padding: 0 0  1.5rem;
+    padding: 0 0 1.5rem;
     > * {
       max-width: 21.8rem;
       margin: auto;
@@ -46,6 +46,7 @@
     margin-bottom: 0.9rem;
     font-family: "Winterthur", sans-serif;
     font-size: 2.2rem;
+    font-weight: 300;
   }
   &__row {
     display: flex;
@@ -60,6 +61,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: inherit;
+    background-color: #fff;
     // Below : SVG green arrow converted to base64 image
     // <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
     //   <rect fill="#aec900" width="25" height="25"/>
@@ -126,22 +128,21 @@
   }
 }
 
-@media (min-width: $medium) and (max-width: $large) {
+@media (min-width: $medium) {
   .c-map-menu {
-    padding: 1.5rem 5%;
     &__collapsable {
       margin: 0 10%;
-    } 
+    }
   }
 }
 
 @media (min-width: $large) {
   .c-map-menu {
-    &__title {
-      font-size: 3.5rem;
+    &__collapsable {
+      margin: 0;
     }
     &__col {
-      padding: 0 1.5rem 1.5rem;
+      padding: 0 1rem 1.5rem;
       width: 25%;
       &--first {
         padding-left: 0;
@@ -152,6 +153,9 @@
       & + & {
         border-left: 1px dashed #fff;
       }
+    }
+    &__title {
+      font-size: 3.5rem;
     }
   }
 }
@@ -164,6 +168,10 @@
       &.open {
         margin-bottom: 0;
       }
+    }
+    &__col {
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
     }
   }
 }
