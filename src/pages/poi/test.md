@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: '[Exemple] POI hors carrousel'
+order: 5
 description: 'Ce contenu est présent sur la carte, mais pas dans le carrousel.'
 lat: .nan
 lng: .nan

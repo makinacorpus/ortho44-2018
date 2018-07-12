@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: '[Exemple] Vidéo Youtube'
+order: 5
 description: >-
   Sur une vidéo Youtube, cliquer sur "Partager" et sélectionner "Partager un
   lien > Intégrer" : Le code HTML à utiliser est fourni. Quelques options

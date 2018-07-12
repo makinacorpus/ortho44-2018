@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: '[Exemple] POI fantôme'
+order: 5
 description: >-
   Description du l'élément remarquable qui n'a pas de coordonnées et n'apparaît
   pas dans la carrousel.

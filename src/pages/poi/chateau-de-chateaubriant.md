@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: Château de Châteaubriant
+order: 5
 description: >
   Tout à la fois forteresse médiévale et édifice de la Renaissance, le château
   de Châteaubriant raconte dix siècles d'histoire. 
