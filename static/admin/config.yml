@@ -21,6 +21,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "poi"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Tri (poids)", name: "order", widget: "number", required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Latitude", name: "lat", widget: "number", valueType: "float", min: -90, max: 90, required: false}
       - {label: "Longitude", name: "lng", widget: "number", valueType: "float", min: -180, max: 360, required: false}
