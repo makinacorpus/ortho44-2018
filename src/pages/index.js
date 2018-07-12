@@ -247,6 +247,11 @@ export default class IndexPage extends React.Component {
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'carousel'))[0].node.html,
     });
 
+    /**
+     * Sort markdown posts according order key.
+     */
+    posts.sort((a, b) => a.node.frontmatter.order < b.node.frontmatter.order);
+
     return (
       <section>
 
@@ -353,6 +358,7 @@ export const pageQuery = graphql`
           frontmatter {
             id
             templateKey
+            order
 
             iframe
             lat
