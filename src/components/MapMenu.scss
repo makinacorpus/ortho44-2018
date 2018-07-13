@@ -73,6 +73,10 @@
     background-repeat: no-repeat;
     background-position: calc(100% - 5px) 50%;
   }
+  // Delete dropdown arrow in IE
+  select::-ms-expand {
+    display: none !important;
+  }
   &__button {
     display: flex;
     width: 100%;
