@@ -6,6 +6,7 @@ import { navigateTo } from 'gatsby-link';
 import { getLocationHref } from '../helpers';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Icons from '../components/Icons';
 import CustomModal from '../components/CustomModal';
 import './main.scss';
 
@@ -108,6 +109,7 @@ export default class TemplateWrapper extends React.Component {
           </div>
         </main>
         <Footer />
+        <Icons />
       </div>
     );
   }
