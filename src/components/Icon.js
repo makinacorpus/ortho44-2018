@@ -7,7 +7,7 @@ const Icon = data => {
   }
   return (
     <svg className="u-icon" aria-hidden="true" focusable="false">
-      <use xlinkHref={`/img/svg/icons.svg#${name}`} />
+      <use xlinkHref={`#${name}`} />
     </svg>
   );
 };
