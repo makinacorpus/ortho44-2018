@@ -250,7 +250,7 @@ export default class IndexPage extends React.Component {
     /**
      * Sort markdown posts according order key.
      */
-    posts.sort((a, b) => a.node.frontmatter.order < b.node.frontmatter.order);
+    posts.sort((a, b) => +a.node.frontmatter.order < +b.node.frontmatter.order);
 
     return (
       <section>
