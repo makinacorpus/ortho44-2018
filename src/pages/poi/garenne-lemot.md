@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: ' Domaine de la Garenne Lemot'
-order: 5
+order: '4'
 description: >-
   Sur les bords de la Sèvre nantaise, une architecture aux inspirations
   italiennes, dans un parc d'exception. 
