@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Musée Dobrée
-order: 5
+order: '3'
 description: >
   Situé dans le centre de Nantes, le musée Dobrée réunit deux bâtiments
   imposants : le palais Dobrée, de style néo-médiéval, avec sa tour haute de 30
