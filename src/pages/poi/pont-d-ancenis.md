@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Pont d’Ancenis
-order: 5
+order: '1'
 description: >-
   Pont suspendu de 412 m de long, le pont Bretagne-Anjou, plus connu sous le nom
   de pont suspendu d'Ancenis, est un lieu de passage important au-dessus de la
