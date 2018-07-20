@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Maison du lac de Grand-Lieu
-order: 5
+order: '6'
 description: >
   Le lac de Grand-Lieu constitue le plus grand lac naturel de plaine français en
   hiver avec une surface d’environ 6300 hectares !
