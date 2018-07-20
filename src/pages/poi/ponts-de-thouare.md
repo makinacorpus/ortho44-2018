@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Ponts de Thouaré
-order: 5
+order: '2'
 description: >-
   Les ponts de Thouaré sont deux ponts consécutifs franchissant la Loire et
   supportant la route départementale n°37 en Loire-Atlantique. Ils franchissent
