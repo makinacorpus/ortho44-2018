@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: '[Exemple] Photo'
-order: '5'
+order: '25'
 description: >-
   Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
   dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper
