@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Icons = () => (
-  <svg xmlns="http://www.w3.org/2000/svg">
+  <svg style={{ display: 'none' }} xmlns="http://www.w3.org/2000/svg">
     <symbol id="arrow-top" viewBox="0 0 24 24">
       <circle cx="11.9" cy="6.9" r="1.7" />
       <circle cx="15.4" cy="10.3" r="1.7" />
