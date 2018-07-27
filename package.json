@@ -5,6 +5,7 @@
   "author": "Makina Corpus",
   "dependencies": {
     "@turf/bbox": "~6.0.1",
+    "axios": "^0.18.0",
     "classnames": "~2.2.6",
     "eslint": "~4.19.1",
     "eslint-config-makina": "~0.4.2",
