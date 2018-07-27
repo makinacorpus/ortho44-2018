@@ -78,7 +78,7 @@
     display: none !important;
   }
   &__button {
-    display: flex;
+    display: block;
     width: 100%;
     text-align: left;
     margin-top: 1.8rem;
@@ -86,7 +86,6 @@
     background: #303030;
     padding: 0.2rem 1rem;
     border: 1px dashed;
-    align-items: center;
     transition: color 0.2s, background-color 0.2s;
     &:hover,
     &:focus,
@@ -105,6 +104,12 @@
       font-size: 2.7rem;
       margin-right: 0.3rem;
     }
+  }
+  // Put flex item inside <button> tag
+  // cf. https://github.com/philipwalton/flexbugs#9
+  &__button-content {
+    display: flex;
+    align-items: center;
   }
   &__button-label {
     padding: 0.8rem 0 0.8rem 0.5rem;

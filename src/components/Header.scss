@@ -33,13 +33,17 @@
     }
   }
   &__action-button {
-    display: inline-flex;
-    align-items: center;
     transition: 0.2s color;
     &:hover,
     &:focus {
       color: $color-brand;
     }
+  }
+  // Put flex item inside <button> tag
+  // cf. https://github.com/philipwalton/flexbugs#9
+  &__action-button-content {
+    display: inline-flex;
+    align-items: center;
   }
   &__action-button-label {
     margin-right: 1rem;
