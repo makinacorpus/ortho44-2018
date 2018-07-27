@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 import Icon from './Icon';
 import mediaTypes from '../helpers/mediaTypes';
 
-const iArray = count => Array.from(Array(count).keys());
+const iArray = count => Array(count).join().split(',').map((e, i) => i);
 
 export const CustomCarouselButton = ({ onClick, className, text }) => (
   <button className={className} onClick={onClick}>

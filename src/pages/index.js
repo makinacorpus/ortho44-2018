@@ -36,7 +36,7 @@ export default class IndexPage extends React.Component {
 
     const hash = getHash();
     if (hash) {
-      if (hash.includes('=')) {
+      if (hash.indexOf('=') !== -1) {
         this.initialSearch = hash;
       } else {
         const [viewportSerial, layer] = hash.split('!');
