@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import Autosuggest from 'react-autosuggest';
 import { debounce } from 'lodash';
@@ -58,8 +59,8 @@ class GeoSearch extends Component {
   directSearch (value) {
     const lookup = buildJSONQuery(value, ['code_insee', 'type'], 'AND COMMUNE OR CANTON');
 
-    fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${lookup}`)
-      .then(res => res.json())
+    axios.get(`https://es.makina-corpus.net/cg44/address/_search?source=${lookup}`)
+      .then(res => res.data)
       .then(data => {
         const suggestion = {
           suggestion: {
@@ -78,12 +79,12 @@ class GeoSearch extends Component {
 
     const nameLookup = buildJSONQuery(value);
 
-    fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${nameLookup}`)
-      .then(res => res.json())
+    axios.get(`https://es.makina-corpus.net/cg44/address/_search?source=${nameLookup}`)
+      .then(res => res.data)
       .then(data => {
         if (data.hits.total === 0) {
-          fetch(`https://es.makina-corpus.net/cg44/address/_search?default_operator=AND&q=${value}`)
-            .then(res => res.json())
+          axios.get(`https://es.makina-corpus.net/cg44/address/_search?default_operator=AND&q=${value}`)
+            .then(res => res.data)
             .then(data2 => {
               this.setState({
                 isLoading: false,

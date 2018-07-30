@@ -2,6 +2,7 @@ import React from 'react';
 import bbox from '@turf/bbox';
 import { debounce, isEqual } from 'lodash';
 import classnames from 'classnames';
+import axios from 'axios';
 
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
@@ -36,7 +37,7 @@ export default class IndexPage extends React.Component {
 
     const hash = getHash();
     if (hash) {
-      if (hash.includes('=')) {
+      if (hash.indexOf('=') !== -1) {
         this.initialSearch = hash;
       } else {
         const [viewportSerial, layer] = hash.split('!');
@@ -150,8 +151,8 @@ export default class IndexPage extends React.Component {
           data: boundariesData,
         });
       } else {
-        (typeof window !== 'undefined') && fetch(ALL_LAYERS.boundaries.url)
-          .then(res => res.json())
+        (typeof window !== 'undefined') && axios.get(ALL_LAYERS.boundaries.url)
+          .then(res => res.data)
           .then(data => this.setState({ boundariesData: data }));
       }
     }

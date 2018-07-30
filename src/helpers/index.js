@@ -53,7 +53,7 @@ export const serializeViewport = ({ center: [lat, lng], zoom }) => [zoom, round(
 export const unserializeViewport = (serial = '') => {
   const [zoom, latitude, longitude] = serial.split('/').map(value => +value);
   const sum = zoom + latitude + longitude;
-  if (typeof sum === 'number' && !Number.isNaN(sum)) {
+  if (typeof sum === 'number') {
     return { zoom, center: [latitude, longitude] };
   }
   return false;

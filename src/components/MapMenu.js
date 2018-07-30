@@ -62,22 +62,24 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Comparer 2016</h2>
             <div className="c-map-menu__row">
               <label className="c-map-menu__label" htmlFor="c-map-menu__year">avec</label>
-              <select
-                id="c-map-menu__year"
-                className="c-map-menu__select"
-                value={selection.join('-')}
-                onChange={event => showMaps(...event.target.value.split('-'))}
-              >
-                <option disabled>-</option>
-                <option value={DEFAULT_BASE}>Aucun</option>
-                {COMPARE_WITH.map(layerID => (
-                  <option
-                    key={layerID}
-                    value={[DEFAULT_BASE, layerID].join('-')}
-                  >{ALL_LAYERS[layerID].label || layerID}
-                  </option>
-                ))}
-              </select>
+              <div className="c-map-menu__select-container">
+                <select
+                  id="c-map-menu__year"
+                  className="c-map-menu__select"
+                  value={selection.join('-')}
+                  onChange={event => showMaps(...event.target.value.split('-'))}
+                >
+                  <option disabled>-</option>
+                  <option value={DEFAULT_BASE}>Aucun</option>
+                  {COMPARE_WITH.map(layerID => (
+                    <option
+                      key={layerID}
+                      value={[DEFAULT_BASE, layerID].join('-')}
+                    >{ALL_LAYERS[layerID].label || layerID}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
           <div className="c-map-menu__col">
@@ -85,20 +87,26 @@ class MapMenu extends Component {
             <ul>
               <li>
                 <button className={buttonClasses(selection[0] === '1850')} onClick={() => showMaps('1850')}>
-                  <Icon name="place-1850" />
-                  <span className="c-map-menu__button-label">Cartes 1850</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="place-1850" />
+                    <span className="c-map-menu__button-label">Cartes 1850</span>
+                  </span>
                 </button>
               </li>
               <li>
                 <button className={buttonClasses(selection[0] === 'cassini')} onClick={() => showMaps('cassini')}>
-                  <Icon name="place-cassini" />
-                  <span className="c-map-menu__button-label">Cartes Cassini</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="place-cassini" />
+                    <span className="c-map-menu__button-label">Cartes Cassini</span>
+                  </span>
                 </button>
               </li>
               <li>
                 <button className={buttonClasses(selection[0] === 'napoleon')} onClick={() => showMaps('napoleon')}>
-                  <Icon name="place-napoleon" />
-                  <span className="c-map-menu__button-label">Cadastre Napoléonien</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="place-napoleon" />
+                    <span className="c-map-menu__button-label">Cadastre Napoléonien</span>
+                  </span>
                 </button>
               </li>
             </ul>
@@ -112,14 +120,18 @@ class MapMenu extends Component {
                   onClick={toggleDlNotice}
                   title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
                 >
-                  <Icon name="export" />
-                  <span className="c-map-menu__button-label">Exporter l'image</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="export" />
+                    <span className="c-map-menu__button-label">Exporter l'image</span>
+                  </span>
                 </button>
               </li>
               <li>
                 <button className={buttonClasses(cadastre)} onClick={() => toggleCadastre()}>
-                  <Icon name="cadastre" />
-                  <span className="c-map-menu__button-label">Cadastre</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="cadastre" />
+                    <span className="c-map-menu__button-label">Cadastre</span>
+                  </span>
                 </button>
               </li>
               <li>
@@ -128,8 +140,10 @@ class MapMenu extends Component {
                   onClick={() => navigateTo('/serveur-wms')}
                   title="Fonction permettant d'accéder au serveur WMS du site."
                 >
-                  <Icon name="flux" />
-                  <span className="c-map-menu__button-label">Flux WMS</span>
+                  <span className="c-map-menu__button-content">
+                    <Icon name="flux" />
+                    <span className="c-map-menu__button-label">Flux WMS</span>
+                  </span>
                 </button>
               </li>
             </ul>

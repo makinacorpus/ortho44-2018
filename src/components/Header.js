@@ -24,14 +24,18 @@ const Header = () => (
       <ul className="c-header__action-list">
         <li className="c-header__action-item">
           <button className="c-header__action-button" type="button" onClick={() => typeof window !== 'undefined' && window.print()}>
-            <span className="c-header__action-button-label">Imprimer</span>
-            <Icon name="print" />
+            <span className="c-header__action-button-content">
+              <span className="c-header__action-button-label">Imprimer</span>
+              <Icon name="print" />
+            </span>
           </button>
         </li>
         <li className="c-header__action-item c-header__action-item--share">
           <button className="c-header__action-button" type="button">
-            <span className="c-header__action-button-label">Partager</span>
-            <Icon name="share" />
+            <span className="c-header__action-button-content">
+              <span className="c-header__action-button-label">Partager</span>
+              <Icon name="share" />
+            </span>
           </button>
           <ul className="c-header__share-list">
             <li className="c-header__share-item">
