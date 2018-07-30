@@ -71,6 +71,8 @@ class SyncedMaps extends Component {
         },
       },
     );
+
+    this.initTile = L.GridLayer.prototype._initTile; // eslint-disable-line no-underscore-dangle
   }
 
   componentDidMount () {
@@ -79,6 +81,7 @@ class SyncedMaps extends Component {
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
     }
+    this.fractionalTransform();
   }
 
   componentDidUpdate () {
@@ -87,6 +90,7 @@ class SyncedMaps extends Component {
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
     }
+    this.fractionalTransform();
   }
 
   componentWillUnmount () {
@@ -101,6 +105,24 @@ class SyncedMaps extends Component {
         this.miniMap.addTo(this.mapRefs[0]);
       }
     }
+  }
+
+  /*
+  * Workaround for 1px lines appearing in some browsers due to fractional transforms
+  * and resulting anti-aliasing.
+  * https://github.com/Leaflet/Leaflet/issues/3575
+  */
+  fractionalTransform () {
+    const self = this;
+    L.GridLayer.include({
+      _initTile (tile) {
+        self.initTile.call(this, tile);
+
+        const tileSize = this.getTileSize();
+        tile.style.width = `${tileSize.x + 1}px`;
+        tile.style.height = `${tileSize.y + 1}px`;
+      },
+    });
   }
 
   render () {
