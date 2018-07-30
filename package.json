@@ -10,6 +10,7 @@
     "eslint-config-makina": "~0.4.2",
     "gatsby": "~1.9.272",
     "gatsby-link": "~1.6.44",
+    "gatsby-plugin-google-analytics": "^1.0.31",
     "gatsby-plugin-netlify-cms": "~2.0.1",
     "gatsby-plugin-react-helmet": "~2.0.11",
     "gatsby-plugin-sass": "~1.0.26",
