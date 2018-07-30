@@ -16,7 +16,8 @@
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+CiAgPHBhdGggZD0iTTE0LjIsMTcuNWMyLjEtMy4yLDQuOS03LjksNC45LTEwLjRDMTkuMSwzLjIsMTUuOSwwLDEyLDBTNC45LDMuMiw0LjksNy4xYzAsMi41LDIuOCw3LjIsNC45LDEwLjQgYy00LjgsMC4zLTguMiwxLjYtOC4yLDMuMkMxLjYsMjIuNiw2LDI0LDEyLDI0czEwLjQtMS40LDEwLjQtMy4zQzIyLjQsMTksMTksMTcuOCwxNC4yLDE3LjV6IE04LjMsNy4xYzAtMiwxLjYtMy43LDMuNy0zLjcgczMuNywxLjYsMy43LDMuN1MxNCwxMC44LDEyLDEwLjhTOC4zLDkuMSw4LjMsNy4xeiBNMTIsMjMuNGMtNS4zLDAtOS45LTEuMy05LjktMi44YzAtMS4zLDMuNi0yLjQsOC0yLjdjMS4xLDEuNiwxLjksMi43LDEuOSwyLjcgczAuOC0xLjEsMS45LTIuN2M0LjUsMC4zLDgsMS40LDgsMi43QzIxLjksMjIuMSwxNy4zLDIzLjQsMTIsMjMuNHoiLz4KPC9zdmc+);
   background-size: 24px 24px;
   background-repeat: no-repeat;
-  background-position: calc(100% - 10px) 50%;
+  background-position: 98% 50%; // Safari 6
+  background-position: calc(100% - 5px) top 50%;
 }
 
 .react-autosuggest__input--focused {
