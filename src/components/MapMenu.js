@@ -62,22 +62,24 @@ class MapMenu extends Component {
             <h2 className="c-map-menu__title">Comparer 2016</h2>
             <div className="c-map-menu__row">
               <label className="c-map-menu__label" htmlFor="c-map-menu__year">avec</label>
-              <select
-                id="c-map-menu__year"
-                className="c-map-menu__select"
-                value={selection.join('-')}
-                onChange={event => showMaps(...event.target.value.split('-'))}
-              >
-                <option disabled>-</option>
-                <option value={DEFAULT_BASE}>Aucun</option>
-                {COMPARE_WITH.map(layerID => (
-                  <option
-                    key={layerID}
-                    value={[DEFAULT_BASE, layerID].join('-')}
-                  >{ALL_LAYERS[layerID].label || layerID}
-                  </option>
-                ))}
-              </select>
+              <div className="c-map-menu__select-container">
+                <select
+                  id="c-map-menu__year"
+                  className="c-map-menu__select"
+                  value={selection.join('-')}
+                  onChange={event => showMaps(...event.target.value.split('-'))}
+                >
+                  <option disabled>-</option>
+                  <option value={DEFAULT_BASE}>Aucun</option>
+                  {COMPARE_WITH.map(layerID => (
+                    <option
+                      key={layerID}
+                      value={[DEFAULT_BASE, layerID].join('-')}
+                    >{ALL_LAYERS[layerID].label || layerID}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
           <div className="c-map-menu__col">
