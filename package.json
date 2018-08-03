@@ -5,6 +5,7 @@
   "author": "Makina Corpus",
   "dependencies": {
     "@turf/bbox": "~6.0.1",
+    "babel-polyfill": "~6.26.0",
     "classnames": "~2.2.6",
     "eslint": "~4.19.1",
     "eslint-config-makina": "~0.4.2",
@@ -31,7 +32,8 @@
     "react": "~16.4.1",
     "react-autosuggest": "~9.3.4",
     "react-helmet": "^5.2.0",
-    "react-leaflet": "~1.9.1"
+    "react-leaflet": "~1.9.1",
+    "whatwg-fetch": "~2.0.4"
   },
   "keywords": [
     "cg44",
