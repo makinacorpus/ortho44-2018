@@ -1,6 +1,7 @@
 ---
 templateKey: poi
 title: 'Château de Ranrouët '
+order: '17'
 description: >-
   Situé dans un lieu naturellement protégé par les marais de Brière, un premier
   château en bois est édifié par la famille D’Assérac au XIIe siècle, suivi au
@@ -17,7 +18,7 @@ lng: -2.29904
 picture: /img/chateau-de-ranroue-t.png
 iframe: >-
   <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/b_2JDXKyOKQ" frameborder="0"
+  src="https://www.youtube.com/embed/FxF0aXu3LW8" frameborder="0"
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
 link: 'https://www.youtube.com/watch?v=FxF0aXu3LW8&feature=youtu.be'
