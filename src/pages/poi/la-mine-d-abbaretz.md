@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: La mine d’Abbaretz
-order: '9'
+order: '0'
 description: >-
   À 45 km de Nantes, le site de la mine, situé sur la commune d'Abbaretz, est
   l’endroit idéal pour faire des activités sportives de pleine nature : ski
