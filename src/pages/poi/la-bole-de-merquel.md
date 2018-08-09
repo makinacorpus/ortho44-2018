@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: La Bôle de Merquel
-order: '7'
+order: '0'
 description: >-
   Sur la commune de Mesquer, la Bôle de Merquel est l’une des dernières dunes
   sauvegardées de la Loire-Atlantique. Elle fait face à Pointe Noire et à la
@@ -19,7 +19,7 @@ iframe: >-
   by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe><script
   type="text/javascript">function showpics(){var
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
-promote: true
+promote: false
 link: 'https://www.flickr.com/photos/loireatlantique/albums/72157697478999194'
 marker_type: default
 media_type: photos
