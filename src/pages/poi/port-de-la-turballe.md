@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Port de la Turballe
-order: '11'
+order: '0'
 description: >
   Seul port en eau profonde entre l'estuaire de la Loire et de l'estuaire de la
   Vilaine, le port de la Turballe est rattaché à Saint-Nazaire et se caractérise
