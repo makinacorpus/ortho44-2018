@@ -1,7 +1,7 @@
 ---
 templateKey: poi
 title: Maison éclusière de la Tindière
-order: '12'
+order: '0'
 description: >-
   A 25 minutes de Nantes, à Nort-sur-Erdre, cette écluse a trouvé une nouvelle
   utilisation en tant que maison éclusière. Cette maison a été rénovée en
