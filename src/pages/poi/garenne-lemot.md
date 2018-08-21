@@ -7,10 +7,10 @@ description: >-
   italiennes, dans un parc d'exception. 
 
   C’est dans l’imaginaire de François-Frédéric Lemot, sculpteur de Napoléon, que
-  naît magnifique décor du domaine de la Garenne Lemot. Au cœur du bois de la
-  Garenne, il fait élever une maison de style toscan et une villa néoclassique.
-  Au milieu du parc de treize hectares, des fabriques ornementales (statues,
-  grotte, colonne, tombeau...) ponctuent la promenade. 
+  naît ce magnifique décor. Au cœur du bois de la Garenne, il fait élever une
+  maison de style toscan et une villa néoclassique. Au milieu du parc de treize
+  hectares, des fabriques ornementales (statues, grotte, colonne, tombeau...)
+  ponctuent la promenade. 
 
   Aujourd'hui, ce site, classé monument historique, est propriété du Département
   de Loire-Atlantique.
