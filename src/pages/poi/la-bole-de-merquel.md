@@ -20,7 +20,8 @@ iframe: >-
   type="text/javascript">function showpics(){var
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
 promote: false
-link: 'https://www.flickr.com/photos/loireatlantique/albums/72157697478999194'
+link: >-
+  https://nature.loire-atlantique.fr/jcms/les-lieux-a-decouvrir/la-bole-de-merquel-et-pointe-noire-fr-e1_58809?cid=e1_58235
 marker_type: default
 media_type: photos
 ---
