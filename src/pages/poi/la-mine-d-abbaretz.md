@@ -22,7 +22,8 @@ iframe: >-
   width="640" height="427" alt="La mine d&#x27;Abbaretz"></a><script async
   src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 promote: false
-link: 'https://www.flickr.com/photos/loireatlantique/albums/72157693632055000'
+link: >-
+  https://nature.loire-atlantique.fr/jcms/les-lieux-a-decouvrir/la-mine-abbaretz-fr-e1_58830?cid=e1_58224
 marker_type: default
 media_type: photos
 ---
