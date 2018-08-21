@@ -15,14 +15,12 @@ lat: 47.560782
 lng: -1.542205
 picture: /img/mine-abbaretz-cg44b0031304.jpg
 iframe: >-
-  <iframe
-  src="https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=72157693632055000&sort=0&by=album&theme=default&scale=fill&limit=10&skin=default&autoplay=true"
-  scrolling="no" frameborder="0" allowFullScreen="true"
-  webkitallowfullscreen="true" mozallowfullscreen="true"><p><a 
-  href="http://www.embedgooglemap.co.uk">http://www.embedgooglemap.co.uk/</a></p><small>Powered
-  by <a href="https://flickrembed.com">flickr embed</a>.</small></iframe><script
-  type="text/javascript">function showpics(){var
-  a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
+  <a data-flickr-embed="true" data-header="true" 
+  href="https://www.flickr.com/photos/loireatlantique/albums/72157693632055000"
+  title="La mine d&#x27;Abbaretz"><img
+  src="https://farm1.staticflickr.com/852/28740305027_e17728bd3d_z.jpg"
+  width="640" height="427" alt="La mine d&#x27;Abbaretz"></a><script async
+  src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 promote: false
 link: 'https://www.flickr.com/photos/loireatlantique/albums/72157693632055000'
 marker_type: default
