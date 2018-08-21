@@ -3,14 +3,13 @@ templateKey: poi
 title: Musée Dobrée
 order: '3'
 description: >
-  Situé dans le centre de Nantes, le musée Dobrée réunit deux bâtiments
-  imposants : le palais Dobrée, de style néo-médiéval, avec sa tour haute de 30
-  mètres et le manoir de la Touche, ancienne résidence épiscopale. 
+  En plein coeur de Nantes, le musée Dobrée réunit deux bâtiments imposants : le
+  palais Dobrée, de style néo-médiéval, avec sa tour haute de 30 mètres et le
+  manoir de la Touche, ancienne résidence épiscopale. 
 
   Le musée Thomas Dobrée a ouvert ses portes au public le 8 janvier 1899. À
   l’époque, on y trouvait les collections de 2 musées (musée départemental
-  d’Archéologique et musée Dobrée). Ces collections importantes ont été confiées
-  à une collectivité publique afin de les pérenniser.
+  d’Archéologique et musée Dobrée). 
 
   Le musée Dobrée est en cours de rénovation. Le nouveau musée ouvrira ses
   portes en 2021.
