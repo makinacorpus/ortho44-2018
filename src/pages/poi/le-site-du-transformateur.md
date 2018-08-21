@@ -2,13 +2,12 @@
 templateKey: poi
 title: Le site du Transformateur
 description: >-
-  Cette ancienne friche industrielle se trouve au croisement de l'Ille et
-  Vilaine, la Loire-Atlantique, la Bretagne et les Pays de la Loire, à
-  l’intersection entre la Vilaine et le Canal de Nantes à Brest. 
+  Entre nature et vestiges industriels, le site du transformateur est situé au
+  cœur  des marais de Redon au croisement de la Vilaine et du Canal de Nantes à
+  Brest.  
 
-  Après deux vagues d’inondations, Le Département en fait l’acquisition en 2001,
-  avec comme objectif de rétablir un espace dédié à la nature, servant de zone
-  d'expansion des crues. 
+  Propriété du Département depuis 2001, ce lieu atypique est composé d'espaces
+  naturels se mêlant aux ruines d'anciens bâtiments. 
 lat: 47.646547
 lng: -2.084429
 iframe: >-
