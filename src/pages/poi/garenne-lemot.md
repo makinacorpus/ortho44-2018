@@ -27,7 +27,8 @@ iframe: >-
   type="text/javascript">function showpics(){var
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
 promote: true
-link: 'https://www.flickr.com/photos/loireatlantique/albums/72157668106486357'
+link: >-
+  https://grand-patrimoine.loire-atlantique.fr/jcms/les-sites-a-visiter/domaine-de-la-garenne-lemot-a-getigne-clisson-fr-eja_77028
 marker_type: default
 media_type: photos
 ---
