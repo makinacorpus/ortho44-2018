@@ -5,9 +5,10 @@ order: '1'
 description: >-
   Pont suspendu de 412 m de long, le pont Bretagne-Anjou, plus connu sous le nom
   de pont suspendu d'Ancenis, est un lieu de passage important au-dessus de la
-  Loire. Il faut savoir que les appuis intermédiaires supportant le tablier ont
-  été réalisées dans le lit du fleuve. En ce qui concerne les pylônes, ils sont
-  en béton armé et ce sont eux qui supportent les câbles porteurs.
+  Loire. En 2012, d’importants travaux de rénovation ont été lancés sur le pont
+  d’Ancenis par les Départements de Loire-Atlantique et du Maine-et-Loire. Ce
+  chantier de grande envergure s'est terminé fin août 2015, après 3 ans de
+  travaux. 
 lat: 47.362446
 lng: -1.176333
 picture: /img/ancenis.jpg
