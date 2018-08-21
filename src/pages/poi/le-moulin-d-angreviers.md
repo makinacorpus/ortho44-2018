@@ -22,7 +22,7 @@ iframe: >-
   a=$("#box").val();$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+a+"&tagmode=any&format=json&jsoncallback=?",function(a){$("#images").hide().html(a).fadeIn("fast"),$.each(a.items,function(a,e){$("<img/>").attr("src",e.media.m).appendTo("#images")})})}</script>
 promote: false
 link: >-
-  https://www.flickr.com/photos/loireatlantique/albums/72157698013044365/with/41005321560/
+  https://nature.loire-atlantique.fr/jcms/les-lieux-a-decouvrir/le-moulin-d-angreviers-fr-e1_58860?cid=e1_59207
 marker_type: default
 media_type: photos
 ---
