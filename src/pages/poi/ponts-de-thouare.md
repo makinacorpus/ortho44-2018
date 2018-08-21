@@ -8,8 +8,7 @@ description: >-
   les deux bras de la Loire situés de part et d'autre de la pointe est de l'île
   de la Chênaie. Le pont date de 1886. Long de 400 m cet ouvrage constitue un
   point de passage de la Loire important pour la circulation entre
-  l'agglomération nantaise et le "Vignoble nantais", surtout lors de
-  l'encombrement des Ponts de Bellevue, situé en aval.
+  l'agglomération nantaise et le "Vignoble nantais".
 lat: 47.261785
 lng: -1.433388
 picture: /img/cg44b0043768.jpg
