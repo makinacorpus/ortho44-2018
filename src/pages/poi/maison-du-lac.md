@@ -10,10 +10,10 @@ description: >
   Camargue. Jusqu’à aujourd’hui, plus de 270 espèces d’oiseaux ont été
   dénombrées au lac de Grand-Lieu.
 
-  Une balade mène ensuite à l’ancien Pavillon de chasse du célèbre parfumeur
-  Guerlain : Une exposition présente la richesse des paysages, du patrimoine
-  naturel et historique du lac de Grand-Lieu à travers une scénographie ludique
-  ponctuée d’installations multimédias.
+  La Maison du Lac de Grand-Lieu, avec son centre d'exposition, son sentier, sa
+  terrasse d'observation et son pavillon, permet de découvrir,l'une des plus
+  belles zones humides d’Europe, reconnue pour sa richesse biologique
+  exceptionnelle.
 lat: 47.138692
 lng: -1.696542
 picture: /img/maison-du-lac-cg44ac0009151.jpg
