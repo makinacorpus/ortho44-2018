@@ -53,6 +53,7 @@ const Footer = () => (
         <span className="c-footer__footnote-label">Un service du Département </span><a href="https://www.loire-atlantique.fr/"><img className="c-footer__footnote-img" src={logo} alt="Loire-Atlantique" /></a>
       </p>
     </div>
+    <img src="https://api-adserver.adikteev.com/api/track.gif?tag=1724" alt="" style={{ visibility: 'hidden' }} />
   </footer>
 );
 
