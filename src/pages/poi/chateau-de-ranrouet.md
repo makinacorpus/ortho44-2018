@@ -20,7 +20,7 @@ iframe: >-
   <iframe width="560" height="315"
   src="https://www.youtube.com/embed/FxF0aXu3LW8" frameborder="0"
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
-promote: true
+promote: false
 link: 'https://www.youtube.com/watch?v=FxF0aXu3LW8&feature=youtu.be'
 marker_type: default
 media_type: video
