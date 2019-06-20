@@ -67,7 +67,7 @@ export default class IndexPage extends React.Component {
 
     return `${ALL_LAYERS.wms.url}/geoserver/wms/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap`
       + `&BBOX=${bounds._southWest.lat},${bounds._southWest.lng},${bounds._northEast.lat},${bounds._northEast.lng}`
-      + `&WIDTH=${x}&HEIGHT=${y}&LAYERS=${layerName}`
+      + `&WIDTH=${Math.round(x * 3.125)}&HEIGHT=${Math.round(y * 3.125)}&LAYERS=${layerName}`
       + `&SRS=EPSG:4326&STYLES=&FORMAT=image/${mime}&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE`;
   }
 
