@@ -50,12 +50,6 @@ const Header = () => (
                 Twitter
               </a>
             </li>
-            <li className="c-header__share-item">
-              <a className="c-header__share-link" href={`https://plus.google.com/share?url=${getCurrentUrl()}`}>
-                <Icon name="network-google" />
-                Google +
-              </a>
-            </li>
           </ul>
         </li>
       </ul>
