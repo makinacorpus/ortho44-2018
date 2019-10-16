@@ -2,9 +2,10 @@
 
 exports.onRouteUpdate = function (_ref) {
   var location = _ref.location;
+  const isPush = _ref.action === 'PUSH';
 
   // Don't track while developing.
-  if (process.env.NODE_ENV === "production" && typeof ga === "function") {
+  if (isPush && process.env.NODE_ENV === "production" && typeof ga === "function") {
     if (location && typeof window.excludeGAPaths !== "undefined" && window.excludeGAPaths.some(function (rx) {
       return rx.test(location.pathname);
     })) {
