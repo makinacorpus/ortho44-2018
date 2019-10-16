@@ -329,7 +329,7 @@ export default class IndexPage extends React.Component {
             />
           </div>
           <div className="c-map-layout__attributions">
-            Source: Département de Loire-Atlantique - <span role="img" aria-label="copyright">©</span> IGN
+            Source: Département de Loire-Atlantique - <span role="img" aria-label="copyright">©</span> IGN - clichés 2016 cofinancés par le Fonds Européen de développement régional
           </div>
         </div>
 
