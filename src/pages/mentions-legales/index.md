@@ -39,3 +39,8 @@ Direction prospective, pôle innovation et multimédia, direction des solutions 
 
 **Conception graphique :**
 Pôle innovation et multimédia - Direction de la communication, Département de Loire-Atlantique
+
+*Les clichés 2016 ont été cofinancés*  
+*par le Fonds Européen de développement régional*
+
+![Fonds Européen de développement régional](/img/europe-feder250.png)
