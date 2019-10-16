@@ -19,3 +19,8 @@ Pour la licence ouverte / open licence, vous êtes libres de :
 Avec cette licence, vous êtes détenteur d’un droit personnel, non exclusif et gratuit de réutilisation des données mises à disposition, pour une durée illimitée dans le monde entier, exempte de droits de propriété intellectuelle appartenant à des tiers. Le droit français est applicable.
 
 Vous êtes le seul responsable de la réutilisation de « l'information » conformément aux libertés et conditions définies par la Licence Ouverte/Open Licence. La réutilisation ne doit pas induire en erreur des tiers quant au contenu de « l'information », sa source et sa date de mise à jour.
+
+*Les clichés 2016 ont été cofinancés*  
+*par le Fonds Européen de développement régional*
+
+![Fonds Européen de développement régional](/img/europe-feder250.png)
