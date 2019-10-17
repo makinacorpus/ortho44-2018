@@ -1,7 +1,7 @@
 const ignKeys = {
   'localhost:8000': 'puaqi516lc6f75saib649eg2',
   'makinacorpus.github.io': '9z9o6i52lxwch6mxt9wmwro5',
-  'vuduciel.loire-atlantique.fr': 'yyo09x3nnux7wfy7pibnjnsl',
+  'vuduciel.loire-atlantique.fr': 'tgbrdzmxl6av4pkitsp0cmyc',
 };
 
 const ignKey = (typeof window !== 'undefined' && window.location)
