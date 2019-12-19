@@ -57,7 +57,7 @@ export const ALL_LAYERS = {
   cadastre: {
     label: 'Cadastre 2017',
     wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre/MapServer/WMSServer?',
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cadastre_appli/MapServer/WMSServer?',
     layers: '0,1,2,3',
     opacity: 0.75,
     tileSize: 512,
@@ -70,7 +70,7 @@ export const ALL_LAYERS = {
   cassini: {
     label: 'Cartes de Cassini',
     wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cassini/MapServer/WMSServer?',
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cassini_appli/MapServer/WMSServer?',
     layers: '0',
     ...minMaxZoom,
   },
@@ -78,7 +78,7 @@ export const ALL_LAYERS = {
   napoleon: {
     label: 'Cadastre napoléonien',
     wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/z_referentiel_externe/cadastre_napoleonien/MapServer/WMSServer?',
+    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cadastre_napoleonien_appli/MapServer/WMSServer?',
     layers: '0',
     ...minMaxZoom,
   },
