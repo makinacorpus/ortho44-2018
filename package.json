@@ -28,7 +28,7 @@
     "lodash-webpack-plugin": "^0.11.6",
     "netlify-cms": "~1.9.2",
     "nuka-carousel": "~4.2.2",
-    "prop-types": "~15.6.2",
+    "prop-types": "^15.7.2",
     "react": "^16.4.2",
     "react-autosuggest": "~9.3.4",
     "react-helmet": "^5.2.1",
