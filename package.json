@@ -33,7 +33,7 @@
     "react-autosuggest": "~9.3.4",
     "react-helmet": "^5.2.1",
     "react-leaflet": "~1.9.1",
-    "whatwg-fetch": "~2.0.4"
+    "whatwg-fetch": "^3.6.2"
   },
   "keywords": [
     "cg44",
