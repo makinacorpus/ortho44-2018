@@ -9,11 +9,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-postcss-sass',
       options: {
-        postCssPlugins: [
-          autoprefixer({
-            browsers: ['last 2 versions'],
-          }),
-        ],
+        postCssPlugins: [autoprefixer()],
         precision: 8,
       },
     },
