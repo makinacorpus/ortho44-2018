@@ -5,13 +5,13 @@ import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker, Tooltip, ScaleControl } 
 import L from 'leaflet';
 import 'leaflet.sync';
 import 'leaflet-sleep';
-import 'leaflet-minimap';
-import 'leaflet-minimap/src/Control.MiniMap.css';
+// import 'leaflet-minimap';
+// import 'leaflet-minimap/src/Control.MiniMap.css';
 
 import 'leaflet/dist/leaflet.css';
 import './SyncedMaps.scss';
 
-import ALL_LAYERS from '../settings/layers';
+// import ALL_LAYERS from '../settings/layers';
 
 import markerIcons from '../helpers/markerIcons';
 
@@ -62,21 +62,21 @@ class SyncedMaps extends Component {
     super(props);
     this.mapRefs = [];
 
-    this.miniMap = new L.Control.MiniMap(
-      new L.TileLayer(ALL_LAYERS.osm.url),
-      {
-        position: 'bottomleft',
-        mapOptions: {
-          sleep: false,
-        },
-      },
-    );
+    // this.miniMap = new L.Control.MiniMap(
+    //   new L.TileLayer(ALL_LAYERS.osm.url),
+    //   {
+    //     position: 'bottomleft',
+    //     mapOptions: {
+    //       sleep: false,
+    //     },
+    //   },
+    // );
 
     this.initTile = L.GridLayer.prototype._initTile; // eslint-disable-line no-underscore-dangle
   }
 
   componentDidMount () {
-    this.bindMiniMap();
+    // this.bindMiniMap();
     syncMaps(this.mapRefs);
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
@@ -85,7 +85,7 @@ class SyncedMaps extends Component {
   }
 
   componentDidUpdate () {
-    this.bindMiniMap();
+    // this.bindMiniMap();
     syncMaps(this.mapRefs);
     if (typeof this.props.updateMapRef === 'function') {
       this.props.updateMapRef(this.mapRefs[0]);
@@ -97,15 +97,15 @@ class SyncedMaps extends Component {
     unsyncMaps(this.mapRefs);
   }
 
-  bindMiniMap () {
-    if (this.miniMap) {
-      this.miniMap.remove();
+  // bindMiniMap () {
+  //   if (this.miniMap) {
+  //     this.miniMap.remove();
 
-      if (this.mapRefs.length === 1) {
-        this.miniMap.addTo(this.mapRefs[0]);
-      }
-    }
-  }
+  //     if (this.mapRefs.length === 1) {
+  //       this.miniMap.addTo(this.mapRefs[0]);
+  //     }
+  //   }
+  // }
 
   /*
   * Workaround for 1px lines appearing in some browsers due to fractional transforms
