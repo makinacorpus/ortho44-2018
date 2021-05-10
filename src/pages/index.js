@@ -299,7 +299,6 @@ export default class IndexPage extends React.Component {
         <div className={classnames('c-map-layout', { 'c-map-layout--fullscreen': fullscreen })}>
           <div className="c-map-layout__actions">
             <MapActions
-              className="c-map-actions"
               geolocate={this.geolocate}
               roads={roads}
               toggleRoads={this.toggleRoads}
