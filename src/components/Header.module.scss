@@ -1,0 +1,14 @@
+@import "../layouts/scss/variables";
+
+.header {
+  padding: 1rem 0;
+
+  &Inner {
+    max-width: $maxWidth;
+    margin: 0 auto;
+  }
+}
+
+.logo {
+  max-height: 63px;
+}
