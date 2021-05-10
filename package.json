@@ -45,6 +45,7 @@
   "scripts": {
     "start": "npm run develop",
     "build": "gatsby build",
+    "clean": "npx rimraf .cache public",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "lint": "eslint \"{gatsby-*.js,src/**/*.js}\"",
