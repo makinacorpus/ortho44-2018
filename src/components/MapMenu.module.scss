@@ -1,0 +1,10 @@
+@import "../layouts/scss/variables";
+
+.searchPrimary {
+  background: black;
+  color: white;
+}
+
+.searchSecondary {
+  background: $color-brand;
+}

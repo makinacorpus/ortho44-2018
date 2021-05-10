@@ -294,7 +294,6 @@ export default class IndexPage extends React.Component {
           handleResult={this.handleResult}
           initialSearch={this.initialSearch}
           placeName={this.placeName}
-          className="c-map-menu"
         />
 
         <div className={classnames('c-map-layout', { 'c-map-layout--fullscreen': fullscreen })}>
