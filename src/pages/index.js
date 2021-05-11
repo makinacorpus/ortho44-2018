@@ -13,7 +13,6 @@ import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
 
-
 /* eslint no-underscore-dangle: off */
 
 export default class IndexPage extends React.Component {
@@ -60,6 +59,33 @@ export default class IndexPage extends React.Component {
     this.zoomOut = this.zoomOut.bind(this);
   }
 
+  handleResult (selection) {
+    const geojson = {
+      type: 'Feature',
+      properties: {
+        name: selection.suggestion.label,
+      },
+      geometry: selection.suggestion.data._source.geometry,
+    };
+
+    const [minX, minY, maxX, maxY] = bbox(geojson);
+
+    this.setState({
+      resultLayer: geojson,
+    });
+
+    this.firstMap
+      && this.firstMap.fitBounds
+      && this.firstMap.fitBounds([[minY, minX], [maxY, maxX]]);
+  }
+
+  handleViewportChange (viewport) {
+    if (!isEqual(this.viewport, viewport)) {
+      this.viewport = viewport;
+    }
+    this.updateHash();
+  }
+
   getWMSPictureUrl (mime = 'jpeg') {
     const bounds = this.firstMap.getBounds();
     const { x, y } = this.firstMap.getSize();
@@ -73,8 +99,9 @@ export default class IndexPage extends React.Component {
 
   showMaps (...IDs) {
     let selection = IDs;
+    const { selection: [firstSelection] } = this.state;
 
-    if (IDs.length === 1 && IDs[0] === this.state.selection[0]) {
+    if (IDs.length === 1 && IDs[0] === firstSelection) {
       selection = [DEFAULT_BASE];
     }
 
@@ -82,27 +109,19 @@ export default class IndexPage extends React.Component {
   }
 
   toggleCadastre () {
-    this.setState({
-      cadastre: !this.state.cadastre,
-    });
+    this.setState(prevState => ({ cadastre: !prevState.cadastre }));
   }
 
   toggleRoads () {
-    this.setState({
-      roads: !this.state.roads,
-    });
+    this.setState(prevState => ({ roads: !prevState.roads }));
   }
 
   toggleBoundaries () {
-    this.setState({
-      boundaries: !this.state.boundaries,
-    });
+    this.setState(prevState => ({ boundaries: !prevState.boundaries }));
   }
 
   toggleFullscreen () {
-    this.setState({
-      fullscreen: !this.state.fullscreen,
-    });
+    this.setState(prevState => ({ fullscreen: !prevState.fullscreen }));
   }
 
   mapsFromSelection () {
@@ -170,26 +189,6 @@ export default class IndexPage extends React.Component {
     return maps;
   }
 
-  handleResult (selection) {
-    const geojson = {
-      type: 'Feature',
-      properties: {
-        name: selection.suggestion.label,
-      },
-      geometry: selection.suggestion.data._source.geometry,
-    };
-
-    const [minX, minY, maxX, maxY] = bbox(geojson);
-
-    this.setState({
-      resultLayer: geojson,
-    });
-
-    this.firstMap
-      && this.firstMap.fitBounds
-      && this.firstMap.fitBounds([[minY, minX], [maxY, maxX]]);
-  }
-
   geolocate () {
     typeof window !== 'undefined'
       && window.navigator
@@ -199,15 +198,10 @@ export default class IndexPage extends React.Component {
   }
 
   updateHash () {
-    const compareWith = this.state.selection[1];
-    setHash(serializeViewport(this.viewport) + (compareWith ? `!${compareWith}` : ''));
-  }
+    const { selection: [, secondSelection] } = this.state;
 
-  handleViewportChange (viewport) {
-    if (!isEqual(this.viewport, viewport)) {
-      this.viewport = viewport;
-    }
-    this.updateHash();
+    const compareWith = secondSelection;
+    setHash(serializeViewport(this.viewport) + (compareWith ? `!${compareWith}` : ''));
   }
 
   zoomIn () {
@@ -219,16 +213,15 @@ export default class IndexPage extends React.Component {
   }
 
   toggleDlNotice (visible) {
-    this.setState({
-      dlNotice: typeof visible === 'boolean' ? visible : !this.state.dlNotice,
-    });
+    this.setState(prevState => ({
+      dlNotice: typeof visible === 'boolean' ? visible : !prevState.dlNotice,
+    }));
   }
 
   render () {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
-    const { selection, roads, boundaries, cadastre, fullscreen } = this.state;
-
+    const { selection, roads, boundaries, cadastre, fullscreen, dlNotice } = this.state;
 
     const isValidPoi = res => (res.node.frontmatter.templateKey === 'poi' && res.node.frontmatter.lat && res.node.frontmatter.lng);
 
@@ -255,9 +248,9 @@ export default class IndexPage extends React.Component {
     return (
       <section>
 
-        {typeof window !== 'undefined' &&
+        {typeof window !== 'undefined' && (
         <CustomModal
-          isOpen={this.state.dlNotice}
+          isOpen={dlNotice}
           handleClose={() => this.setState({ dlNotice: false })}
         >
           <div className="t-md">
@@ -265,11 +258,10 @@ export default class IndexPage extends React.Component {
             <ul className="download-links">
               {
                 this.firstMap && this.firstMap.getZoom() > 13
-                ?
-                  [
+                  ? [
                     <li key="geotiff">
                       <a href={this.getWMSPictureUrl('geotiff')} target="_blank" rel="noopener noreferrer">
-                      Télécharger l'image haute résolution GeoTIFF
+                        Télécharger l'image haute résolution GeoTIFF
                       </a>
                     </li>,
                     <li key="jpg">
@@ -278,12 +270,12 @@ export default class IndexPage extends React.Component {
                       </a>
                     </li>,
                   ]
-                :
-                  <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
+                  : <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
               }
             </ul>
           </div>
-        </CustomModal>}
+        </CustomModal>
+        )}
 
         <MapMenu
           selection={selection}

@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   extends: 'makina',
   globals: {
     graphql: true,
@@ -8,5 +9,7 @@ module.exports = {
     'react/forbid-prop-types':           ['off'],
     'react/no-danger':                   ['off'],
     'react/require-default-props':       ['off'],
+    'react/destructuring-assignment': ['warn'],
+    'react/jsx-fragments': ['off'],
   },
 };

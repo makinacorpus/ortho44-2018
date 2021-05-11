@@ -46,17 +46,16 @@ const MapActions = ({
     </button>
 
     <ul>
-      <li >
+      <li>
         <input id="__sub-boudaries" type="checkbox" checked={boundaries} onChange={() => toggleBoundaries()} />
-        <label htmlFor="__sub-boudaries" >Afficher les limites départementales</label>
+        <label htmlFor="__sub-boudaries">Afficher les limites départementales</label>
       </li>
-      <li >
+      <li>
         <input id="__sub-roads" type="checkbox" checked={roads} onChange={() => toggleRoads()} />
-        <label htmlFor="__sub-roads" >Afficher les rues</label>
+        <label htmlFor="__sub-roads">Afficher les rues</label>
       </li>
     </ul>
   </React.Fragment>
 );
 
 export default MapActions;
-

@@ -20,9 +20,11 @@ export default class TemplateWrapper extends React.Component {
       site: PropTypes.object,
     }),
   }
+
   static childContextTypes = {
     setPosts: PropTypes.func,
   }
+
   getChildContext = () => ({
     setPosts: posts => {
       this.posts = posts;
@@ -38,12 +40,13 @@ export default class TemplateWrapper extends React.Component {
     this.windowWidth = window.innerWidth;
   }
 
-  componentWillReceiveProps = nextProps => {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps = nextProps => {
     // if we're changing to a non-homepage page, put things in
     // a modal (unless we're on mobile).
     if (
-      nextProps.location.pathname !== '/' &&
-      this.windowWidth > 750
+      nextProps.location.pathname !== '/'
+      && this.windowWidth > 750
     ) {
       // Freeze the background from scrolling.
       this.htmlElement.style.overflow = 'hidden';
@@ -64,14 +67,15 @@ export default class TemplateWrapper extends React.Component {
       this.htmlElement.style.overflowY = 'scroll';
     }
   }
+
   render () {
-    const { location, data } = this.props;
+    const { location, data, children } = this.props;
 
     let isModal = false;
     if (
-      typeof window !== 'undefined' &&
-      this.props.location.pathname !== '/' &&
-      this.windowWidth > 750
+      typeof window !== 'undefined'
+      && location.pathname !== '/'
+      && this.windowWidth > 750
     ) {
       isModal = true;
     }
@@ -90,20 +94,14 @@ export default class TemplateWrapper extends React.Component {
         <main role="main">
           <div>
             {isModal
-              ? this.props.children({
-                  ...this.props,
-                  location: { pathname: '/' },
-                })
-              : this.props.children()}
+              ? children({ ...this.props, location: { pathname: '/' } })
+              : children()}
           </div>
 
           <div>
             {isModal && (
-              <CustomModal
-                isOpen
-                handleClose={() => navigateTo('/')}
-              >
-                {this.props.children({ location: { pathname: location.pathname } })}
+              <CustomModal isOpen handleClose={() => navigateTo('/')}>
+                {children({ location: { pathname: location.pathname } })}
               </CustomModal>
             )}
           </div>

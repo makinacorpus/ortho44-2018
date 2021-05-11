@@ -6,18 +6,19 @@ import styles from './CustomModal.module.scss';
 
 Modal && Modal.setAppElement && Modal.setAppElement('#___gatsby');
 
-const CustomModal = props => (
+const CustomModal = ({ isOpen, handleClose, children }) => (
   <Modal
-    isOpen={props.isOpen}
-    onRequestClose={props.handleClose}
+    isOpen={isOpen}
+    onRequestClose={handleClose}
     contentLabel="Modal"
     className={styles.content}
     overlayClassName={styles.overlay}
   >
 
     <button
+      type="button"
       data-testid="modal-close"
-      onClick={props.handleClose}
+      onClick={handleClose}
       className={styles.closeButton}
     >
       <Icon name="cross" />
@@ -25,7 +26,7 @@ const CustomModal = props => (
     </button>
 
     <div className={styles.inner}>
-      {props.children}
+      {children}
     </div>
 
   </Modal>

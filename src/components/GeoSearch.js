@@ -48,8 +48,9 @@ class GeoSearch extends Component {
 
   onSuggestionSelected = (event, selection) => {
     // const { suggestion, suggestionValue, suggestionIndex, sectionIndex, method } = selection;
-    if (typeof this.props.onSelect === 'function') {
-      this.props.onSelect(selection);
+    const { onSelect } = this.props;
+    if (typeof onSelect === 'function') {
+      onSelect(selection);
     }
   };
 
@@ -100,15 +101,17 @@ class GeoSearch extends Component {
   }
 
   render () {
-    const { value, suggestions } = this.state;
-    const inputProps = {
-      ...this.props.inputProps,
+    const { value, suggestions, isLoading } = this.state;
+    const { inputProps } = this.props;
+
+    const customInputProps = {
+      ...inputProps,
       value,
       onChange: this.onChange,
     };
 
     return (
-      <div className={this.state.isLoading ? 'loading' : ''}>
+      <div className={isLoading ? 'loading' : ''}>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={res => this.loadSuggestions(res.value)}
@@ -116,7 +119,7 @@ class GeoSearch extends Component {
           onSuggestionSelected={this.onSuggestionSelected}
           getSuggestionValue={this.getSuggestionValue}
           renderSuggestion={renderSuggestion}
-          inputProps={inputProps}
+          inputProps={customInputProps}
           highlightFirstSuggestion
         />
       </div>

@@ -36,7 +36,7 @@ const DefaultPage = ({ data }) => {
     <DefaultPageTemplate
       contentComponent={HTMLContent}
       title={post.frontmatter.title}
-      helmet={
+      helmet={(
         <Helmet>
           <html lang="fr" prefix="og: http://ogp.me/ns#" />
           <title>{post.frontmatter.title} | La Loire-Atlantique vue du ciel</title>
@@ -44,7 +44,7 @@ const DefaultPage = ({ data }) => {
           <meta property="og:type" content="article" />
           <meta property="og:url" content={getLocationHref()} />
         </Helmet>
-      }
+      )}
       content={post.html}
     />
   );

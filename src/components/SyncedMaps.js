@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { Component } from 'react';
 import { navigateTo } from 'gatsby-link';
 
@@ -41,12 +42,13 @@ const unsyncMaps = maps => {
 const AutoLayer = props => {
   let Layer = TileLayer;
   const customProps = {};
+  const { wms, geojson } = props;
 
-  if (props.wms) {
+  if (wms) {
     Layer = WMSTileLayer;
   }
 
-  if (props.geojson) {
+  if (geojson) {
     Layer = GeoJSON;
 
     // Define default marker for GeoJSON points
@@ -76,19 +78,22 @@ class SyncedMaps extends Component {
   }
 
   componentDidMount () {
+    const { updateMapRef } = this.props;
     // this.bindMiniMap();
     syncMaps(this.mapRefs);
-    if (typeof this.props.updateMapRef === 'function') {
-      this.props.updateMapRef(this.mapRefs[0]);
+    if (typeof updateMapRef === 'function') {
+      updateMapRef(this.mapRefs[0]);
     }
     this.fractionalTransform();
   }
 
   componentDidUpdate () {
+    const { updateMapRef } = this.props;
+
     // this.bindMiniMap();
     syncMaps(this.mapRefs);
-    if (typeof this.props.updateMapRef === 'function') {
-      this.props.updateMapRef(this.mapRefs[0]);
+    if (typeof updateMapRef === 'function') {
+      updateMapRef(this.mapRefs[0]);
     }
     this.fractionalTransform();
   }
@@ -115,7 +120,7 @@ class SyncedMaps extends Component {
   fractionalTransform () {
     const self = this;
     L.GridLayer.include({
-      _initTile (tile) {
+      _initTile (tile) { // eslint-disable-line no-underscore-dangle
         self.initTile.call(this, tile);
 
         const tileSize = this.getTileSize();

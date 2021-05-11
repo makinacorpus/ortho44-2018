@@ -7,7 +7,7 @@ import mediaTypes from '../helpers/mediaTypes';
 const iArray = count => Array.from(Array(count).keys());
 
 export const CustomCarouselButton = ({ onClick, className, text }) => (
-  <button className={className} onClick={onClick}>
+  <button type="button" className={className} onClick={onClick}>
     <Icon name="arrow-top" />
     <span className="u-visually-hidden">{text}</span>
   </button>
@@ -38,6 +38,7 @@ export const CustomCarouselItemList = ({
   <div className={`${classNamePrefix}__control-list`}>
     {iArray(slideCount).map(slide => (
       <button
+        type="button"
         className={`${classNamePrefix}__control`}
         key={slide}
         onClick={() => goToSlide(slide)}

@@ -14,71 +14,71 @@ const MapMenu = ({
   handleResult,
   initialSearch,
   placeName,
-}) => {
-  return (
-    <React.Fragment>
-      <div className={classes.searchPrimary}>
-        <h2>Rechercher</h2>
+}) => (
+  <React.Fragment>
+    <div className={classes.searchPrimary}>
+      <h2>Rechercher</h2>
 
-        <GeoSearch
-          onSelect={handleResult}
-          initialSearch={initialSearch}
-          inputProps={{ placeholder: placeName }}
-        />
+      <GeoSearch
+        onSelect={handleResult}
+        initialSearch={initialSearch}
+        inputProps={{ placeholder: placeName }}
+      />
 
-        <h2>Comparer avec</h2>
+      <h2>Comparer avec</h2>
 
-        <select
-          id="c-map-menu__year"
-          className="c-map-menu__select"
-          value={selection.join('-')}
-          onChange={event => showMaps(...event.target.value.split('-'))}
-        >
-          <option disabled>-</option>
-          <option value={DEFAULT_BASE}>Aucun</option>
-          {COMPARE_WITH.map(layerID => (
-            <option
-              key={layerID}
-              value={[DEFAULT_BASE, layerID].join('-')}
-            >{ALL_LAYERS[layerID].label || layerID}
-            </option>
-          ))}
-        </select>
-      </div>
+      <select
+        id="c-map-menu__year"
+        className="c-map-menu__select"
+        value={selection.join('-')}
+        onChange={event => showMaps(...event.target.value.split('-'))}
+      >
+        <option disabled>-</option>
+        <option value={DEFAULT_BASE}>Aucun</option>
+        {COMPARE_WITH.map(layerID => (
+          <option
+            key={layerID}
+            value={[DEFAULT_BASE, layerID].join('-')}
+          >{ALL_LAYERS[layerID].label || layerID}
+          </option>
+        ))}
+      </select>
+    </div>
 
-      <div className={classes.searchSecondary}>
-        Cartes historiques
+    <div className={classes.searchSecondary}>
+      Cartes historiques
 
-        <button onClick={() => showMaps('1850')}>
-          Cartes 1850
-        </button>
-        <button onClick={() => showMaps('cassini')}>
-          Cartes Cassini
-        </button>
-        <button onClick={() => showMaps('napoleon')}>
-          Cadastre Napoléonien
-        </button>
+      <button type="button" onClick={() => showMaps('1850')}>
+        Cartes 1850
+      </button>
+      <button type="button" onClick={() => showMaps('cassini')}>
+        Cartes Cassini
+      </button>
+      <button type="button" onClick={() => showMaps('napoleon')}>
+        Cadastre Napoléonien
+      </button>
 
-        <button onClick={() => toggleCadastre()}>
-          Cadastre
-        </button>
+      <button type="button" onClick={() => toggleCadastre()}>
+        Cadastre
+      </button>
 
-        <button
-          onClick={() => navigateTo('/serveur-wms')}
-          title="Fonction permettant d'accéder au serveur WMS du site."
-        >
-          Flux WMS
-        </button>
+      <button
+        type="button"
+        onClick={() => navigateTo('/serveur-wms')}
+        title="Fonction permettant d'accéder au serveur WMS du site."
+      >
+        Flux WMS
+      </button>
 
-        <button
-          onClick={toggleDlNotice}
-          title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
-        >
-          Exporter l'image
-        </button>
-      </div>
-    </React.Fragment>
-  );
-};
+      <button
+        type="button"
+        onClick={toggleDlNotice}
+        title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
+      >
+        Exporter l'image
+      </button>
+    </div>
+  </React.Fragment>
+);
 
 export default MapMenu;
