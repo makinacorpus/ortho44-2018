@@ -95,7 +95,8 @@ export default class TemplateWrapper extends React.Component {
         </Helmet>
 
         <Header />
-        <main role="main">
+
+        <main role="main" style={{ paddingTop: '1rem' }}>
           <div>
             {isModal
               ? children({ ...this.props, location: { pathname: '/' } })
@@ -110,7 +111,9 @@ export default class TemplateWrapper extends React.Component {
             )}
           </div>
         </main>
+
         <Footer />
+
         <Icons />
       </div>
     );

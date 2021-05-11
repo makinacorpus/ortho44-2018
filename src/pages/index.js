@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import bbox from '@turf/bbox';
 import { debounce, isEqual } from 'lodash';
@@ -13,7 +14,7 @@ import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
 
-/* eslint no-underscore-dangle: off */
+const isLive = typeof window !== 'undefined';
 
 export default class IndexPage extends React.Component {
   constructor () {
@@ -245,36 +246,40 @@ export default class IndexPage extends React.Component {
      */
     posts.sort((a, b) => +a.node.frontmatter.order < +b.node.frontmatter.order);
 
-    return (
-      <section>
+    const canDownload = this.firstMap && this.firstMap.getZoom() > 13;
 
-        {typeof window !== 'undefined' && (
-        <CustomModal
-          isOpen={dlNotice}
-          handleClose={() => this.setState({ dlNotice: false })}
-        >
-          <div className="t-md">
-            <div dangerouslySetInnerHTML={downloadModalText()} />
-            <ul className="download-links">
-              {
-                this.firstMap && this.firstMap.getZoom() > 13
-                  ? [
-                    <li key="geotiff">
+    return (
+      <React.Fragment>
+        {isLive && (
+          <CustomModal
+            isOpen={dlNotice}
+            handleClose={() => this.setState({ dlNotice: false })}
+          >
+            <div className="t-md">
+              <div dangerouslySetInnerHTML={downloadModalText()} />
+              <ul className="download-links">
+                {Boolean(canDownload) && (
+                  <React.Fragment>
+                    <li>
                       <a href={this.getWMSPictureUrl('geotiff')} target="_blank" rel="noopener noreferrer">
                         Télécharger l'image haute résolution GeoTIFF
                       </a>
-                    </li>,
-                    <li key="jpg">
+                    </li>
+
+                    <li>
                       <a href={this.getWMSPictureUrl('jpeg')} target="_blank" rel="noopener noreferrer">
                         Télécharger l'image haute résolution JPG
                       </a>
-                    </li>,
-                  ]
-                  : <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
-              }
-            </ul>
-          </div>
-        </CustomModal>
+                    </li>
+                  </React.Fragment>
+                )}
+
+                {!canDownload && (
+                  <li>La zone sélectionnée est trop importante, merci de la réduire.</li>
+                )}
+              </ul>
+            </div>
+          </CustomModal>
         )}
 
         <MapMenu
@@ -300,6 +305,7 @@ export default class IndexPage extends React.Component {
             zoomIn={this.zoomIn}
             zoomOut={this.zoomOut}
           />
+
           <div className="c-map-layout__synced-map">
             <SyncedMaps
               maps={this.mapsFromSelection()}
@@ -315,6 +321,7 @@ export default class IndexPage extends React.Component {
               }}
             />
           </div>
+
           <div className="c-map-layout__attributions">
             Source: Département de Loire-Atlantique - <span role="img" aria-label="copyright">©</span> IGN - clichés 2016 cofinancés par le Fonds Européen de développement régional
           </div>
@@ -325,8 +332,7 @@ export default class IndexPage extends React.Component {
           posts={posts}
           headerContent={carouselHeaderContent()}
         />
-
-      </section>
+      </React.Fragment>
     );
   }
 }

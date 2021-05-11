@@ -16,8 +16,8 @@ const MapMenu = ({
   placeName,
 }) => (
   <React.Fragment>
-    <div>
-      <h2>Rechercher</h2>
+    <Box>
+      <p>Rechercher</p>
 
       <GeoSearch
         onSelect={handleResult}
@@ -25,11 +25,9 @@ const MapMenu = ({
         inputProps={{ placeholder: placeName }}
       />
 
-      <h2>Comparer avec</h2>
+      <p>Comparer avec</p>
 
       <select
-        id="c-map-menu__year"
-        className="c-map-menu__select"
         value={selection.join('-')}
         onChange={event => showMaps(...event.target.value.split('-'))}
       >
@@ -43,21 +41,14 @@ const MapMenu = ({
           </option>
         ))}
       </select>
-    </div>
+    </Box>
 
     <Box>
       Cartes historiques
 
-      <Button onClick={() => showMaps('1850')}>
-        Cartes 1850
-      </Button>
-
-      <Button onClick={() => showMaps('cassini')}>
-        Cartes Cassini
-      </Button>
-      <Button onClick={() => showMaps('napoleon')}>
-        Cadastre Napoléonien
-      </Button>
+      <Button onClick={() => showMaps('1850')}>Cartes 1850</Button>
+      <Button onClick={() => showMaps('cassini')}>Cartes Cassini</Button>
+      <Button onClick={() => showMaps('napoleon')}>Cadastre Napoléonien</Button>
 
       <ButtonContextual
         iconBefore={<Icon type="map" />}
