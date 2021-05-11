@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { navigateTo } from 'gatsby-link';
 
-import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker, Tooltip, ScaleControl } from 'react-leaflet';
+import { Map, TileLayer, WMSTileLayer, GeoJSON, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet.sync';
 import 'leaflet-sleep';
@@ -138,7 +138,7 @@ class SyncedMaps extends Component {
 
     return (
       <div className={classes.syncedMaps}>
-        {maps.filter(map => !!map).map((map, index) => (
+        {maps.filter(map => !!map).map(map => (
           <Map
             key={JSON.stringify(map.layers && map.layers[0])}
             ref={ref => { ref && this.mapRefs.push(ref.leafletElement); }}
@@ -161,7 +161,6 @@ class SyncedMaps extends Component {
                 {title && <Tooltip><span>{title}</span></Tooltip>}
               </Marker>
             ))}
-            {index === 0 && <ScaleControl position="bottomright" imperial={false} />}
           </Map>
         ))}
       </div>

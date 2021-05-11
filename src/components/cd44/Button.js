@@ -28,11 +28,16 @@ export const ButtonContextual = React.forwardRef(({ className, ...props }, ref) 
   <Button ref={ref} className={classnames(className, 'ds44-btn--contextual')} {...props} />
 ));
 
-export const IconButton = React.forwardRef(({ label, type, icon, ...props }, ref) => (
+export const IconButton = React.forwardRef(({ className, label, type, icon, ...props }, ref) => (
   <button
     ref={ref}
     type="button"
-    className="ds44-btnIco ds44-btnIco--carre ds44-bgDark"
+    className={classnames(
+      className,
+      'ds44-btnIco',
+      'ds44-btnIco--carre',
+      'ds44-bgDark',
+    )}
     {...props}
   >
     {Boolean(icon) && icon}

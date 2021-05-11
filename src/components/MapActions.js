@@ -1,5 +1,8 @@
 import React from 'react';
-import Icon from './Icon';
+
+import { IconButton } from './cd44';
+
+import classes from './MapActions.module.scss';
 
 const MapActions = ({
   geolocate,
@@ -12,50 +15,57 @@ const MapActions = ({
   zoomIn,
   zoomOut,
 }) => (
-  <React.Fragment>
-    <button type="button" onClick={() => geolocate()} title="Géolocaliser">
-      <Icon name="gps" />
-      <span className="u-visually-hidden">Géolocaliser</span>
-    </button>
+  <div className={classes.root}>
+    <IconButton
+      type="fullscreen"
+      onClick={() => toggleFullscreen()}
+      title={fullscreen ? 'Enlever plein écran' : 'Mettre en plein écran'}
+    /><br />
+    <IconButton
+      type="plus"
+      onClick={() => zoomIn()}
+      title="Zoomer"
+    /><br />
+    <IconButton
+      type="minus"
+      onClick={() => zoomOut()}
+      title="Dézoomer"
+    /><br />
+    <IconButton
+      type="position"
+      onClick={() => geolocate()}
+      title="Géolocaliser"
+    /><br />
 
-    {fullscreen && (
-      <button type="button" onClick={() => toggleFullscreen()} title="Enlever le plein écran">
-        <Icon name="fullscreen-out" />
-        <span className="u-visually-hidden">Enlever plein écran</span>
-      </button>
-    )}
-    {!fullscreen && (
-      <button type="button" onClick={() => toggleFullscreen()} title="Mettre en plein écran">
-        <Icon name="fullscreen" />
-        <span className="u-visually-hidden">Mettre en plein écran</span>
-      </button>
-    )}
+    <div className={classes.toggles}>
+      <div className={classes.cbWrapper}>
+        <label>
+          Afficher les limites départementales
+          <input
+            type="checkbox"
+            checked={boundaries}
+            onChange={() => toggleBoundaries()}
+            className={classes.cb}
+          />
+        </label><br />
+        <label>
+          Afficher les rues
+          <input
+            type="checkbox"
+            onChange={() => toggleRoads()}
+            checked={roads}
+            className={classes.cb}
+          />
+        </label>
+      </div>
 
-    <button type="button" onClick={() => zoomIn()} title="Zoomer">
-      <Icon name="zoom-in" />
-      <span className="u-visually-hidden">Zoomer</span>
-    </button>
-
-    <button type="button" onClick={() => zoomOut()} title="Dézoomer">
-      <Icon name="zoom-out" />
-      <span className="u-visually-hidden">Dézoomer</span>
-    </button>
-
-    <button type="button" title="Afficher les limites départementales et routes">
-      <Icon name="map" />
-    </button>
-
-    <ul>
-      <li>
-        <input id="__sub-boudaries" type="checkbox" checked={boundaries} onChange={() => toggleBoundaries()} />
-        <label htmlFor="__sub-boudaries">Afficher les limites départementales</label>
-      </li>
-      <li>
-        <input id="__sub-roads" type="checkbox" checked={roads} onChange={() => toggleRoads()} />
-        <label htmlFor="__sub-roads">Afficher les rues</label>
-      </li>
-    </ul>
-  </React.Fragment>
+      <IconButton
+        className={classes.togglesButton}
+        type="map"
+        title="Afficher les limites départementales et routes"
+      />
+    </div>
+  </div>
 );
 
 export default MapActions;

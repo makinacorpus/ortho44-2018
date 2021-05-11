@@ -11,5 +11,6 @@ module.exports = {
     'react/require-default-props':       ['off'],
     'react/destructuring-assignment': ['warn'],
     'react/jsx-fragments': ['off'],
+    'jsx-a11y/label-has-associated-control': ['warn', { assert: 'either' }],
   },
 };

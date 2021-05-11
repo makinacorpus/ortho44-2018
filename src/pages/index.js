@@ -289,19 +289,17 @@ export default class IndexPage extends React.Component {
         />
 
         <div className={classnames('c-map-layout', { 'c-map-layout--fullscreen': fullscreen })}>
-          <div className="c-map-layout__actions">
-            <MapActions
-              geolocate={this.geolocate}
-              roads={roads}
-              toggleRoads={this.toggleRoads}
-              boundaries={boundaries}
-              toggleBoundaries={this.toggleBoundaries}
-              fullscreen={fullscreen}
-              toggleFullscreen={this.toggleFullscreen}
-              zoomIn={this.zoomIn}
-              zoomOut={this.zoomOut}
-            />
-          </div>
+          <MapActions
+            geolocate={this.geolocate}
+            roads={roads}
+            toggleRoads={this.toggleRoads}
+            boundaries={boundaries}
+            toggleBoundaries={this.toggleBoundaries}
+            fullscreen={fullscreen}
+            toggleFullscreen={this.toggleFullscreen}
+            zoomIn={this.zoomIn}
+            zoomOut={this.zoomOut}
+          />
           <div className="c-map-layout__synced-map">
             <SyncedMaps
               maps={this.mapsFromSelection()}

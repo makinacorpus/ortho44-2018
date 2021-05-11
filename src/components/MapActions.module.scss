@@ -1,0 +1,52 @@
+.root {
+  overflow: hidden;
+  position: absolute;
+  right: 5px;
+  bottom: 30px;
+  z-index: 2;
+  text-align: right;
+
+  pointer-events: none;
+
+  > * {
+    pointer-events: all;
+  }
+
+  button {
+    margin-bottom: 3px;
+  }
+}
+
+.togglesButton {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+.toggles:hover {
+  .cbWrapper {
+    display: inline-block;
+  }
+}
+
+.cbWrapper {
+  background: rgba(0, 0, 0, .8);
+  line-height: 1.4;
+  color: white;
+  border-radius: 3px;
+  vertical-align: middle;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  margin-top: -8px;
+  margin-bottom: -5px;
+
+  display: none;
+
+  label {
+    cursor: pointer;
+  }
+}
+
+.cb {
+  position: static !important;
+  margin-left: 0.5em;
+}
