@@ -89,7 +89,11 @@ export default class TemplateWrapper extends React.Component {
           <meta property="og:type" content="website" />
           <meta property="og:url" content={getLocationHref()} />
           <link rel="shortcut icon" type="image/png" href={favicon} />
+
+          <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/cd44.css" />
+          <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/icons.css" />
         </Helmet>
+
         <Header />
         <main role="main">
           <div>

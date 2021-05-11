@@ -1,10 +1,10 @@
 import React from 'react';
 import { navigateTo } from 'gatsby-link';
 
-import classes from './MapMenu.module.scss';
-
 import { DEFAULT_BASE, COMPARE_WITH, ALL_LAYERS } from '../settings/layers';
 import GeoSearch from './GeoSearch';
+
+import { Box, Button, ButtonContextual, Icon } from './cd44';
 
 const MapMenu = ({
   showMaps,
@@ -16,7 +16,7 @@ const MapMenu = ({
   placeName,
 }) => (
   <React.Fragment>
-    <div className={classes.searchPrimary}>
+    <div>
       <h2>Rechercher</h2>
 
       <GeoSearch
@@ -45,39 +45,46 @@ const MapMenu = ({
       </select>
     </div>
 
-    <div className={classes.searchSecondary}>
+    <Box>
       Cartes historiques
 
-      <button type="button" onClick={() => showMaps('1850')}>
+      <Button onClick={() => showMaps('1850')}>
         Cartes 1850
-      </button>
-      <button type="button" onClick={() => showMaps('cassini')}>
+      </Button>
+
+      <Button onClick={() => showMaps('cassini')}>
         Cartes Cassini
-      </button>
-      <button type="button" onClick={() => showMaps('napoleon')}>
+      </Button>
+      <Button onClick={() => showMaps('napoleon')}>
         Cadastre Napoléonien
-      </button>
+      </Button>
 
-      <button type="button" onClick={() => toggleCadastre()}>
+      <ButtonContextual
+        iconBefore={<Icon type="map" />}
+        iconAfter={false}
+        onClick={() => toggleCadastre()}
+      >
         Cadastre
-      </button>
+      </ButtonContextual>
 
-      <button
-        type="button"
+      <ButtonContextual
+        iconBefore={<Icon type="flux" />}
+        iconAfter={false}
         onClick={() => navigateTo('/serveur-wms')}
         title="Fonction permettant d'accéder au serveur WMS du site."
       >
         Flux WMS
-      </button>
+      </ButtonContextual>
 
-      <button
-        type="button"
+      <ButtonContextual
+        iconBefore={<Icon type="file" />}
+        iconAfter={false}
         onClick={toggleDlNotice}
         title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
       >
         Exporter l'image
-      </button>
-    </div>
+      </ButtonContextual>
+    </Box>
   </React.Fragment>
 );
 
