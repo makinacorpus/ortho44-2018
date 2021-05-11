@@ -9,7 +9,7 @@ import 'leaflet-sleep';
 // import 'leaflet-minimap/src/Control.MiniMap.css';
 
 import 'leaflet/dist/leaflet.css';
-import './SyncedMaps.scss';
+import classes from './SyncedMaps.module.scss';
 
 // import ALL_LAYERS from '../settings/layers';
 
@@ -129,10 +129,10 @@ class SyncedMaps extends Component {
     unsyncMaps(this.mapRefs);
     this.mapRefs = [];
 
-    const { maps, className, mapsProps, markers } = this.props;
+    const { maps, mapsProps, markers } = this.props;
 
     return (
-      <div className={className}>
+      <div className={classes.syncedMaps}>
         {maps.filter(map => !!map).map((map, index) => (
           <Map
             key={JSON.stringify(map.layers && map.layers[0])}

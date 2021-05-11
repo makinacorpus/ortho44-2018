@@ -314,7 +314,6 @@ export default class IndexPage extends React.Component {
             <SyncedMaps
               maps={this.mapsFromSelection()}
               markers={markers}
-              className="c-synced-maps"
               updateMapRef={ref => { this.firstMap = ref; }}
               mapsProps={{
                 minZoom: 9,
