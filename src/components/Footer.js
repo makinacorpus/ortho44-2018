@@ -134,11 +134,13 @@ const Footer = () => {
           </button>
         </div>
 
-        <Link to="/a-propos">À propos</Link>
-        <Link to="/mentions-legales">Mention légales</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/utiliser-les-photos">Utiliser les photos</Link>
-        <Link to="/serveur-wms">Accéder au serveur WMS</Link>
+        <nav className={classes.nav}>
+          <Link to="/contact">Nous écrire</Link>
+          <Link to="/mentions-legales">Mention légales</Link>
+          <Link to="/a-propos">À propos</Link>
+          <Link to="/utiliser-les-photos">Utiliser les photos</Link>
+          <Link to="/serveur-wms">Accéder au serveur WMS</Link>
+        </nav>
 
         <img src="https://api-adserver.adikteev.com/api/track.gif?tag=1724" alt="" style={{ visibility: 'hidden' }} />
       </footer>
