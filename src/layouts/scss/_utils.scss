@@ -1,3 +1,5 @@
+@import "./variables";
+
 // Classes utilitaires
 
 .u-site {
@@ -19,9 +21,10 @@
     padding-left: 1.5rem;
   }
   &__page {
-    max-width: 75rem;
+    max-width: $maxWidth;
     margin: auto;
     padding-bottom: 2rem;
+    padding-top: 2rem;
   }
   &__title {
     font-family: "Blogger Sans";

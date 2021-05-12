@@ -2,7 +2,7 @@
 templateKey: 'default-page'
 title: Mentions légales
 ---
-## Crédits
+### Crédits
 
 **Département de Loire-Atlantique**  
 3 quai Ceineray  
@@ -25,8 +25,7 @@ Paul Pascal, Coralie Monnet, Simon Bénéteau.
 **Crédits Vidéos** (sauf mentions particulières) :
 Simon Bénéteau, Paul Pascal.
 
-
-## Gestion et création du site
+### Gestion et création du site
 
 **Réalisation :**
 Le site vuduciel.loire-atlantique.fr a été conçu et développé par [Makina Corpus](http://www.makina-corpus.com/).
