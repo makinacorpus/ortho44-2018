@@ -13,6 +13,9 @@ import CustomModal from '../components/CustomModal';
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
 
 import { getRandomPlace, serializeViewport, unserializeViewport, setHash, getHash } from '../helpers';
+import CustomCarousel from '../components/CustomCarousel';
+
+import classes from './index.module.scss';
 
 const isLive = typeof window !== 'undefined';
 
@@ -237,9 +240,9 @@ export default class IndexPage extends React.Component {
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'picture-export'))[0].node.html,
     });
 
-    const carouselHeaderContent = () => ({
+    const carouselHeaderContent = {
       __html: data.allMarkdownRemark.edges.filter(el => (el.node.frontmatter.id === 'carousel'))[0].node.html,
-    });
+    };
 
     /**
      * Sort markdown posts according order key.
@@ -247,6 +250,13 @@ export default class IndexPage extends React.Component {
     posts.sort((a, b) => +a.node.frontmatter.order < +b.node.frontmatter.order);
 
     const canDownload = this.firstMap && this.firstMap.getZoom() > 13;
+
+    const carouselItems = posts
+      .map(({ node }) => node)
+      .filter(
+        ({ frontmatter: { templateKey, promote } = {} } = {}) =>
+          (templateKey === 'poi' && promote),
+      );
 
     return (
       <React.Fragment>
@@ -327,11 +337,14 @@ export default class IndexPage extends React.Component {
           </div>
         </div>
 
-        <CarouselPOI
-          className="c-carousel"
-          posts={posts}
-          headerContent={carouselHeaderContent()}
-        />
+        <div className={classes.carouselWrapper}>
+          <div
+            className={classes.carouselHeader}
+            dangerouslySetInnerHTML={carouselHeaderContent}
+          />
+
+          <CustomCarousel items={carouselItems} />
+        </div>
       </React.Fragment>
     );
   }

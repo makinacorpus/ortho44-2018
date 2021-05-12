@@ -1,0 +1,18 @@
+@import "../layouts/scss/variables";
+
+.carouselWrapper {
+  padding: 3em 0 0 0;
+  background: #f5f5f5;
+  margin-top: 3em;
+}
+
+.carouselHeader {
+  max-width: 900px;
+  margin: 0 auto 2em;
+  text-align: center;
+
+  p {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}
