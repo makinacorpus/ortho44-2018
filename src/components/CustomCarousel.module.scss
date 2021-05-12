@@ -1,0 +1,30 @@
+@import "../layouts/scss/variables";
+
+.root.root.root {
+  max-width: 900px;
+  margin: 0 auto;
+
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style-image: none;
+    margin: 0;
+  }
+}
+
+.slideAction {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.title {
+  color: white;
+  font-family: "Blogger Sans";
+  font-size: 4rem;
+  font-weight: 600;
+  text-shadow: 0 10px 20px black;
+}
