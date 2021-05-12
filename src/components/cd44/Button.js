@@ -2,13 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 
 export const Button = React.forwardRef(({
+  component: Component = 'button',
   className,
   children,
   iconBefore = null,
   iconAfter = (<i className="icon icon-long-arrow-right" aria-hidden="true" />),
   ...props
 }, ref) => (
-  <button
+  <Component
     ref={ref}
     type="button"
     className={classnames('ds44-btnStd', className)}
@@ -17,7 +18,7 @@ export const Button = React.forwardRef(({
     {iconBefore}
     <span className="ds44-btnInnerText">{children}</span>
     {iconAfter}
-  </button>
+  </Component>
 ));
 
 export const ButtonInverted = React.forwardRef(({ className, ...props }, ref) => (
