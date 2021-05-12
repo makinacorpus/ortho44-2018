@@ -1,6 +1,6 @@
 @import "../layouts/scss/variables";
 
-.root.root.root {
+.carousel.carousel.carousel {
   max-width: 900px;
   margin: 0 auto;
 
@@ -10,6 +10,13 @@
   li {
     list-style-image: none;
     margin: 0;
+  }
+
+  :global {
+    .carousel .control-dots {
+      text-align: left;
+      padding-left: 1em;
+    }
   }
 }
 
@@ -27,4 +34,57 @@
   font-size: 4rem;
   font-weight: 600;
   text-shadow: 0 10px 20px black;
+}
+
+.indicator.indicator {
+  color: white;
+  border-color: white;
+  background: rgba(0, 0, 0, .3);
+  &:hover { border-color: white; }
+  &:active { border-color: white; }
+  &:focus { border-color: white; }
+
+  &:not(:first-child) {
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.currentIndicator.currentIndicator {
+  color: black;
+  background: white;
+  border-color: white;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10rem 1rem;
+  width: 25%;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+
+  z-index: 2;
+
+  &:hover {
+    text-shadow: 0 0 20px black;
+  }
+}
+
+.arrowNext {
+  right: 0;
+  text-align: right;
+}
+
+.arrowLeft {
+  left: 0;
+  text-align: left;
 }
