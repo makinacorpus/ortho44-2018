@@ -7,7 +7,6 @@ import classnames from 'classnames';
 import SyncedMaps from '../components/SyncedMaps';
 import MapMenu from '../components/MapMenu';
 import MapActions from '../components/MapActions';
-import CarouselPOI from '../components/CarouselPOI';
 import CustomModal from '../components/CustomModal';
 
 import { DEFAULT_BASE, ALL_LAYERS } from '../settings/layers';
