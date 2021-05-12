@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { navigateTo } from 'gatsby-link';
 
 import { DEFAULT_BASE, COMPARE_WITH, ALL_LAYERS } from '../settings/layers';
 import GeoSearch from './GeoSearch';
 
 import { Box, Button, ButtonContextual, Icon } from './cd44';
+
+import classes from './MapMenu.module.scss';
 
 const MapMenu = ({
   showMaps,
@@ -16,31 +19,36 @@ const MapMenu = ({
   placeName,
 }) => (
   <React.Fragment>
-    <Box>
-      <p>Rechercher</p>
+    <Box className={classes.searchBox}>
+      <div className={classes.left}>
+        <p>Rechercher</p>
 
-      <GeoSearch
-        onSelect={handleResult}
-        initialSearch={initialSearch}
-        inputProps={{ placeholder: placeName }}
-      />
+        <GeoSearch
+          className={classes.geoSearch}
+          onSelect={handleResult}
+          initialSearch={initialSearch}
+          inputProps={{ placeholder: placeName }}
+        />
+      </div>
+      <div className={classes.right}>
+        <p>Comparer avec</p>
 
-      <p>Comparer avec</p>
-
-      <select
-        value={selection.join('-')}
-        onChange={event => showMaps(...event.target.value.split('-'))}
-      >
-        <option disabled>-</option>
-        <option value={DEFAULT_BASE}>Aucun</option>
-        {COMPARE_WITH.map(layerID => (
-          <option
-            key={layerID}
-            value={[DEFAULT_BASE, layerID].join('-')}
-          >{ALL_LAYERS[layerID].label || layerID}
-          </option>
-        ))}
-      </select>
+        <select
+          value={selection.join('-')}
+          onChange={event => showMaps(...event.target.value.split('-'))}
+          className={classes.select}
+        >
+          <option disabled>-</option>
+          <option value={DEFAULT_BASE}>Aucun</option>
+          {COMPARE_WITH.map(layerID => (
+            <option
+              key={layerID}
+              value={[DEFAULT_BASE, layerID].join('-')}
+            >{ALL_LAYERS[layerID].label || layerID}
+            </option>
+          ))}
+        </select>
+      </div>
     </Box>
 
     <Box>

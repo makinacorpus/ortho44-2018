@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import Autosuggest from 'react-autosuggest';
 import { debounce } from 'lodash';
@@ -102,7 +103,7 @@ class GeoSearch extends Component {
 
   render () {
     const { value, suggestions, isLoading } = this.state;
-    const { inputProps } = this.props;
+    const { inputProps, className } = this.props;
 
     const customInputProps = {
       ...inputProps,
@@ -111,7 +112,7 @@ class GeoSearch extends Component {
     };
 
     return (
-      <div className={isLoading ? 'loading' : ''}>
+      <div className={classnames(className, { loading: isLoading })}>
         <Autosuggest
           suggestions={suggestions}
           onSuggestionsFetchRequested={res => this.loadSuggestions(res.value)}
