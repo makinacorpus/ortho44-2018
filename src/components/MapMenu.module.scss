@@ -19,8 +19,18 @@
   min-width: 250px;
 }
 
-.geoSearch {
+.geoSearch.geoSearch.geoSearch {
   color: black;
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: 1em;
+  }
 }
 
 .select {
