@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import { navigateTo } from 'gatsby-link';
 
@@ -17,6 +18,7 @@ const MapMenu = ({
   handleResult,
   initialSearch,
   placeName,
+  cadastre,
 }) => (
   <React.Fragment>
     <Box className={classes.searchBox}>
@@ -51,14 +53,17 @@ const MapMenu = ({
       </div>
     </Box>
 
-    <Box>
-      Cartes historiques
+    <Box className={classes.mapMenu}>
+      <div className={classes.title}>
+        Cartes historiques
+      </div>
 
       <Button onClick={() => showMaps('1850')}>Cartes 1850</Button>
       <Button onClick={() => showMaps('cassini')}>Cartes Cassini</Button>
       <Button onClick={() => showMaps('napoleon')}>Cadastre Napoléonien</Button>
 
       <ButtonContextual
+        className={classnames(classes.cadastre, { [classes.cadastreEnabled]: cadastre })}
         iconBefore={<Icon type="map" />}
         iconAfter={false}
         onClick={() => toggleCadastre()}
