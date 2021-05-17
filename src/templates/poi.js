@@ -1,7 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { ButtonInverted } from '../components/cd44';
 import { HTMLContent } from '../components/Content';
 import { getLocationHref } from '../helpers';
+
+import classes from './poi.module.scss';
 
 export const PoiPageTemplate = ({
   description,
@@ -14,24 +17,32 @@ export const PoiPageTemplate = ({
   <section className="u-site__page">
     {helmet || ''}
 
+    <h2>{title}</h2>
+
     {iframe
       && <HTMLContent content={iframe} className="u-site__iframe" />}
+
     {!iframe
       && <img className="u-site__picture" src={picture} alt="" />}
 
-    <h1 className="u-site__title">
-      {title}
-    </h1>
+    <p className="u-site__excerpt">
+      {description}
 
-    <p className="u-site__excerpt">{description}</p>
+      {link && (
+        <div>
+          <ButtonInverted
+            component="a"
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.readmore}
+          >
+            En savoir plus
+          </ButtonInverted>
+        </div>
+      )}
+    </p>
 
-    {link && (
-      <p className="u-site__readmore">
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          En savoir +
-        </a>
-      </p>
-    )}
   </section>
 );
 

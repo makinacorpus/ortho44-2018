@@ -33,26 +33,7 @@
     margin: 3rem 2rem 0;
   }
   &__excerpt {
-    margin: 1rem 2rem 0;
-  }
-  &__readmore {
-    margin: 3rem 2rem 0;
-    text-align: right;
-
-    a {
-      &:before {
-        content: '›';
-        background-color: black;
-        color: white;
-        display: inline-block;
-        height: 0.87em;
-        width: 0.8em;
-        vertical-align: middle;
-        text-align: center;
-        line-height: 0.8;
-        margin-right: 0.25em;
-      }
-    }
+    margin: 1rem 0 0;
   }
 }
 

@@ -21,6 +21,11 @@
   position: fixed;
   overflow: visible;
 
+  :global(.u-site__page) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
   @media (min-width: $medium) {
     width: 75%;
   }
