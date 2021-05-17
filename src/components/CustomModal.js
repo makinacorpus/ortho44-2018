@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import Icon from './Icon';
+import { Icon } from './cd44';
 
 import styles from './CustomModal.module.scss';
 
@@ -14,15 +14,13 @@ const CustomModal = ({ isOpen, handleClose, children }) => (
     className={styles.content}
     overlayClassName={styles.overlay}
   >
-
     <button
       type="button"
-      data-testid="modal-close"
       onClick={handleClose}
       className={styles.closeButton}
     >
-      <Icon name="cross" />
-      <span className="u-visually-hidden">Fermer</span>
+      <Icon type="cross" /><br />
+      fermer
     </button>
 
     <div className={styles.inner}>
