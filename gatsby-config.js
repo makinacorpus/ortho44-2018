@@ -36,5 +36,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
+    'gatsby-plugin-cd44-orejime',
   ],
 };

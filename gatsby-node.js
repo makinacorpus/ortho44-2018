@@ -60,7 +60,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === 'build-html') {
     config.loader('null', {
-      test: /react-leaflet|leaflet\.sync|react-modal|leaflet-minimap|leaflet/,
+      test: /react-leaflet|orejime|leaflet\.sync|react-modal|leaflet-minimap|leaflet/,
       loader: 'null-loader',
     });
   }

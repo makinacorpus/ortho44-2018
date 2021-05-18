@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
+
 import { getLocationHref } from '../helpers';
 
 import classes from './Footer.module.scss';
@@ -140,6 +141,17 @@ const Footer = () => {
           <Link to="/a-propos">À propos</Link>
           <Link to="/utiliser-les-photos">Utiliser les photos</Link>
           <Link to="/serveur-wms">Accéder au serveur WMS</Link>
+          <Link
+            to="#"
+            onClick={() => {
+              window
+              && window.orejimeInstance
+              && window.orejimeInstance.show
+              && window.orejimeInstance.show();
+            }}
+          >
+            Cookies
+          </Link>
         </nav>
 
         <img src="https://api-adserver.adikteev.com/api/track.gif?tag=1724" alt="" style={{ visibility: 'hidden' }} />

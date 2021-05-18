@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { navigateTo } from 'gatsby-link';
+import { withCookies } from 'react-cookie';
 
 import { getLocationHref } from '../helpers';
 import Header from '../components/Header';
@@ -12,7 +13,7 @@ import './main.scss';
 
 import favicon from '../img/favicon.ico';
 
-export default class TemplateWrapper extends React.Component {
+export default withCookies(class TemplateWrapper extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
     children: PropTypes.func,
@@ -69,7 +70,7 @@ export default class TemplateWrapper extends React.Component {
   }
 
   render () {
-    const { location, data, children } = this.props;
+    const { location, data, children, cookies } = this.props;
 
     let isModal = false;
     if (
@@ -79,6 +80,8 @@ export default class TemplateWrapper extends React.Component {
     ) {
       isModal = true;
     }
+
+    const orejimeCookie = (cookies && cookies.get && cookies.get('orejime')) || {};
 
     return (
       <div className="u-site">
@@ -92,6 +95,17 @@ export default class TemplateWrapper extends React.Component {
 
           <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/cd44.css" />
           <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/icons.css" />
+
+          {orejimeCookie['google-tag-manager'] && (
+            <script>
+              {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer', 'GTM-WHL52DJ');
+              `}
+            </script>
+          )}
         </Helmet>
 
         <Header />
@@ -118,7 +132,7 @@ export default class TemplateWrapper extends React.Component {
       </div>
     );
   }
-}
+});
 
 export const query = graphql`
   query siteQuery {
