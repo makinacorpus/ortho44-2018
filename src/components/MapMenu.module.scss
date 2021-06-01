@@ -33,12 +33,28 @@
   }
 }
 
+.selectWrapper {
+  position: relative;
+
+  :global(.icon-down) {
+    color: black;
+    position: absolute;
+    right: 1rem;
+    font-size: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
 .select {
   width: 100%;
   height: 40px;
   border: none;
   border-radius: 3px;
   padding: 1px 10px;
+
+  appearance: none;
 }
 
 .mapMenu.mapMenu {

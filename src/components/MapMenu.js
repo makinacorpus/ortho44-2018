@@ -35,21 +35,24 @@ const MapMenu = ({
       <div className={classes.right}>
         <p>Comparer avec</p>
 
-        <select
-          value={selection.join('-')}
-          onChange={event => showMaps(...event.target.value.split('-'))}
-          className={classes.select}
-        >
-          <option disabled>-</option>
-          <option value={DEFAULT_BASE}>Aucun</option>
-          {COMPARE_WITH.map(layerID => (
-            <option
-              key={layerID}
-              value={[DEFAULT_BASE, layerID].join('-')}
-            >{ALL_LAYERS[layerID].label || layerID}
-            </option>
-          ))}
-        </select>
+        <div className={classes.selectWrapper}>
+          <select
+            value={selection.join('-')}
+            onChange={event => showMaps(...event.target.value.split('-'))}
+            className={classes.select}
+          >
+            <option disabled>-</option>
+            <option value={DEFAULT_BASE}>Aucun</option>
+            {COMPARE_WITH.map(layerID => (
+              <option
+                key={layerID}
+                value={[DEFAULT_BASE, layerID].join('-')}
+              >{ALL_LAYERS[layerID].label || layerID}
+              </option>
+            ))}
+          </select>
+          <i className="icon icon-down" aria-hidden="true" />
+        </div>
       </div>
     </Box>
 
