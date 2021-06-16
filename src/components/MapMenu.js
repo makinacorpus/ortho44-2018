@@ -61,9 +61,24 @@ const MapMenu = ({
         Cartes historiques
       </div>
 
-      <Button onClick={() => showMaps('1850')}>Cartes 1850</Button>
-      <Button onClick={() => showMaps('cassini')}>Cartes Cassini</Button>
-      <Button onClick={() => showMaps('napoleon')}>Cadastre Napoléonien</Button>
+      <Button
+        invert={selection[0] === '1850'}
+        onClick={() => showMaps('1850')}
+      >
+        Cartes 1850
+      </Button>
+      <Button
+        invert={selection[0] === 'cassini'}
+        onClick={() => showMaps('cassini')}
+      >
+        Cartes Cassini
+      </Button>
+      <Button
+        invert={selection[0] === 'napoleon'}
+        onClick={() => showMaps('napoleon')}
+      >
+        Cadastre Napoléonien
+      </Button>
 
       <ButtonContextual
         className={classnames(classes.cadastre, { [classes.cadastreEnabled]: cadastre })}

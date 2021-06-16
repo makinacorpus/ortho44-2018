@@ -7,12 +7,13 @@ export const Button = React.forwardRef(({
   children,
   iconBefore = null,
   iconAfter = (<i className="icon icon-long-arrow-right" aria-hidden="true" />),
+  invert,
   ...props
 }, ref) => (
   <Component
     ref={ref}
     type="button"
-    className={classnames('ds44-btnStd', className)}
+    className={classnames('ds44-btnStd', { 'ds44-btn--invert': invert }, className)}
     {...props}
   >
     {iconBefore}
