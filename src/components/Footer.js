@@ -58,72 +58,75 @@ const Footer = () => {
             <img src="/img/logo-loire-atlantique.svg" alt="La Loire-atlantique" className={classes.logo} />
           </a>
 
-          <p role="heading" aria-level="2" className="h4-like mbs txtcenter" id="idTitreFooter2">
-            Suivez-nous sur les réseaux sociaux :
-          </p>
+          <div className={classes.followCenter}>
 
-          <ul className="ds44-list ds44-flex-container ds44-flex-align-center">
-            <li>
-              <a
-                href="https://www.facebook.com/loireatlantique"
-                target="_blank"
-                className="ds44-rsFootLink"
-                title="Le Département de Loire-Atlantique sur Facebook - nouvelle fenêtre"
-                rel="noreferrer"
-              >
-                <i className="icon icon-facebook" aria-hidden="true" />
-                <span className="visually-hidden">Le Département de Loire-Atlantique sur Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/loireatlantique"
-                target="_blank"
-                className="ds44-rsFootLink"
-                title="Le Département de Loire-Atlantique sur Twitter - nouvelle fenêtre"
-                rel="noreferrer"
-              >
-                <i className="icon icon-twitter" aria-hidden="true" />
-                <span className="visually-hidden">Le Département de Loire-Atlantique sur Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/loireatlantique/"
-                target="_blank"
-                className="ds44-rsFootLink"
-                title="Le Département de Loire-Atlantique sur Instagram - nouvelle fenêtre"
-                rel="noreferrer"
-              >
-                <i className="icon icon-instagram" aria-hidden="true" />
-                <span className="visually-hidden">Le Département de Loire-Atlantique sur Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/user/LoireAtlantiqueTV"
-                target="_blank"
-                className="ds44-rsFootLink"
-                title="Le Département de Loire-Atlantique sur Youtube - nouvelle fenêtre"
-                rel="noreferrer"
-              >
-                <i className="icon icon-youtube" aria-hidden="true" />
-                <span className="visually-hidden">Le Département de Loire-Atlantique sur Youtube</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.loire-atlantique.fr/magweb"
-                target="_blank"
-                className="ds44-rsFootLink"
-                title="Le Département de Loire-Atlantique sur Mag Web - nouvelle fenêtre"
-                rel="noreferrer"
-              >
-                <i className="icon icon-magweb" aria-hidden="true" />
-                <span className="visually-hidden">Le Département de Loire-Atlantique sur Magweb</span>
-              </a>
-            </li>
-          </ul>
+            <p role="heading" aria-level="2" className="h4-like mbs txtcenter" id="idTitreFooter2">
+              Suivez-nous sur les réseaux sociaux :
+            </p>
+
+            <ul className="ds44-list ds44-flex-container ds44-flex-align-center">
+              <li>
+                <a
+                  href="https://www.facebook.com/loireatlantique"
+                  target="_blank"
+                  className="ds44-rsFootLink"
+                  title="Le Département de Loire-Atlantique sur Facebook - nouvelle fenêtre"
+                  rel="noreferrer"
+                >
+                  <i className="icon icon-facebook" aria-hidden="true" />
+                  <span className="visually-hidden">Le Département de Loire-Atlantique sur Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/loireatlantique"
+                  target="_blank"
+                  className="ds44-rsFootLink"
+                  title="Le Département de Loire-Atlantique sur Twitter - nouvelle fenêtre"
+                  rel="noreferrer"
+                >
+                  <i className="icon icon-twitter" aria-hidden="true" />
+                  <span className="visually-hidden">Le Département de Loire-Atlantique sur Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/loireatlantique/"
+                  target="_blank"
+                  className="ds44-rsFootLink"
+                  title="Le Département de Loire-Atlantique sur Instagram - nouvelle fenêtre"
+                  rel="noreferrer"
+                >
+                  <i className="icon icon-instagram" aria-hidden="true" />
+                  <span className="visually-hidden">Le Département de Loire-Atlantique sur Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/user/LoireAtlantiqueTV"
+                  target="_blank"
+                  className="ds44-rsFootLink"
+                  title="Le Département de Loire-Atlantique sur Youtube - nouvelle fenêtre"
+                  rel="noreferrer"
+                >
+                  <i className="icon icon-youtube" aria-hidden="true" />
+                  <span className="visually-hidden">Le Département de Loire-Atlantique sur Youtube</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.loire-atlantique.fr/magweb"
+                  target="_blank"
+                  className="ds44-rsFootLink"
+                  title="Le Département de Loire-Atlantique sur Mag Web - nouvelle fenêtre"
+                  rel="noreferrer"
+                >
+                  <i className="icon icon-magweb" aria-hidden="true" />
+                  <span className="visually-hidden">Le Département de Loire-Atlantique sur Magweb</span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <button
             type="button"
