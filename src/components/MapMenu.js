@@ -33,7 +33,7 @@ const MapMenu = ({
         />
       </div>
       <div className={classes.right}>
-        <p>Comparer avec</p>
+        <p>Comparer 2016 avec</p>
 
         <div className={classes.selectWrapper}>
           <select
