@@ -73,15 +73,12 @@
 
   button {
     margin-top: 0.25em;
-  }
-
-  button + button:not(.cadastre) {
     margin-left: 1em;
   }
 }
 
-.title {
-  margin-right: 1em;
+.buttonGroup + .buttonGroup {
+  margin-left: auto;
 }
 
 .cadastre.cadastre {

@@ -57,55 +57,59 @@ const MapMenu = ({
     </Box>
 
     <Box className={classes.mapMenu}>
-      <div className={classes.title}>
+      <div>
         Cartes historiques
       </div>
 
-      <Button
-        invert={selection[0] === '1850'}
-        onClick={() => showMaps('1850')}
-      >
-        Cartes 1850
-      </Button>
-      <Button
-        invert={selection[0] === 'cassini'}
-        onClick={() => showMaps('cassini')}
-      >
-        Cartes Cassini
-      </Button>
-      <Button
-        invert={selection[0] === 'napoleon'}
-        onClick={() => showMaps('napoleon')}
-      >
-        Cadastre Napoléonien
-      </Button>
+      <div className={classes.buttonGroup}>
+        <Button
+          invert={selection[0] === '1850'}
+          onClick={() => showMaps('1850')}
+        >
+          Cartes 1850
+        </Button>
+        <Button
+          invert={selection[0] === 'cassini'}
+          onClick={() => showMaps('cassini')}
+        >
+          Cartes Cassini
+        </Button>
+        <Button
+          invert={selection[0] === 'napoleon'}
+          onClick={() => showMaps('napoleon')}
+        >
+          Cadastre Napoléonien
+        </Button>
+      </div>
 
-      <ButtonContextual
-        className={classnames(classes.cadastre, { [classes.cadastreEnabled]: cadastre })}
-        iconBefore={<Icon type="map" />}
-        iconAfter={false}
-        onClick={() => toggleCadastre()}
-      >
-        Cadastre
-      </ButtonContextual>
+      <div className={classes.buttonGroup}>
+        <ButtonContextual
+          className={classnames(classes.cadastre, { [classes.cadastreEnabled]: cadastre })}
+          iconBefore={<Icon type="map" />}
+          iconAfter={false}
+          onClick={() => toggleCadastre()}
+        >
+          Cadastre
+        </ButtonContextual>
 
-      <ButtonContextual
-        iconBefore={<Icon type="flux" />}
-        iconAfter={false}
-        onClick={() => navigateTo('/serveur-wms')}
-        title="Fonction permettant d'accéder au serveur WMS du site."
-      >
-        Flux WMS
-      </ButtonContextual>
+        <ButtonContextual
+          iconBefore={<Icon type="flux" />}
+          iconAfter={false}
+          onClick={() => navigateTo('/serveur-wms')}
+          title="Fonction permettant d'accéder au serveur WMS du site."
+        >
+          Flux WMS
+        </ButtonContextual>
 
-      <ButtonContextual
-        iconBefore={<Icon type="file" />}
-        iconAfter={false}
-        onClick={toggleDlNotice}
-        title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
-      >
-        Exporter l'image
-      </ButtonContextual>
+        <ButtonContextual
+          iconBefore={<Icon type="file" />}
+          iconAfter={false}
+          onClick={toggleDlNotice}
+          title="Fonction permettant de télécharger les images en haute résolution, avec leurs coordonnées."
+        >
+          Exporter l'image
+        </ButtonContextual>
+      </div>
     </Box>
   </React.Fragment>
 );
