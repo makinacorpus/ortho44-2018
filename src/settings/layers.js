@@ -4,9 +4,10 @@ const ignKeys = {
   'vuduciel.loire-atlantique.fr': 'tgbrdzmxl6av4pkitsp0cmyc',
 };
 
-const ignKey = (typeof window !== 'undefined' && window.location)
-  ? ignKeys[window.location.host]
-  : 'no-key-found';
+// const ignKey = (typeof window !== 'undefined' && window.location)
+//   ? ignKeys[window.location.host]
+//   : 'no-key-found';
+const ignKey = 'decouverte';
 
 const legacyWMS = 'https://services.vuduciel.loire-atlantique.fr';
 
