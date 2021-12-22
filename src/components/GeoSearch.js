@@ -60,7 +60,7 @@ class GeoSearch extends Component {
   directSearch (value) {
     const lookup = buildJSONQuery(value, ['code_insee', 'type'], 'AND COMMUNE OR CANTON');
 
-    fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${lookup}`)
+    fetch(`https://es3.makina-corpus.net/cg44/_search?source_content_type=application/json&source=${lookup}`)
       .then(res => res.json())
       .then(data => {
         const suggestion = {
@@ -80,11 +80,11 @@ class GeoSearch extends Component {
 
     const nameLookup = buildJSONQuery(value);
 
-    fetch(`https://es.makina-corpus.net/cg44/address/_search?source=${nameLookup}`)
+    fetch(`https://es3.makina-corpus.net/cg44/_search?source_content_type=application/json&source=${nameLookup}`)
       .then(res => res.json())
       .then(data => {
-        if (data.hits.total === 0) {
-          fetch(`https://es.makina-corpus.net/cg44/address/_search?default_operator=AND&q=${value}`)
+        if (data.hits.total.value === 0) {
+          fetch(`https://es3.makina-corpus.net/cg44/_search?default_operator=AND&q=${value}`)
             .then(res => res.json())
             .then(data2 => {
               this.setState({
