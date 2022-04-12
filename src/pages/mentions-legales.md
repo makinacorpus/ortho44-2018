@@ -1,21 +1,20 @@
 ---
-templateKey: 'default-page'
-id: 'mentions-legales'
-title: Mentions légales
+templateKey: default-page
+id: mentions-legales
 ---
 ### Crédits
 
-**Département de Loire-Atlantique**  
-3 quai Ceineray  
-CS 94109  
+**Département de Loire-Atlantique**\
+3 quai Ceineray\
+CS 94109\
 44041 Nantes Cedex 1
 
 Tél : 02 40 99 10 00 
-Fax : 02 40 99 11 48  
+Fax : 02 40 99 11 48\
 [contact(at)loire-atlantique.fr](mailto:contact@loire-atlantique.fr)
 
 **Directeur de la publication :**
-Philippe Grosvalet, Président du Conseil départemental
+Michel Ménard, Président du Conseil départemental
 
 **Co-directeurs de la publication :**
 Arnaud Bourdin, Dominique Robin
@@ -40,7 +39,7 @@ Direction prospective, pôle innovation et multimédia, direction des solutions 
 **Conception graphique :**
 Pôle innovation et multimédia - Direction de la communication, Département de Loire-Atlantique
 
-*Les clichés 2016 ont été cofinancés*  
-*par le Fonds Européen de développement régional*
+_Les clichés 2016 ont été cofinancés_\
+_par le Fonds Européen de développement régional_
 
 ![Fonds Européen de développement régional](/img/europe-feder250.png)
