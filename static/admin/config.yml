@@ -62,7 +62,7 @@ collections:
     files:
       - label: "Entête carousel"
         name: "carousel"
-        file: "/src/pages/carousel/index.md"
+        file: "/src/pages/carousel.md"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
           - {label: "id", name: "id", widget: "hidden", default: "carousel"}
@@ -71,7 +71,7 @@ collections:
 
       - label: "Export d'image"
         name: "exporter-l-image"
-        file: "/src/pages/exporter-l-image/index.md"
+        file: "/src/pages/exporter-l-image.md"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
           - {label: "id", name: "id", widget: "hidden", default: "picture-export"}
