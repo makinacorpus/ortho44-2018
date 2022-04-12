@@ -77,3 +77,43 @@ collections:
           - {label: "id", name: "id", widget: "hidden", default: "picture-export"}
           - {label: "Title", name: "title", widget: "hidden", default: "Texte de la fenêtre d'export d'image"}
           - {label: "Description", name: "body", widget: "markdown", required: true}
+
+      - label: "À propos"
+        name: "a-propos"
+        file: "/src/pages/a-propos.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "a-propos"}
+          - {label: "Description", name: "body", widget: "markdown", required: true}
+
+      - label: "Nous écrire"
+        name: "contact"
+        file: "/src/pages/contact.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "contact"}
+          - {label: "Description", name: "body", widget: "markdown", required: true}
+
+      - label: "Mentions légales"
+        name: "mentions-legales"
+        file: "/src/pages/mentions-legales.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "mentions-legales"}
+          - {label: "Description", name: "body", widget: "markdown", required: true}
+
+      - label: "Utiliser les photos"
+        name: "utiliser-les-photos"
+        file: "/src/pages/utiliser-les-photos.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "utiliser-les-photos"}
+          - {label: "Description", name: "body", widget: "markdown", required: true}
+
+      - label: "Accéder au serveur WMS"
+        name: "serveur-wms"
+        file: "/src/pages/serveur-wms.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "default-page"}
+          - {label: "id", name: "id", widget: "hidden", default: "serveur-wms"}
+          - {label: "Description", name: "body", widget: "markdown", required: true}

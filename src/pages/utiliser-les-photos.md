@@ -1,5 +1,6 @@
 ---
 templateKey: 'default-page'
+id: 'utiliser-les-photos'
 title: Réutiliser les photographies aériennes
 ---
 ### Licence

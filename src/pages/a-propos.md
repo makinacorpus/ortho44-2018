@@ -1,5 +1,6 @@
 ---
 templateKey: 'default-page'
+id: 'a-propos'
 title: À	propos de ce service
 ---
 ### vuduciel.loire-atlantique.fr : le meilleur point de vue sur la Loire-Atlantique

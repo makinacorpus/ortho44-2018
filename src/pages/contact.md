@@ -1,5 +1,6 @@
 ---
 templateKey: 'default-page'
+id: 'contact'
 title: Nous contacter
 ---
 **Par courrier**

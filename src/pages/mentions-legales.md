@@ -1,5 +1,6 @@
 ---
 templateKey: 'default-page'
+id: 'mentions-legales'
 title: Mentions légales
 ---
 ### Crédits
