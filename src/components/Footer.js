@@ -157,7 +157,6 @@ const Footer = () => {
           </Link>
         </nav>
 
-        <img src="https://api-adserver.adikteev.com/api/track.gif?tag=1724" alt="" style={{ visibility: 'hidden' }} />
       </footer>
     </React.Fragment>
   );
