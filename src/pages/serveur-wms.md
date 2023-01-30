@@ -2,7 +2,7 @@
 templateKey: default-page
 id: serveur-wms
 ---
-## Accéder au serveur WMS
+# Accéder au serveur WMS
 
 Conformément aux prescriptions de la directive européenne INSPIRE, vous pouvez visualiser les photographies aériennes de la Loire-Atlantique à partir d’un flux WMS.
 
