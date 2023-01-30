@@ -26,8 +26,6 @@ _par le Fonds Européen de développement régional_
 
 ![Fonds Européen de développement régional](/img/europe-feder250.png)
 
-
-
 ## Accéder au serveur WMS
 
 Conformément aux prescriptions de la directive européenne INSPIRE, vous pouvez visualiser les photographies aériennes de la Loire-Atlantique à partir d’un flux WMS.
