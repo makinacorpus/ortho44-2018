@@ -45,6 +45,8 @@ exports.orejimeConfig = {
         '__utmz',
         '_gat_gtag_GTM-WHL52DJ',
         '_gat_GTM-WHL52DJ',
+        '_gat_gtag_GTM-TPB269K',
+        '_gat_GTM-TPB269K',
       ],
       optOut: true,
       purposes: ['analytics'],
