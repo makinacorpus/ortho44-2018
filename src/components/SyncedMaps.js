@@ -15,6 +15,7 @@ import classes from './SyncedMaps.module.scss';
 // import ALL_LAYERS from '../settings/layers';
 
 import markerIcons from '../helpers/markerIcons';
+import PMTilesLayer from './PMTilesLayer';
 
 const SYNC_OPTIONS = {
   syncCursor: true,
@@ -42,10 +43,14 @@ const unsyncMaps = maps => {
 const AutoLayer = props => {
   let Layer = TileLayer;
   const customProps = {};
-  const { wms, geojson } = props;
+  const { wms, geojson, pmtiles } = props;
 
   if (wms) {
     Layer = WMSTileLayer;
+  }
+
+  if (pmtiles) {
+    Layer = PMTilesLayer;
   }
 
   if (geojson) {

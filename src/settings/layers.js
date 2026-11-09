@@ -1,19 +1,11 @@
-const ignKeys = {
-  'localhost:8000': 'puaqi516lc6f75saib649eg2',
-  'makinacorpus.github.io': '9z9o6i52lxwch6mxt9wmwro5',
-  'vuduciel.loire-atlantique.fr': 'tgbrdzmxl6av4pkitsp0cmyc',
-};
-
-// const ignKey = (typeof window !== 'undefined' && window.location)
-//   ? ignKeys[window.location.host]
-//   : 'no-key-found';
-const ignKey = 'decouverte';
-
 const legacyWMS = 'https://services.vuduciel.loire-atlantique.fr';
 
-const legacyTileServer = 'http://{s}.tiles.cg44.makina-corpus.net'; // eslint-disable-line no-unused-vars
-const newTileServer    = 'https://{s}-tiles-vuduciel2.makina-corpus.net';
-const mainTileServer   = newTileServer;
+// Aerial photographs, served from PMTiles archives (static files, HTTP range requests)
+const PMTILES_BASE = 'https://vu-du-ciel.s3.gra.io.cloud.ovh.net/public';
+
+// IGN Géoplateforme WMTS, no key needed
+const geopf = (layer, format) => 'https://data.geopf.fr/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0'
+  + `&LAYER=${layer}&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=${format}`;
 
 const minMaxZoom = {
   minZoom: 9,
@@ -28,7 +20,7 @@ export const ALL_LAYERS = {
   },
 
   background: {
-    url: `https://wxs.ign.fr/${ignKey}/geoportail/wmts?service=WMTS&request=GetTile&version=1.0.0&tilematrixset=PM&tilematrix={z}&tilecol={x}&tilerow={y}&layer=ORTHOIMAGERY.ORTHOPHOTOS&format=image/jpeg&style=normal`,
+    url: geopf('ORTHOIMAGERY.ORTHOPHOTOS', 'image/jpeg'),
     maxNativeZoom: 18,
   },
 
@@ -37,8 +29,12 @@ export const ALL_LAYERS = {
   },
 
   roads: {
-    url: `${mainTileServer}/osm/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/osm.pmtiles`,
     opacity: 0.75,
+    minNativeZoom: 9,
+    maxNativeZoom: 19,
+    ...minMaxZoom,
   },
 
   boundaries: {
@@ -57,22 +53,16 @@ export const ALL_LAYERS = {
 
   cadastre: {
     label: 'Cadastre 2017',
-    wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cadastre_appli/MapServer/WMSServer?',
-    layers: '0,1,2,3',
+    url: geopf('CADASTRALPARCELS.PARCELLAIRE_EXPRESS', 'image/png'),
     opacity: 0.75,
-    tileSize: 512,
-    width: 512,
-    height: 512,
     maxNativeZoom: 19,
     ...minMaxZoom,
   },
 
   cassini: {
     label: 'Cartes de Cassini',
-    wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cassini_appli/MapServer/WMSServer?',
-    layers: '0',
+    url: geopf('BNF-IGNF_GEOGRAPHICALGRIDSYSTEMS.CASSINI', 'image/png'),
+    maxNativeZoom: 14,
     ...minMaxZoom,
   },
 
@@ -85,59 +75,53 @@ export const ALL_LAYERS = {
   },
 
   1850: {
-    url: `${mainTileServer}/ortho-1850/{z}/{x}/{y}.jpg`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-1850.pmtiles`,
     minNativeZoom: 9,
     maxNativeZoom: 16,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   1949: {
-    url: `${mainTileServer}/ortho-1949/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-1949.pmtiles`,
     minNativeZoom: 9,
     maxNativeZoom: 18,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   1999: {
-    url: `${mainTileServer}/ortho-1999/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-1999.pmtiles`,
     minNativeZoom: 9,
     maxNativeZoom: 18,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   2004: {
-    url: `${mainTileServer}/ortho-2004/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-2004.pmtiles`,
     minNativeZoom: 9,
     maxNativeZoom: 18,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   2009: {
-    url: `${mainTileServer}/ortho-2009/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-2009.pmtiles`,
     minNativeZoom: 9,
     maxNativeZoom: 18,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   2012: {
-    url: `${mainTileServer}/ortho-2012/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-2012.pmtiles`,
     minNativeZoom: 10,
     maxNativeZoom: 18,
     ...minMaxZoom,
-    tms: true,
-    subdomains: 'abcd',
   },
   2016: {
-    url: `${mainTileServer}/ortho-2016/{z}/{x}/{y}.png`,
+    pmtiles: true,
+    url: `${PMTILES_BASE}/ortho-2016.pmtiles`,
     minNativeZoom: 10,
     maxNativeZoom: 20,
     ...minMaxZoom,
-    subdomains: 'abcd',
   },
 };
 
