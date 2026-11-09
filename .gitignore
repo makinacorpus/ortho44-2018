@@ -5,5 +5,7 @@ node_modules
 # Build directory
 public/
 static/admin/*.bundle.*
+# Copied from node_modules by `npm run copy-vendor`
+static/vendor/
 .DS_Store
 yarn-error.log
