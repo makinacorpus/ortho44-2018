@@ -3,6 +3,8 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   siteMetadata: {
     title: 'Photographies aériennes de la Loire-Atlantique | La Loire-Atlantique vue du ciel',
+    // Replaces the {{siteHost}} token in markdown pages (default-page template).
+    siteHost: 'ortho44-2018.netlify.app',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

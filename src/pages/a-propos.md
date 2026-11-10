@@ -3,7 +3,7 @@ templateKey: 'default-page'
 id: 'a-propos'
 title: À	propos de ce service
 ---
-### vuduciel.loire-atlantique.fr : le meilleur point de vue sur la Loire-Atlantique
+### {{siteHost}} : le meilleur point de vue sur la Loire-Atlantique
 Le Département a lancé une campagne de photographies aériennes pendant l’été 2016 en partenariat avec Nantes métropole, la CARENE, Cap Atlantique, le SYDELA et le Grand port maritime Nantes St Nazaire. Un avion équipé d’une caméra numérique a réalisé une nouvelle série d’images aériennes afin d’actualiser la photographie aérienne départementale précédente, datant de 2012.
 
 Ce site est un outil de consultation cartographique qui rassemble toutes les collections d’images aériennes disponibles pour décrire depuis les ciel les différents territoires de Loire-Atlantique. Les images acquises en 2016 améliorent grandement la résolution des clichés jusqu’à présent disponibles en dehors des agglomérations, sur des outils cartographiques tels que Google ou Bing Maps , ou le géoportail. Avec 10 cm de résolution (1 pixel à l’écran représente 10 cm sur le terrain, NDLR), elles permettent d’obtenir un niveau de détail permettant d’observer finement les peuplements végétaux, les marquages au sol, le tissu urbain, etc. Elles rendent ainsi accessibles un portrait aérien qui permet de découvrir de très près cet immense territoire de 6 815 km², ses innombrables facettes et la mosaïque d’espaces si particuliers qui le composent.

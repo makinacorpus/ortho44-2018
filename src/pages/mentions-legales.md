@@ -28,7 +28,7 @@ Simon Bénéteau, Paul Pascal.
 ### Gestion et création du site
 
 **Réalisation :**
-Le site vuduciel.loire-atlantique.fr a été conçu et développé par [Makina Corpus](http://www.makina-corpus.com/).
+Le site {{siteHost}} a été conçu et développé par [Makina Corpus](http://www.makina-corpus.com/).
 
 **Gestion :**
 Direction prospective, pôle innovation et multimédia, direction des solutions numériques.

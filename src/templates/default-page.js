@@ -45,7 +45,7 @@ const DefaultPage = ({ data }) => {
           <meta property="og:url" content={getLocationHref()} />
         </Helmet>
       )}
-      content={post.html}
+      content={post.html.replace(/{{siteHost}}/g, data.site.siteMetadata.siteHost)}
     />
   );
 };
@@ -62,6 +62,11 @@ export const defaultPageQuery = graphql`
       html
       frontmatter {
         title
+      }
+    }
+    site {
+      siteMetadata {
+        siteHost
       }
     }
   }
