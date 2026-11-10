@@ -144,17 +144,6 @@ const Footer = () => {
           <Link to="/a-propos">À propos</Link>
           <Link to="/utiliser-les-photos">Utiliser les photos</Link>
           <Link to="/serveur-wms">Accéder au serveur WMS</Link>
-          <Link
-            to="#"
-            onClick={() => {
-              window
-              && window.orejimeInstance
-              && window.orejimeInstance.show
-              && window.orejimeInstance.show();
-            }}
-          >
-            Cookies
-          </Link>
         </nav>
 
       </footer>
