@@ -3,18 +3,6 @@
 // Classes utilitaires
 
 .u-site {
-  &__iframe {
-    position: relative;
-    padding-bottom: 100% / (16/9); // 16/9 ~ 56.25%
-    height: 0;
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
   &__content {
     min-width: 30rem;
     padding-right: 1.5rem;

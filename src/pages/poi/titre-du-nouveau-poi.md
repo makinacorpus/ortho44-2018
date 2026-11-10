@@ -11,10 +11,6 @@ description: >-
 lat: .nan
 lng: .nan
 picture: /img/poi1.jpg
-iframe: >-
-  <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/b_2JDXKyOKQ" frameborder="0"
-  allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: false
 link: ''
 marker_type: yellow

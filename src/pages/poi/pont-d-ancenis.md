@@ -12,13 +12,7 @@ description: >-
 lat: 47.362446
 lng: -1.176333
 picture: /img/ancenis.jpg
-iframe: >-
-  <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/SsnofMyGL6c" frameborder="0"
-  allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: true
-link: >-
-  https://inforoutes.loire-atlantique.fr/jcms/navigation-transverse/actualites/le-pont-d-ancenis-fr-p2_13236?portal=dev_5121&category=p1_6467
 marker_type: default
 media_type: video
 ---

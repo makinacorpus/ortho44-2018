@@ -331,7 +331,6 @@ export const pageQuery = graphql`
             templateKey
             order
 
-            iframe
             lat
             link
             lng

@@ -16,10 +16,6 @@ description: >-
 lat: 47.445022
 lng: -2.29904
 picture: /img/chateau-de-ranroue-t.png
-iframe: >-
-  <iframe width="560" height="315"
-  src="https://www.youtube.com/embed/FxF0aXu3LW8" frameborder="0"
-  allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: false
 link: 'https://www.youtube.com/watch?v=FxF0aXu3LW8&feature=youtu.be'
 marker_type: default

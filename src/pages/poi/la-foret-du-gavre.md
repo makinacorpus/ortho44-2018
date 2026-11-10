@@ -14,10 +14,6 @@ description: >
 lat: 47.516618
 lng: -1.802999
 picture: /img/fore-t-ga-vre-cg44b0038471.jpg
-iframe: >-
-  <iframe width="100%" height="315"
-  src="https://pano.loire-atlantique.fr/foret-gavre/index.html" frameborder="0"
-  allow="autoplay; encrypted-media" allowfullscreen></iframe>
 promote: false
 link: 'https://www.flickr.com/photos/loireatlantique/albums/72157670146331388'
 marker_type: default

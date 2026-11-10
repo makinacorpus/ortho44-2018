@@ -26,7 +26,6 @@ collections:
       - {label: "Latitude", name: "lat", widget: "number", valueType: "float", min: -90, max: 90, required: false}
       - {label: "Longitude", name: "lng", widget: "number", valueType: "float", min: -180, max: 360, required: false}
       - {label: "Image principale", name: "picture", widget: "image", required: false}
-      - {label: "Iframe", name: "iframe", widget: "text", required: false}
       - {label: "Carousel", name: "promote", widget: "boolean", default: false}
       - {label: "Lien (En savoir plus…)", name: "link", widget: "string", required: false}
 

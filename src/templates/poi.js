@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { ButtonInverted } from '../components/cd44';
-import { HTMLContent } from '../components/Content';
 import { getLocationHref } from '../helpers';
 
 import classes from './poi.module.scss';
@@ -12,17 +11,13 @@ export const PoiPageTemplate = ({
   picture,
   helmet,
   link,
-  iframe,
 }) => (
   <section className="u-site__page">
     {helmet || ''}
 
     <h2>{title}</h2>
 
-    {iframe
-      && <HTMLContent content={iframe} className="u-site__iframe" />}
-
-    {!iframe
+    {picture
       && <img className="u-site__picture" src={picture} alt="" />}
 
     <p className="u-site__excerpt">
@@ -76,7 +71,6 @@ export const pageQuery = graphql`
         title
         description
         picture
-        iframe
         link
       }
     }
