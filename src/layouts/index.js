@@ -90,8 +90,9 @@ export default class TemplateWrapper extends React.Component {
           <meta property="og:url" content={getLocationHref()} />
           <link rel="shortcut icon" type="image/png" href={favicon} />
 
-          <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/cd44.css" />
-          <link rel="stylesheet" href="https://design.loire-atlantique.fr/css/icons.css" />
+          {/* CD44 design system, copied by scripts/copie-charte-cd44.py */}
+          <link rel="stylesheet" href="/css/cd44.css" />
+          <link rel="stylesheet" href="/css/icons.css" />
         </Helmet>
 
         <Header />
