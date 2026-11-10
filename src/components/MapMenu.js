@@ -75,8 +75,11 @@ const MapMenu = ({
           Cartes Cassini
         </Button>
         <Button
-          invert={selection[0] === 'napoleon'}
-          onClick={() => showMaps('napoleon')}
+          component="a"
+          href="https://archives-numerisees.loire-atlantique.fr/chercher/cadastre-plans-et-matrices"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Consulter les plans du cadastre napoléonien aux Archives départementales - nouvelle fenêtre"
         >
           Cadastre Napoléonien
         </Button>

@@ -66,14 +66,6 @@ export const ALL_LAYERS = {
     ...minMaxZoom,
   },
 
-  napoleon: {
-    label: 'Cadastre napoléonien',
-    wms: true,
-    url: 'https://arcgis.loire-atlantique.fr/arcgis/services/ref_appli/cadastre_napoleonien_appli/MapServer/WMSServer?',
-    layers: '0',
-    ...minMaxZoom,
-  },
-
   1850: {
     pmtiles: true,
     url: `${PMTILES_BASE}/ortho-1850.pmtiles`,
@@ -125,7 +117,7 @@ export const ALL_LAYERS = {
   },
 };
 
-export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016, 'cadastre', 'cassini', 'napoleon'];
+export const ORTHO_LAYERS_IDS = [1850, 1949, 1999, 2004, 2009, 2012, 2016, 'cadastre', 'cassini'];
 
 export const DEFAULT_BASE = 2016;
 
@@ -138,7 +130,6 @@ export const COMPARE_WITH = [
   2012,
   'cadastre',
   'cassini',
-  'napoleon',
 ];
 
 export default ALL_LAYERS;
