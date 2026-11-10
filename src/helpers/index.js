@@ -25,12 +25,6 @@ export const getLabel = (hit, mode) => {
   return label;
 };
 
-export const parseSuggestions = hits =>
-  hits.map(hit => ({
-    label: getLabel(hit._source, 'LISTING'), // eslint-disable-line no-underscore-dangle
-    data: hit,
-  }));
-
 export const getRandomPlace = () => {
   const places = [
     ['Le Terril, Abbaretz', { center: [47.56142, -1.54120], zoom: 18 }],

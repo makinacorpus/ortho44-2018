@@ -4,25 +4,66 @@ import classnames from 'classnames';
 import Autosuggest from 'react-autosuggest';
 import { debounce } from 'lodash';
 
-import { parseSuggestions } from '../helpers';
+import { getLabel } from '../helpers';
 
 import './GeoSearch.scss';
 
+const PLACES_URL = '/data/recherche/lieux.json';
+const contourUrl = code => `/data/recherche/contours/${code}.json`;
+const TYPE_RANK = { COMMUNE: 0, CANTON: 1, LIEUDIT: 2 };
+const MAX_SUGGESTIONS = 10;
+
 const renderSuggestion = suggestion => <span>{suggestion.label}</span>;
 
-const buildJSONQuery = (
-  value,
-  fields = ['nom', 'type'],
-  querySuffix = 'AND COMMUNE',
-) => JSON.stringify({
-  query: {
-    query_string: {
-      fields,
-      query: `${value} ${querySuffix}`,
-      default_operator: 'AND',
-    },
-  },
-});
+/** Words of a text, lowercased, without diacritics, ligatures spelled out (œ → oe). */
+const toWords = text => text
+  .toLowerCase()
+  .replace(/œ/g, 'oe')
+  .replace(/æ/g, 'ae')
+  .normalize('NFD')
+  .replace(/[̀-ͯ]/g, '')
+  .split(/[^a-z0-9]+/)
+  .filter(Boolean);
+
+let placesPromise;
+
+/** Loads the place list once (exported by scripts/export-recherche.py). */
+const loadPlaces = () => {
+  if (!placesPromise) {
+    placesPromise = fetch(PLACES_URL)
+      .then(res => res.json())
+      .then(places => places.map(([nom, type, code, coordinates]) => ({
+        label: getLabel({ nom, type }),
+        type,
+        code,
+        coordinates,
+        words: toWords(nom),
+      })))
+      .catch(error => {
+        placesPromise = null;
+        throw error;
+      });
+  }
+  return placesPromise;
+};
+
+/** Places where each searched word starts a word of the name, communes first. */
+const findPlaces = (places, value) => {
+  const searched = toWords(value);
+  if (!searched.length) {
+    return [];
+  }
+  const matches = place => searched.every(word => place.words.some(w => w.startsWith(word)));
+  return places
+    .filter(matches)
+    .sort((a, b) => (TYPE_RANK[a.type] - TYPE_RANK[b.type]) || (a.label.length - b.label.length))
+    .slice(0, MAX_SUGGESTIONS);
+};
+
+/** GeoJSON geometry of a place: a point for a lieu-dit, else an outline fetched on demand. */
+const loadGeometry = place => (place.coordinates
+  ? Promise.resolve({ type: 'MultiPoint', coordinates: place.coordinates })
+  : fetch(contourUrl(place.code)).then(res => res.json()));
 
 class GeoSearch extends Component {
   constructor (props) {
@@ -34,7 +75,7 @@ class GeoSearch extends Component {
       suggestions: [],
     };
 
-    this.loadSuggestions = debounce(this.loadSuggestions, 500);
+    this.loadSuggestions = debounce(this.loadSuggestions, 200);
 
     if (props.initialSearch) {
       this.directSearch(props.initialSearch.split('=')[1]);
@@ -47,30 +88,27 @@ class GeoSearch extends Component {
     });
   };
 
-  onSuggestionSelected = (event, selection) => {
-    // const { suggestion, suggestionValue, suggestionIndex, sectionIndex, method } = selection;
+  onSuggestionSelected = (event, { suggestion }) => {
     const { onSelect } = this.props;
-    if (typeof onSelect === 'function') {
-      onSelect(selection);
+    if (typeof onSelect !== 'function') {
+      return;
     }
+    loadGeometry(suggestion)
+      .then(geometry => onSelect({ label: suggestion.label, geometry }))
+      .catch(error => console.error('Place outline unavailable', error)); // eslint-disable-line no-console
   };
 
   getSuggestionValue = suggestion => suggestion.label;
 
-  directSearch (value) {
-    const lookup = buildJSONQuery(value, ['code_insee', 'type'], 'AND COMMUNE OR CANTON');
-
-    fetch(`https://es3.makina-corpus.net/cg44/_search?source_content_type=application/json&source=${lookup}`)
-      .then(res => res.json())
-      .then(data => {
-        const suggestion = {
-          suggestion: {
-            label: 'noname',
-            data: data.hits.hits[0],
-          },
-        };
-        this.onSuggestionSelected(null, suggestion);
-      });
+  directSearch (code) {
+    loadPlaces()
+      .then(places => {
+        const place = places.find(item => item.code === code);
+        if (place) {
+          this.onSuggestionSelected(null, { suggestion: place });
+        }
+      })
+      .catch(error => console.error('Place list unavailable', error)); // eslint-disable-line no-console
   }
 
   loadSuggestions (value) {
@@ -78,26 +116,14 @@ class GeoSearch extends Component {
       isLoading: true,
     });
 
-    const nameLookup = buildJSONQuery(value);
-
-    fetch(`https://es3.makina-corpus.net/cg44/_search?source_content_type=application/json&source=${nameLookup}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.hits.total.value === 0) {
-          fetch(`https://es3.makina-corpus.net/cg44/_search?default_operator=AND&q=${value}`)
-            .then(res => res.json())
-            .then(data2 => {
-              this.setState({
-                isLoading: false,
-                suggestions: parseSuggestions(data2.hits.hits),
-              });
-            });
-        } else {
-          this.setState({
-            isLoading: false,
-            suggestions: parseSuggestions(data.hits.hits),
-          });
-        }
+    loadPlaces()
+      .then(places => this.setState({
+        isLoading: false,
+        suggestions: findPlaces(places, value),
+      }))
+      .catch(error => {
+        console.error('Place list unavailable', error); // eslint-disable-line no-console
+        this.setState({ isLoading: false });
       });
   }
 

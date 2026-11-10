@@ -62,13 +62,13 @@ export default class IndexPage extends React.Component {
     this.zoomOut = this.zoomOut.bind(this);
   }
 
-  handleResult (selection) {
+  handleResult ({ label, geometry }) {
     const geojson = {
       type: 'Feature',
       properties: {
-        name: selection.suggestion.label,
+        name: label,
       },
-      geometry: selection.suggestion.data._source.geometry,
+      geometry,
     };
 
     const [minX, minY, maxX, maxY] = bbox(geojson);
