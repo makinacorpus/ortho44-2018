@@ -71,7 +71,8 @@
     padding: 1.5rem 1.5rem 1.5rem;
   }
 
-  button {
+  button,
+  a:global(.ds44-btnStd) {
     margin-top: 0.25em;
     margin-left: 1em;
   }
