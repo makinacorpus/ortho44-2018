@@ -4,7 +4,7 @@ id: serveur-wms
 ---
 ## Accéder au serveur WMS
 
-> **Ce flux WMS n'est plus disponible.** Le serveur cartographique ne répond plus. Les informations ci-dessous sont conservées pour mémoire.
+> **Le flux WMS n'est plus disponible actuellement.** Les informations ci-dessous sont conservées pour mémoire.
 
 Conformément aux prescriptions de la directive européenne INSPIRE, vous pouvez visualiser les photographies aériennes de la Loire-Atlantique à partir d’un flux WMS.
 
