@@ -64,6 +64,56 @@ const AutoLayer = props => {
   return <Layer {...props} {...customProps} />;
 };
 
+/*
+* Workaround for 1px lines appearing in some browsers due to fractional transforms
+* and resulting anti-aliasing: tiles overlap by one pixel.
+* https://github.com/Leaflet/Leaflet/issues/3575
+*
+* Past maxNativeZoom the tile level is scaled up and the extra pixel would be
+* scaled too, shifting the tile content at every seam: no overlap there. Tiles
+* are kept when zooming past maxNativeZoom, so the overlap is updated with the
+* zoom, not only when a tile is created.
+*
+* GridLayer's prototype is shared by every map: patched once, on first mount
+* (Leaflet is not loaded when building the HTML).
+*/
+let tileOverlapPatched = false;
+
+const patchTileOverlap = () => {
+  if (tileOverlapPatched) {
+    return;
+  }
+  tileOverlapPatched = true;
+
+  /* eslint-disable no-underscore-dangle */
+  const { _initTile: initTile, _setZoomTransforms: setZoomTransforms } = L.GridLayer.prototype;
+
+  L.GridLayer.include({
+    _initTile (tile) {
+      initTile.call(this, tile);
+      this._setTileOverlap(tile);
+    },
+
+    _setZoomTransforms (center, zoom) {
+      setZoomTransforms.call(this, center, zoom);
+
+      const overlap = this._tileZoom === Math.round(zoom) ? 1 : 0;
+      if (overlap !== this._tileOverlap) {
+        this._tileOverlap = overlap;
+        Object.keys(this._tiles).forEach(key => this._setTileOverlap(this._tiles[key].el));
+      }
+    },
+
+    _setTileOverlap (tile) {
+      const tileSize = this.getTileSize();
+      const overlap = this._tileOverlap || 0;
+      tile.style.width = `${tileSize.x + overlap}px`;
+      tile.style.height = `${tileSize.y + overlap}px`;
+    },
+  });
+  /* eslint-enable no-underscore-dangle */
+};
+
 class SyncedMaps extends Component {
   constructor (props) {
     super(props);
@@ -78,8 +128,6 @@ class SyncedMaps extends Component {
     //     },
     //   },
     // );
-
-    this.initTile = L.GridLayer.prototype._initTile; // eslint-disable-line no-underscore-dangle
   }
 
   componentDidMount () {
@@ -89,7 +137,7 @@ class SyncedMaps extends Component {
     if (typeof updateMapRef === 'function') {
       updateMapRef(this.mapRefs[0]);
     }
-    this.fractionalTransform();
+    patchTileOverlap();
   }
 
   componentDidUpdate () {
@@ -100,7 +148,6 @@ class SyncedMaps extends Component {
     if (typeof updateMapRef === 'function') {
       updateMapRef(this.mapRefs[0]);
     }
-    this.fractionalTransform();
   }
 
   componentWillUnmount () {
@@ -116,24 +163,6 @@ class SyncedMaps extends Component {
   //     }
   //   }
   // }
-
-  /*
-  * Workaround for 1px lines appearing in some browsers due to fractional transforms
-  * and resulting anti-aliasing.
-  * https://github.com/Leaflet/Leaflet/issues/3575
-  */
-  fractionalTransform () {
-    const self = this;
-    L.GridLayer.include({
-      _initTile (tile) { // eslint-disable-line no-underscore-dangle
-        self.initTile.call(this, tile);
-
-        const tileSize = this.getTileSize();
-        tile.style.width = `${tileSize.x + 1}px`;
-        tile.style.height = `${tileSize.y + 1}px`;
-      },
-    });
-  }
 
   render () {
     unsyncMaps(this.mapRefs);
