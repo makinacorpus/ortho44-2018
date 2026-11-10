@@ -1,5 +1,3 @@
-const legacyWMS = 'https://services.vuduciel.loire-atlantique.fr';
-
 // Aerial photographs, served from PMTiles archives (static files, HTTP range requests)
 const PMTILES_BASE = 'https://vu-du-ciel.s3.gra.io.cloud.ovh.net/public';
 
@@ -13,11 +11,6 @@ const minMaxZoom = {
 };
 
 export const ALL_LAYERS = {
-
-  wms: {
-    wms: true,
-    url: legacyWMS,
-  },
 
   background: {
     url: geopf('ORTHOIMAGERY.ORTHOPHOTOS', 'image/jpeg'),

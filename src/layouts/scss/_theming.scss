@@ -10,6 +10,22 @@
   p {
     margin-top: 1.6rem;
   }
+  blockquote {
+    margin-top: 1.6rem;
+    padding: 1.2rem 1.6rem;
+    border-left: .4rem solid currentColor;
+    background-color: rgba(black, .05);
+
+    // Notice box: drop the decorative quote marks added by cd44.css.
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
   a {
     // color: $color-primary;
     &:hover,
