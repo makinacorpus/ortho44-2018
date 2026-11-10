@@ -2,8 +2,10 @@
 """Export the searchable places of the cg44 Elasticsearch index as static files.
 
 Writes, in static/data/recherche/:
-- lieux.json: [name, type, code_insee, coordinates] per place, sorted by type then name;
-  coordinates = MultiPoint coordinates for a lieu-dit, absent for a commune or canton;
+- lieux.json: [name, type, code_insee] for a commune or canton,
+  [name, 'LIEUDIT', None, MultiPoint coordinates, commune] for a lieu-dit; sorted by type
+  then name. The index gives no commune for a lieu-dit: it is taken from the commune
+  outline containing its first point (None outside every commune);
 - contours/<code_insee>.json: GeoJSON geometry of a commune or canton.
 
 Addresses (551k documents) are not exported: too heavy for an in-browser search.
@@ -51,23 +53,68 @@ def round_coords(coords):
     return rounded
 
 
+def outer_polygons(geometry):
+    return [geometry['coordinates']] if geometry['type'] == 'Polygon' else geometry['coordinates']
+
+
+def in_ring(x, y, ring):
+    inside = False
+    for (x1, y1), (x2, y2) in zip(ring, ring[1:] + ring[:1]):
+        if (y1 > y) != (y2 > y) and x < x1 + (y - y1) * (x2 - x1) / (y2 - y1):
+            inside = not inside
+    return inside
+
+
+def in_geometry(x, y, geometry):
+    return any(
+        in_ring(x, y, polygon[0]) and not any(in_ring(x, y, hole) for hole in polygon[1:])
+        for polygon in outer_polygons(geometry)
+    )
+
+
+def find_commune(point, communes):
+    x, y = point
+    for name, (min_x, min_y, max_x, max_y), geometry in communes:
+        if min_x <= x <= max_x and min_y <= y <= max_y and in_geometry(x, y, geometry):
+            return name
+    return None
+
+
+def bbox(geometry):
+    points = [point for polygon in outer_polygons(geometry) for point in polygon[0]]
+    xs, ys = zip(*points)
+    return min(xs), min(ys), max(xs), max(ys)
+
+
 def main():
     # Everything is fetched before OUT is replaced: a failing index leaves the current files.
+    sources = [hit['_source'] for hit in scroll({'terms': {'type': TYPES}})]
+    for source in sources:
+        source['nom'] = source['nom'].translate(MOJIBAKE)
+    communes = [
+        (source['nom'], bbox(source['geometry']), source['geometry'])
+        for source in sources if source['type'] == 'COMMUNE'
+    ]
+
     places = []
     contours = {}
-    for hit in scroll({'terms': {'type': TYPES}}):
-        source = hit['_source']
-        nom = source['nom'].translate(MOJIBAKE)
+    for source in sources:
         geometry = source['geometry']
         coords = round_coords(geometry['coordinates'])
         if source['type'] == 'LIEUDIT':
-            places.append([nom, 'LIEUDIT', None, coords])
+            commune = find_commune(geometry['coordinates'][0], communes)
+            places.append([source['nom'], 'LIEUDIT', None, coords, commune])
         else:
             code = source['code_insee']
-            places.append([nom, source['type'], code])
+            places.append([source['nom'], source['type'], code])
             contours[code] = {'type': geometry['type'], 'coordinates': coords}
 
-    places.sort(key=lambda place: (TYPES.index(place[1]), place[0], place[2] or '', place[3:]))
+    def sort_key(place):
+        if place[1] == 'LIEUDIT':
+            return TYPES.index('LIEUDIT'), place[0], place[4] or '', place[3]
+        return TYPES.index(place[1]), place[0], place[2], []
+
+    places.sort(key=sort_key)
 
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -77,7 +124,8 @@ def main():
     (OUT / 'lieux.json').write_text(json.dumps(places, ensure_ascii=False, separators=(',', ':')))
 
     counts = {kind: sum(place[1] == kind for place in places) for kind in TYPES}
-    print(f'{len(places)} places exported: {counts}')
+    orphans = sum(place[1] == 'LIEUDIT' and place[4] is None for place in places)
+    print(f'{len(places)} places exported: {counts}; lieux-dits outside any commune: {orphans}')
 
 
 if __name__ == '__main__':

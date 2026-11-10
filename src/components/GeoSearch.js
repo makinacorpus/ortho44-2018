@@ -32,12 +32,13 @@ const loadPlaces = () => {
   if (!placesPromise) {
     placesPromise = fetch(PLACES_URL)
       .then(res => res.json())
-      .then(places => places.map(([nom, type, code, coordinates]) => ({
-        label: getLabel({ nom, type }),
+      .then(places => places.map(([nom, type, code, coordinates, commune]) => ({
+        label: getLabel({ nom, type, commune }),
         type,
         code,
         coordinates,
-        words: toWords(nom),
+        // A lieu-dit's commune is searchable, to tell homonyms apart.
+        words: toWords(commune ? `${nom} ${commune}` : nom),
       })))
       .catch(error => {
         placesPromise = null;
